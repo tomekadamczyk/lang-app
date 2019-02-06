@@ -17,4 +17,4 @@
 </head>
 
 <body>
-    
+    <a href="?id=1">Rejestracja</a>
