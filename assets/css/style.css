@@ -6312,9 +6312,17 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-.cz-useraccount-form {
+body {
+  background: linear-gradient(0deg, white, rgba(255, 255, 255, 0)), url(../img/bg-image.jpg) center center no-repeat;
+  background-size: cover;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7); }
+  width: 100%;
+  background-attachment: fixed; }
+
+.cz-useraccount-form {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%; }
   .cz-useraccount-form form label {
     color: #fff; }
     .cz-useraccount-form form label:hover {
