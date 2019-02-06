@@ -31,7 +31,7 @@
 
         if($wasSuccessful == true) {
             $_SESSION['userLoggedIn'] = $username;
-            header("Location: views/register/register-succeeded.php");
+            header("Location: register-succeeded.php");
         }
     }
 

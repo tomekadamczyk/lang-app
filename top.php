@@ -1,4 +1,5 @@
 <?php
+include('modules/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -17,4 +18,3 @@
 </head>
 
 <body>
-    <a href="?id=1">Rejestracja</a>

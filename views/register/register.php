@@ -1,16 +1,32 @@
 <?php
 error_reporting(E_ALL);
-if(empty($_GET['id'])) {
-    $_GET['id'] === 1;
-}
-include('modules/config.php');
-include('modules/class.constants.php');
-include('modules/class.account.php');
-$account = new Account($con);
-include('handlers/register-handler.php');
 
+include('../../modules/config.php');
+include('../../modules/class.constants.php');
+include('../../modules/class.account.php');
+$account = new Account($con);
+include('../../handlers/login-handler.php');
+include('../../handlers/register-handler.php');
 
 ?>
+
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Language app</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,500i,600,700,800&amp;subset=latin-ext" rel="stylesheet"> 
+	<meta name="keywords" content="Language app" />
+	<meta name="description" content="Language app" />
+	<link rel="stylesheet" href="../../assets/css/style.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+
 <div class="cz-useraccount-form">
     <div class="container">
         <div class="row">
@@ -48,16 +64,16 @@ include('handlers/register-handler.php');
                 <span id="loginToggle">do logowania</span>
             </div>
             <div class="col-md-6 offset-md-3 mt-5 cz-login-form" id="cz-login-form">
-                <form action="" id="login-form">
+                <form action="" id="login-form" method="POST">
                     <div class="form-group">
                         <label for="username">Nazwa użytkownika</label>
-                        <input type="text" class="form-control cz-useraccount-input" id="username" aria-describedby="username" placeholder="Podaj nazwę użytkownika">
+                        <input type="text" class="form-control cz-useraccount-input" id="username" name="username" aria-describedby="username" placeholder="Podaj nazwę użytkownika">
                     </div>
                     <div class="form-group">
                         <label for="password">Hasło</label><br>
                         <input type="password" class="form-control cz-useraccount-input" name="password" id="password" placeholder="Ustaw swoje hasło">
                     </div>
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" name="login" class="btn btn-info">Submit</button>
                 </form>
                 <span id="registerToggle">do rejestracji</span>
             </div>
@@ -65,4 +81,7 @@ include('handlers/register-handler.php');
     </div>
 </div>
 
-<script src="views/register/register.js"></script>
+<script src="register.js"></script>
+
+</body>
+</html>

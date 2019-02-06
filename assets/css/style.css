@@ -6330,5 +6330,5 @@ a.text-dark:hover, a.text-dark:focus {
   .cz-useraccount-form .cz-register-form {
     transition: 0.5s;
     transition-delay: .3s; }
-  .cz-useraccount-form .cz-login-form {
+  .cz-useraccount-form .cz-register-form {
     display: none; }
