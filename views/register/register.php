@@ -1,17 +1,28 @@
 <?php
+error_reporting(E_ALL);
 if(empty($_GET['id'])) {
     $_GET['id'] === 1;
 }
+include('modules/config.php');
+include('modules/class.constants.php');
+include('modules/class.account.php');
+$account = new Account($con);
+include('handlers/register-handler.php');
+
 
 ?>
 <div class="cz-useraccount-form">
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3 mt-5 cz-register-form" id="cz-register-form">
-                <form action="" id="register-form">
+                <form action="" id="register-form" method="POST">
                     <div class="form-group">
                         <label for="username">Nazwa użytkownika</label>
-                        <input type="text" class="form-control cz-useraccount-input" id="username" aria-describedby="username" placeholder="Podaj nazwę użytkownika">
+                        <input type="text" class="form-control cz-useraccount-input" name="username" id="username" aria-describedby="username" placeholder="Podaj nazwę użytkownika">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Imię</label>
+                        <input type="text" class="form-control cz-useraccount-input" name="firstname" id="firstname" aria-describedby="firstname" placeholder="Podaj swoje imię">
                     </div>
                     <div class="alert alert-danger text-center">
                         <span><strong>Treść</strong> komunikatu błędu</span>
@@ -32,7 +43,7 @@ if(empty($_GET['id'])) {
                         <label for="password2">Potwierdź hasło</label><br>
                         <input type="password" class="form-control cz-useraccount-input" name="password2" id="password2" placeholder="Potwierdź hasło">
                     </div>
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" name="register" class="btn btn-info">Submit</button>
                 </form>
                 <span id="loginToggle">do logowania</span>
             </div>
