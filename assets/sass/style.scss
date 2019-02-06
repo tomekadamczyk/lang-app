@@ -1,0 +1,39 @@
+@import 'bootstrap/bootstrap.scss';
+
+.cz-useraccount-form {
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+
+    form {
+        label {
+            color: $white;
+
+            &:hover {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .cz-useraccount-input {
+        background: transparent;
+        border: 2px solid $white;
+        color: $white;
+
+        &::placeholder {
+            color: $white;
+        }
+
+        &:focus {
+            border: 3px solid $info;
+        }
+    }
+
+    .cz-register-form {
+        transition: 0.5s;
+        transition-delay: .3s;
+    }
+
+    .cz-register-form {
+        display: none;
+    }
+}
