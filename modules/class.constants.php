@@ -10,5 +10,6 @@ class Constants {
     public static $usernameCharacters = "Nazwa użytkownika musi zawierać co najmniej 3 znaki.";
     public static $usernameTaken = "Ta nazwa użytkownika została już zarejestrowana.";
     public static $loginFailed = "Nazwa użytkownika lub hasło zostały wpisane błędnie. Spróbuj ponownie.";
+    public static $usernameNotFound = "Nie znaleziono podanej nazwy użytkownika. Spróbuj ponownie.";
 }
 ?>

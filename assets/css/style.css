@@ -6362,3 +6362,9 @@ body {
     text-align: center;
     font-size: 80%;
     margin-top: 30px; }
+  .cz-useraccount-form .cz-form-header-container {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #6c757d;
+    padding-bottom: 5px;
+    margin-bottom: 20px; }

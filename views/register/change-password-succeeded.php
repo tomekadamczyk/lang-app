@@ -5,7 +5,7 @@ include('base.php');
             <div class="row">
                 <div class="col-md-6 offset-md-3 mt-5 text-center">
                     <div class="alert alert-success">
-                        <span>Rejestracja zakończona, możesz zalogować się do aplikacji.</span>
+                        <span>Nowe hasło zostało ustawione, możesz zalogować się do aplikacji.</span>
                     </div>
                 </div>
             </div>
