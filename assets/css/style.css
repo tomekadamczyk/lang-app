@@ -6313,30 +6313,47 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 body {
-  background: linear-gradient(0deg, white, rgba(255, 255, 255, 0)), url(../img/bg-image.jpg) center center no-repeat;
+  background: linear-gradient(90deg, #b4d6ff 10%, rgba(249, 250, 255, 0.7) 50%), url(../img/bg-image.jpg) center center no-repeat;
   background-size: cover;
   height: 100vh;
   width: 100%;
   background-attachment: fixed; }
 
 .cz-useraccount-form {
-  background: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 100%; }
+  background: rgba(255, 255, 255, 0.5);
+  padding: 30px; }
   .cz-useraccount-form form label {
-    color: #fff; }
+    color: #212529; }
     .cz-useraccount-form form label:hover {
       font-weight: bold; }
   .cz-useraccount-form .cz-useraccount-input {
     background: transparent;
-    border: 2px solid #fff;
-    color: #fff; }
+    border: 2px solid #007bff;
+    color: #212529; }
     .cz-useraccount-form .cz-useraccount-input::placeholder {
-      color: #fff; }
+      color: #212529; }
     .cz-useraccount-form .cz-useraccount-input:focus {
-      border: 3px solid #17a2b8; }
+      border: 2px solid #007bff;
+      color: #007bff; }
   .cz-useraccount-form .cz-register-form {
     transition: 0.5s;
-    transition-delay: .3s; }
-  .cz-useraccount-form .cz-register-form {
+    transition-delay: .3s;
+    width: 100%; }
+  .cz-useraccount-form .cz-login-form {
     display: none; }
+  .cz-useraccount-form .cz-login-form {
+    width: 100%; }
+  .cz-useraccount-form .cz-button {
+    border: 2px solid #6610f2;
+    background: #6610f2;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0; }
+    .cz-useraccount-form .cz-button:hover {
+      border: 2px solid #007bff;
+      background: #fff;
+      color: #007bff; }
+  .cz-useraccount-form .cz-form-label {
+    margin-top: 20px;
+    display: block;
+    cursor: pointer; }
