@@ -34,34 +34,40 @@ include('../../handlers/register-handler.php');
                 <form action="" id="register-form" method="POST">
                     <div class="form-group">
                         <label for="username">Nazwa użytkownika</label>
-                        <input type="text" class="form-control cz-useraccount-input" name="username" id="username" aria-describedby="username" placeholder="Podaj nazwę użytkownika">
+                        <input type="text" class="form-control cz-useraccount-input" name="username" id="username" aria-describedby="username" placeholder="Podaj nazwę użytkownika" required>
                     </div>
+                        <?php echo $account->getError(Constants::$usernameCharacters) ?>
+                        <?php echo $account->getError(Constants::$usernameTaken) ?>
                     <div class="form-group">
                         <label for="username">Imię</label>
-                        <input type="text" class="form-control cz-useraccount-input" name="firstname" id="firstname" aria-describedby="firstname" placeholder="Podaj swoje imię">
+                        <input type="text" class="form-control cz-useraccount-input" name="firstname" id="firstname" aria-describedby="firstname" placeholder="Podaj swoje imię" required>
                     </div>
-                    <div class="alert alert-danger text-center">
-                        <span><strong>Treść</strong> komunikatu błędu</span>
-                    </div>
+                        <?php echo $account->getError(Constants::$firstnameCharacter) ?>
                     <div class="form-group">
                         <label for="email">E-mail</label><br>
-                        <input type="email" class="form-control cz-useraccount-input" name="email" aria-describedby="emailHelp" id="email" placeholder="Podaj adres e-mail">
+                        <input type="email" class="form-control cz-useraccount-input" name="email" aria-describedby="emailHelp" id="email" placeholder="Podaj adres e-mail" required>
                     </div>
                     <div class="form-group">
                         <label for="email2">Potwierdź e-mail</label><br>
-                        <input type="email" class="form-control cz-useraccount-input" name="email2" id="email2" aria-describedby="emailHelp2" placeholder="Potwierdź e-mail">
+                        <input type="email" class="form-control cz-useraccount-input" name="email2" id="email2" aria-describedby="emailHelp2" placeholder="Potwierdź e-mail" required>
                     </div>
+                        <?php echo $account->getError(Constants::$emailIsInvalid) ?>
+                        <?php echo $account->getError(Constants::$emailsDoNotMatch) ?>
+                        <?php echo $account->getError(Constants::$emailTaken) ?>
                     <div class="form-group">
                         <label for="password">Hasło</label><br>
-                        <input type="password" class="form-control cz-useraccount-input" name="password" id="password" placeholder="Ustaw swoje hasło">
+                        <input type="password" class="form-control cz-useraccount-input" name="password" id="password" placeholder="Ustaw swoje hasło" required>
                     </div>
                     <div class="form-group">
                         <label for="password2">Potwierdź hasło</label><br>
-                        <input type="password" class="form-control cz-useraccount-input" name="password2" id="password2" placeholder="Potwierdź hasło">
+                        <input type="password" class="form-control cz-useraccount-input" name="password2" id="password2" placeholder="Potwierdź hasło" required>
                     </div>
-                    <button type="submit" name="register" class="btn btn-info">Submit</button>
+                        <?php echo $account->getError(Constants::$passwordsDoNotMatch) ?>
+                        <?php echo $account->getError(Constants::$passrowdCharacters) ?>
+                        <?php echo $account->getError(Constants::$passwordNotAlphaNumeric) ?>
+                    <button type="submit" name="register" class="btn btn-info">Zarejestruj się</button>
                 </form>
-                <span id="loginToggle">do logowania</span>
+                <span id="loginToggle" class="font-weight-bold text-white">do logowania</span>
             </div>
             <div class="col-md-6 offset-md-3 mt-5 cz-login-form" id="cz-login-form">
                 <form action="" id="login-form" method="POST">
