@@ -27,10 +27,10 @@ include('../../handlers/register-handler.php');
 
 <body>
 
-<div class="cz-useraccount-form">
+<div class="col-md-4 mt-5 mx-auto cz-useraccount-form">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3 mt-5 cz-register-form" id="cz-register-form">
+            <div class="mx-auto cz-register-form" id="cz-register-form">
                 <form action="" id="register-form" method="POST">
                     <div class="form-group">
                         <label for="username">Nazwa użytkownika</label>
@@ -65,11 +65,11 @@ include('../../handlers/register-handler.php');
                         <?php echo $account->getError(Constants::$passwordsDoNotMatch) ?>
                         <?php echo $account->getError(Constants::$passrowdCharacters) ?>
                         <?php echo $account->getError(Constants::$passwordNotAlphaNumeric) ?>
-                    <button type="submit" name="register" class="btn btn-info">Zarejestruj się</button>
+                    <button type="submit" name="register" class="btn btn-outline cz-button">Zarejestruj się</button>
                 </form>
-                <span id="loginToggle" class="font-weight-bold text-white">do logowania</span>
+                <span id="loginToggle" class="font-weight-bold text-muted cz-form-label">Jeśli masz już konto, kliknij tutaj i się zaloguj</span>
             </div>
-            <div class="col-md-6 offset-md-3 mt-5 cz-login-form" id="cz-login-form">
+            <div class="mx-auto cz-login-form" id="cz-login-form">
                 <form action="" id="login-form" method="POST">
                     <div class="form-group">
                         <label for="username">Nazwa użytkownika</label>
@@ -79,9 +79,9 @@ include('../../handlers/register-handler.php');
                         <label for="password">Hasło</label><br>
                         <input type="password" class="form-control cz-useraccount-input" name="password" id="password" placeholder="Ustaw swoje hasło">
                     </div>
-                    <button type="submit" name="login" class="btn btn-info">Submit</button>
+                    <button type="submit" name="login" class="btn btn-outline cz-button">Zaloguj się</button>
                 </form>
-                <span id="registerToggle">do rejestracji</span>
+                <span id="registerToggle" class="font-weight-bold text-muted cz-form-label">Nie masz jeszcze konta? Wypełnij formularz i zarejestruj się!</span>
             </div>
         </div>
     </div>
