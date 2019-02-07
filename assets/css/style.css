@@ -6321,7 +6321,6 @@ body {
 
 .cz-useraccount-form {
   background: rgba(255, 255, 255, 0.5);
-  margin-top: 50px;
   padding: 30px; }
   .cz-useraccount-form form label {
     color: #212529; }
@@ -6340,7 +6339,7 @@ body {
     transition: 0.5s;
     transition-delay: .3s;
     width: 100%; }
-  .cz-useraccount-form .cz-register-form {
+  .cz-useraccount-form .cz-login-form {
     display: none; }
   .cz-useraccount-form .cz-login-form {
     width: 100%; }

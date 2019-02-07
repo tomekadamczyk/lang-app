@@ -27,7 +27,7 @@ include('../../handlers/register-handler.php');
 
 <body>
 
-<div class="col-md-4 mt-5 mx-auto cz-useraccount-form">
+<div class="col-md-8 col-lg-6 col-xl-4 mt-sm-5 mx-auto cz-useraccount-form">
     <div class="container">
         <div class="row">
             <div class="mx-auto cz-register-form" id="cz-register-form">
@@ -77,7 +77,7 @@ include('../../handlers/register-handler.php');
                     </div>
                     <div class="form-group">
                         <label for="password">Hasło</label><br>
-                        <input type="password" class="form-control cz-useraccount-input" name="password" id="password" placeholder="Ustaw swoje hasło">
+                        <input type="password" class="form-control cz-useraccount-input" name="password" id="password" placeholder="Podaj hasło">
                     </div>
                     <button type="submit" name="login" class="btn btn-outline cz-button">Zaloguj się</button>
                 </form>
