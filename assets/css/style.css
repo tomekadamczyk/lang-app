@@ -6357,3 +6357,8 @@ body {
     margin-top: 20px;
     display: block;
     cursor: pointer; }
+  .cz-useraccount-form .cz-password-reminder {
+    display: block;
+    text-align: center;
+    font-size: 80%;
+    margin-top: 30px; }

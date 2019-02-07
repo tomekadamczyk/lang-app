@@ -82,6 +82,7 @@ include('../../handlers/register-handler.php');
                     <button type="submit" name="login" class="btn btn-outline cz-button">Zaloguj się</button>
                 </form>
                 <span id="registerToggle" class="font-weight-bold text-muted cz-form-label">Nie masz jeszcze konta? Wypełnij formularz i zarejestruj się!</span>
+                <a href="#" class="cz-password-reminder">Zapomniałem hasła</a>
             </div>
         </div>
     </div>
