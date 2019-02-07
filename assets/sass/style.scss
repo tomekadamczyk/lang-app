@@ -70,4 +70,19 @@ body {
         display: block;
         cursor: pointer;
     }
+
+    .cz-password-reminder {
+        display: block;
+        text-align: center;
+        font-size: 80%;
+        margin-top: 30px;
+    }
+
+    .cz-form-header-container {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid $gray-600;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
 }

@@ -105,5 +105,32 @@ class Account{
             return;
         }
     }
+
+    public function checkUsername($username) {
+        $query = mysqli_query($this->con, "SELECT username FROM users WHERE username='$username'");
+        if(mysqli_num_rows($query) == 1) {
+            return true;
+        }
+        else {
+            array_push($this->errorArray, Constants::$usernameNotFound);
+            return false;
+        }
+    }
+
+    public function updatePassword($username, $password) {
+        $password = md5($password);
+        $query = mysqli_query($this->con, "UPDATE `users` SET `password`='$password' WHERE username='$username'");
+        return $query;
+    }
+
+    public function changePassword($username, $password, $password2) {
+        $this->validatePasswords($password, $password2);
+        if(empty($this->errorArray)) {
+            return $this->updatePassword($username, $password);
+        }
+        else {
+            return false;
+        }
+    }
 }
 ?>
