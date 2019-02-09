@@ -6313,7 +6313,7 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 body {
-  background: linear-gradient(90deg, #b4d6ff 10%, rgba(249, 250, 255, 0.7) 50%), url(../img/bg-image.jpg) center center no-repeat;
+  background: linear-gradient(90deg, white 5%, rgba(255, 255, 255, 0.7) 10%), url(../img/bg-image.jpg) center center no-repeat;
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -6368,3 +6368,143 @@ body {
     border-bottom: 1px solid #6c757d;
     padding-bottom: 5px;
     margin-bottom: 20px; }
+
+.cz-sidebar {
+  float: left;
+  position: fixed;
+  height: 100vh;
+  background: #004a99;
+  text-align: left;
+  width: 180px; }
+  @media (min-width: 1200px) {
+    .cz-sidebar {
+      width: 240px; } }
+  .cz-sidebar .cz-sidebar-link {
+    padding: 15px;
+    border-bottom: 1px solid #6c757d;
+    transition-duration: 0.2s;
+    transition-delay: 0.1s;
+    position: relative; }
+    .cz-sidebar .cz-sidebar-link:hover {
+      background: #0062cc; }
+      .cz-sidebar .cz-sidebar-link:hover .cz-sidebar-link-dropdown {
+        opacity: 1;
+        transform: translateX(0); }
+    .cz-sidebar .cz-sidebar-link__item {
+      color: #fff;
+      font-size: 12px;
+      display: block; }
+      @media (min-width: 1200px) {
+        .cz-sidebar .cz-sidebar-link__item {
+          font-size: 16px; } }
+    .cz-sidebar .cz-sidebar-link .cz-sidebar-link-dropdown {
+      opacity: 0;
+      transition-duration: 0.15s;
+      transition-delay: 0.2s;
+      transform: translateX(-70%);
+      position: absolute;
+      right: -110px;
+      top: 8px; }
+      .cz-sidebar .cz-sidebar-link .cz-sidebar-link-dropdown .cz-sidebar-link-dropdown-link {
+        padding: 10px 20px;
+        background: #004a99;
+        text-align: left;
+        border-bottom: 1px solid #6c757d; }
+        .cz-sidebar .cz-sidebar-link .cz-sidebar-link-dropdown .cz-sidebar-link-dropdown-link:hover {
+          background: #0062cc; }
+        .cz-sidebar .cz-sidebar-link .cz-sidebar-link-dropdown .cz-sidebar-link-dropdown-link a {
+          color: #fff; }
+
+.cz-dashboard {
+  width: calc(100% - 240px);
+  margin-left: auto;
+  height: 100vh; }
+  .cz-dashboard__panels {
+    padding: 10px; }
+  .cz-dashboard__item {
+    margin-top: 10px;
+    z-index: -1; }
+  .cz-dashboard .cz-module {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    padding: 15px; }
+
+.cz-menubar {
+  width: 100%;
+  background: #f5f6f7;
+  color: #212529;
+  padding: 15px 20px; }
+  .cz-menubar div {
+    margin-left: 15px; }
+  .cz-menubar__user {
+    display: inline-block; }
+    .cz-menubar__user span {
+      float: left; }
+  .cz-menubar .cz-menubar-options {
+    position: relative;
+    display: inline-block; }
+    .cz-menubar .cz-menubar-options__dot {
+      display: block;
+      width: 6px;
+      height: 6px;
+      margin-bottom: 2px;
+      background: #495057;
+      border-radius: 50%; }
+      .cz-menubar .cz-menubar-options__dot:last-child {
+        margin-bottom: 0; }
+
+.cz-logo {
+  position: relative;
+  border-radius: 50%;
+  display: block;
+  width: 100px;
+  height: 100px;
+  transform: rotate(45deg); }
+  .cz-logo .logo-dot {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    transform-origin: 50%;
+    transition-duration: .4s; }
+    .cz-logo .logo-dot--white {
+      border-top: 30px solid white;
+      transform: rotate(11deg); }
+    .cz-logo .logo-dot--blue {
+      border-top: 30px solid blue;
+      transform: rotate(-103deg);
+      left: -38px;
+      top: 37px; }
+    .cz-logo .logo-dot--red {
+      border-top: 30px solid red;
+      transform: rotate(135deg);
+      left: 17px;
+      top: 50px; }
+
+.logo-transformed {
+  position: relative;
+  border-radius: 50%;
+  display: block;
+  width: 100px;
+  height: 70px; }
+  .logo-transformed .logo-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none; }
+    .logo-transformed .logo-dot--white {
+      left: 40px;
+      top: 32px;
+      background: #fff;
+      transition-duration: 1s; }
+    .logo-transformed .logo-dot--red {
+      left: 40px;
+      top: 55px;
+      background: #dc3545;
+      transition-duration: 1.4s; }
+    .logo-transformed .logo-dot--blue {
+      left: 20px;
+      top: 43px;
+      background: #007bff;
+      transition-duration: 1.8s; }

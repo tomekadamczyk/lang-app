@@ -15,6 +15,14 @@ else {
 }
 ?>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="assets/src/bootstrap.min.js" type="text/javascript"></script>
+
+<?php
+include('views/mainview/sidebar/sidebar.php');
+include('views/mainview/dashboard/dashboard.php');
+include('views/words/add-word.php');
+?>
 
 <?php
 include('footer.php');

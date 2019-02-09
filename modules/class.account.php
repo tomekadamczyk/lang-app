@@ -48,7 +48,7 @@ class Account{
     public function insertUserDetails($username, $firstname, $email, $password) {
         $encryptedPassword = md5($password);
         $result = mysqli_query($this->con, "INSERT INTO users VALUES('', '$username', '$firstname', '$email', '$encryptedPassword')");
-        return result;
+        return $result;
     }
 
     private function validateUsername($username) {
@@ -130,6 +130,19 @@ class Account{
         }
         else {
             return false;
+        }
+    }
+
+    public function getUserID($username) {
+        
+        $query = mysqli_query($this->con, "SELECT id_users FROM users WHERE username='$username'");
+        if(mysqli_num_rows($query) == 1) {
+            while ($data = $query->fetch_object()) {   
+                return $data->id_users;
+            }
+        }
+        else {
+            return 'nie dziala';
         }
     }
 }
