@@ -1,6 +1,5 @@
 <div class="cz-dashboard">
     <?php
-        include('menubar.php');
         require_once './modules/class.words.php';
         $word = new Words($con);
 
