@@ -133,7 +133,7 @@ body {
             transition-delay: 0.2s;
             transform: translateX(-70%);
             position: absolute;
-            right: -110px;
+            right: -97px;
             top: 8px;
 
             .cz-sidebar-link-dropdown-link {
@@ -154,11 +154,25 @@ body {
     }
 }
 
-.cz-dashboard {
+.cz-mainview {
     width: calc(100% - 240px);
     margin-left: auto;
     height: 100vh;
+}
 
+.cz-flashcards {
+    padding: 10px;
+
+    &__card {
+        background: rgba(255,255,255,0.5);
+        padding: 50px 0;
+        margin-top: 100px;
+    }
+}
+
+
+.cz-dashboard {
+    
     &__panels {
         padding: 10px;
     }
@@ -176,7 +190,6 @@ body {
 }
 
 .cz-menubar {
-    width: 100%;
     background: lighten($gray-700,65%);
     color: $gray-900;
     padding: 15px 20px;

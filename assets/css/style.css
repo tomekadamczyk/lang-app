@@ -6403,7 +6403,7 @@ body {
       transition-delay: 0.2s;
       transform: translateX(-70%);
       position: absolute;
-      right: -110px;
+      right: -97px;
       top: 8px; }
       .cz-sidebar .cz-sidebar-link .cz-sidebar-link-dropdown .cz-sidebar-link-dropdown-link {
         padding: 10px 20px;
@@ -6415,22 +6415,31 @@ body {
         .cz-sidebar .cz-sidebar-link .cz-sidebar-link-dropdown .cz-sidebar-link-dropdown-link a {
           color: #fff; }
 
-.cz-dashboard {
+.cz-mainview {
   width: calc(100% - 240px);
   margin-left: auto;
   height: 100vh; }
-  .cz-dashboard__panels {
-    padding: 10px; }
-  .cz-dashboard__item {
-    margin-top: 10px;
-    z-index: -1; }
-  .cz-dashboard .cz-module {
+
+.cz-flashcards {
+  padding: 10px; }
+  .cz-flashcards__card {
     background: rgba(255, 255, 255, 0.5);
-    border-radius: 4px;
-    padding: 15px; }
+    padding: 50px 0;
+    margin-top: 100px; }
+
+.cz-dashboard__panels {
+  padding: 10px; }
+
+.cz-dashboard__item {
+  margin-top: 10px;
+  z-index: -1; }
+
+.cz-dashboard .cz-module {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  padding: 15px; }
 
 .cz-menubar {
-  width: 100%;
   background: #f5f6f7;
   color: #212529;
   padding: 15px 20px; }

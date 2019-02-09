@@ -20,9 +20,24 @@ else {
 
 <?php
 include('views/mainview/sidebar/sidebar.php');
-include('views/mainview/dashboard/dashboard.php');
-include('views/words/add-word.php');
+
 ?>
+<section class="cz-mainview">
+<?php
+
+include('views/mainview/dashboard/menubar.php');
+    if (empty($_GET['id'])) {
+        include('views/mainview/dashboard/dashboard.php');
+    }
+    else {
+        switch($_GET['id']) {
+            case 1:
+            include('views/excercises/flashcards.php');
+            break;
+        }
+    }
+?>
+</section>
 
 <?php
 include('footer.php');
