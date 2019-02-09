@@ -13,6 +13,9 @@ if(isset($_SESSION['userLoggedIn'])) {
 else {
     header("Location: views/register/register.php");
 }
+
+include('views/mainview/sidebar/sidebar.php');
+include('views/mainview/dashboard/dashboard.php');
 ?>
 
 
