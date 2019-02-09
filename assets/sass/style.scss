@@ -192,25 +192,53 @@ body {
             float: left;
         }
     }
-
     .cz-menubar-options {
         position: relative;
         display: inline-block;
 
-        &__dot {
-            display: block;
-            width: 6px;
-            height: 6px;
-            margin-bottom: 2px;
-            background: $gray-700;
-            border-radius: 50%;
+        .cz-menubar-dots {
+            position: relative;
+            display: inline-block;
+
+            &__dot {
+                display: block;
+                width: 6px;
+                height: 6px;
+                margin-bottom: 2px;
+                background: $gray-700;
+                border-radius: 50%;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            } 
+        }
+    }
+
+    .cz-menubar-listmenu {
+        position: absolute;
+        top: 35px;
+        right: 0;
+        transition-duration: 0.2s;
+        transition-delay: 0.1s;
+        transform: translateY(50%);
+        z-index: 10;
+        opacity: 0;
+        
+
+        &__item {
+            background: lighten($gray-700,60%);
+            padding: 10px 20px;
+            border-bottom: 1px solid $gray-400;
+
+            &:hover {
+                background: lighten($gray-700,50%);
+            }
 
             &:last-child {
-                margin-bottom: 0;
+                border-bottom: none;
             }
         }
-
-        
     }
 }
 

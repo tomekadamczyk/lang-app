@@ -6443,15 +6443,35 @@ body {
   .cz-menubar .cz-menubar-options {
     position: relative;
     display: inline-block; }
-    .cz-menubar .cz-menubar-options__dot {
-      display: block;
-      width: 6px;
-      height: 6px;
-      margin-bottom: 2px;
-      background: #495057;
-      border-radius: 50%; }
-      .cz-menubar .cz-menubar-options__dot:last-child {
-        margin-bottom: 0; }
+    .cz-menubar .cz-menubar-options .cz-menubar-dots {
+      position: relative;
+      display: inline-block; }
+      .cz-menubar .cz-menubar-options .cz-menubar-dots__dot {
+        display: block;
+        width: 6px;
+        height: 6px;
+        margin-bottom: 2px;
+        background: #495057;
+        border-radius: 50%; }
+        .cz-menubar .cz-menubar-options .cz-menubar-dots__dot:last-child {
+          margin-bottom: 0; }
+  .cz-menubar .cz-menubar-listmenu {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    transition-duration: 0.2s;
+    transition-delay: 0.1s;
+    transform: translateY(50%);
+    z-index: 10;
+    opacity: 0; }
+    .cz-menubar .cz-menubar-listmenu__item {
+      background: #e7e9eb;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ced4da; }
+      .cz-menubar .cz-menubar-listmenu__item:hover {
+        background: #cbd0d4; }
+      .cz-menubar .cz-menubar-listmenu__item:last-child {
+        border-bottom: none; }
 
 .cz-logo {
   position: relative;
