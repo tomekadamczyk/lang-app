@@ -1,0 +1,64 @@
+
+.cz-sidebar {
+    float: left;
+    position: fixed;
+    height: 100vh;
+    background: darken($primary, 20%);
+    text-align: left;
+    width: 180px;
+    
+    @include media-breakpoint-up(xl) {
+        width: 240px;
+    }
+
+    .cz-sidebar-link {
+        padding: 15px;
+        border-bottom: 1px solid $gray-600;
+        transition-duration: 0.2s;
+        transition-delay: 0.1s;
+        position: relative;
+
+        &:hover {
+            background: darken($primary, 10%);
+            .cz-sidebar-link-dropdown {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        &__item {
+            color: $white;
+            font-size: 12px;
+            display: block;
+
+            @include media-breakpoint-up(xl) {
+                font-size: 16px;
+            }
+        }
+
+        .cz-sidebar-link-dropdown {
+            opacity: 0;
+            transition-duration: 0.15s;
+            transition-delay: 0.2s;
+            transform: translateX(-70%);
+            position: absolute;
+            right: -97px;
+            top: 8px;
+
+            .cz-sidebar-link-dropdown-link {
+                padding: 10px 20px;
+                background: darken($primary, 20%);
+                text-align: left;
+                border-bottom: 1px solid $gray-600;
+
+                &:hover {
+                    background: darken($primary, 10%);
+                }
+
+                a {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

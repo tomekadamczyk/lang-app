@@ -6312,62 +6312,28 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-body {
-  background: #e9ecef;
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
-  background-attachment: fixed; }
-
-.cz-useraccount-form {
-  background: rgba(255, 255, 255, 0.5);
-  padding: 30px; }
-  .cz-useraccount-form form label {
-    color: #212529; }
-    .cz-useraccount-form form label:hover {
-      font-weight: bold; }
-  .cz-useraccount-form .cz-useraccount-input {
-    background: transparent;
-    border: 2px solid #007bff;
-    color: #212529; }
-    .cz-useraccount-form .cz-useraccount-input::placeholder {
-      color: #212529; }
-    .cz-useraccount-form .cz-useraccount-input:focus {
-      border: 2px solid #007bff;
-      color: #007bff; }
-  .cz-useraccount-form .cz-register-form {
-    transition: 0.5s;
-    transition-delay: .3s;
-    width: 100%; }
-  .cz-useraccount-form .cz-login-form {
-    display: none; }
-  .cz-useraccount-form .cz-login-form {
-    width: 100%; }
-  .cz-useraccount-form .cz-button {
-    border: 2px solid #6610f2;
-    background: #6610f2;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 0; }
-    .cz-useraccount-form .cz-button:hover {
-      border: 2px solid #007bff;
-      background: #fff;
-      color: #007bff; }
-  .cz-useraccount-form .cz-form-label {
-    margin-top: 20px;
-    display: block;
-    cursor: pointer; }
-  .cz-useraccount-form .cz-password-reminder {
-    display: block;
-    text-align: center;
-    font-size: 80%;
-    margin-top: 30px; }
-  .cz-useraccount-form .cz-form-header-container {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #6c757d;
-    padding-bottom: 5px;
-    margin-bottom: 20px; }
+.cz-menubar {
+  background: #f5f6f7;
+  color: #212529;
+  padding: 15px 20px; }
+  .cz-menubar div {
+    margin-left: 15px; }
+  .cz-menubar__user {
+    display: inline-block; }
+    .cz-menubar__user span {
+      float: left; }
+  .cz-menubar .cz-menubar-options {
+    position: relative;
+    display: inline-block; }
+    .cz-menubar .cz-menubar-options__dot {
+      display: block;
+      width: 6px;
+      height: 6px;
+      margin-bottom: 2px;
+      background: #495057;
+      border-radius: 50%; }
+      .cz-menubar .cz-menubar-options__dot:last-child {
+        margin-bottom: 0; }
 
 .cz-sidebar {
   float: left;
@@ -6414,53 +6380,6 @@ body {
           background: #0062cc; }
         .cz-sidebar .cz-sidebar-link .cz-sidebar-link-dropdown .cz-sidebar-link-dropdown-link a {
           color: #fff; }
-
-.cz-mainview {
-  width: calc(100% - 240px);
-  margin-left: auto;
-  height: 100vh; }
-
-.cz-flashcards {
-  padding: 10px; }
-  .cz-flashcards__card {
-    background: rgba(255, 255, 255, 0.5);
-    padding: 50px 0;
-    margin-top: 100px; }
-
-.cz-dashboard__panels {
-  padding: 10px; }
-
-.cz-dashboard__item {
-  margin-top: 10px;
-  z-index: -1; }
-
-.cz-dashboard .cz-module {
-  background: #fff;
-  border-radius: 4px;
-  padding: 15px; }
-
-.cz-menubar {
-  background: #f5f6f7;
-  color: #212529;
-  padding: 15px 20px; }
-  .cz-menubar div {
-    margin-left: 15px; }
-  .cz-menubar__user {
-    display: inline-block; }
-    .cz-menubar__user span {
-      float: left; }
-  .cz-menubar .cz-menubar-options {
-    position: relative;
-    display: inline-block; }
-    .cz-menubar .cz-menubar-options__dot {
-      display: block;
-      width: 6px;
-      height: 6px;
-      margin-bottom: 2px;
-      background: #495057;
-      border-radius: 50%; }
-      .cz-menubar .cz-menubar-options__dot:last-child {
-        margin-bottom: 0; }
 
 .cz-logo {
   position: relative;
@@ -6517,3 +6436,84 @@ body {
       top: 43px;
       background: #007bff;
       transition-duration: 1.8s; }
+
+.cz-mainview {
+  width: calc(100% - 240px);
+  margin-left: auto;
+  height: 100vh; }
+
+.cz-dashboard__panels {
+  padding: 10px; }
+
+.cz-dashboard__item {
+  margin-top: 10px;
+  z-index: -1; }
+
+.cz-dashboard .cz-module {
+  background: #fff;
+  border-radius: 4px;
+  padding: 15px; }
+
+.cz-flashcards {
+  padding: 10px; }
+  .cz-flashcards__card {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 50px 0;
+    margin-top: 100px; }
+
+.cz-useraccount-form {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 30px; }
+  .cz-useraccount-form form label {
+    color: #212529; }
+    .cz-useraccount-form form label:hover {
+      font-weight: bold; }
+  .cz-useraccount-form .cz-useraccount-input {
+    background: transparent;
+    border: 2px solid #007bff;
+    color: #212529; }
+    .cz-useraccount-form .cz-useraccount-input::placeholder {
+      color: #212529; }
+    .cz-useraccount-form .cz-useraccount-input:focus {
+      border: 2px solid #007bff;
+      color: #007bff; }
+  .cz-useraccount-form .cz-register-form {
+    transition: 0.5s;
+    transition-delay: .3s;
+    width: 100%; }
+  .cz-useraccount-form .cz-login-form {
+    display: none; }
+  .cz-useraccount-form .cz-login-form {
+    width: 100%; }
+  .cz-useraccount-form .cz-button {
+    border: 2px solid #6610f2;
+    background: #6610f2;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0; }
+    .cz-useraccount-form .cz-button:hover {
+      border: 2px solid #007bff;
+      background: #fff;
+      color: #007bff; }
+  .cz-useraccount-form .cz-form-label {
+    margin-top: 20px;
+    display: block;
+    cursor: pointer; }
+  .cz-useraccount-form .cz-password-reminder {
+    display: block;
+    text-align: center;
+    font-size: 80%;
+    margin-top: 30px; }
+  .cz-useraccount-form .cz-form-header-container {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #6c757d;
+    padding-bottom: 5px;
+    margin-bottom: 20px; }
+
+body {
+  background: #e9ecef;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  background-attachment: fixed; }

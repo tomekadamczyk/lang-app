@@ -36,12 +36,35 @@ class Words {
         }
         $user = $account->getUserID($userLoggedIn);
 
-        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user'");
+        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user' LIMIT 20");
         if(mysqli_num_rows($query) > 1) {
             while ($data = $query->fetch_object()) {  
                 echo '<p><strong>'.$data->word.'</strong> - '.$data->translation.'</p>';
             }
         }
+    }
+
+    public function getWords() {
+        require_once 'class.account.php';
+
+        $account = new Account($this->con);
+        
+        if(isset($_SESSION['userLoggedIn'])) {
+            $userLoggedIn = $_SESSION['userLoggedIn'];
+            
+        }
+        $user = $account->getUserID($userLoggedIn);
+
+        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user'");
+        while($row = mysqli_fetch_assoc($query)) {
+            $rows[] = $row;
+        }
+        return json_encode($rows);
+        // if(mysqli_num_rows($query) > 1) {
+        //     while ($data = $query->fetch_object()) {  
+        //         echo '<p><strong>'.$data->word.'</strong> - '.$data->translation.' - '.$data->definition.'</p>';
+        //     }
+        // }
     }
     
 
