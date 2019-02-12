@@ -1,4 +1,5 @@
 
-<script src="assets/src/requests.js"></script>
+
+<!-- <script src="assets/src/requests.js"></script> -->
 </body>
 </html>

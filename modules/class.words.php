@@ -44,7 +44,7 @@ class Words {
         }
     }
 
-    public function getWords() {
+    public function getWordsToJson() {
         require_once 'class.account.php';
 
         $account = new Account($this->con);
@@ -66,7 +66,44 @@ class Words {
         //     }
         // }
     }
+
+    public function displayDictionary() {
+        require_once 'class.account.php';
+
+        $account = new Account($this->con);
+        
+        if(isset($_SESSION['userLoggedIn'])) {
+            $userLoggedIn = $_SESSION['userLoggedIn'];
+            
+        }
+        $user = $account->getUserID($userLoggedIn);
+
+        $lp = 1;
+        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user'");
+        if(mysqli_num_rows($query) > 1) {
+            while ($data = $query->fetch_object()) { 
+                $level = $this->getLevelId($data->level); 
+                echo '<div class="cz-dictionary-word">';
+                echo '<p class="cz-dictionary-word__item"><span>'.$lp.'</span> <strong><span>'.$data->word.'</span> - </strong><span>'.$data->translation.'</span><span class="cz-dictionary-word__level"><small>'.$level.'</small></span></p>
+                <p class="cz-dictionary-definition">'.$data->definition.'</p>';
+                echo '</div>';
+                $lp++;
+            }
+        }
+    }
     
+    public function getLevelId($id) {
+        
+        $query = mysqli_query($this->con, "SELECT * FROM levels WHERE id_levels='$id'");
+        if(mysqli_num_rows($query) == 1) {
+            while ($data = $query->fetch_object()) {   
+                return $data->name;
+            }
+        }
+        else {
+            return 'Brak powiązanego id';
+        }
+    }
 
 }
 ?>

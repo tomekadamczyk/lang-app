@@ -6370,7 +6370,8 @@ a.text-dark:hover, a.text-dark:focus {
       transform: translateX(-70%);
       position: absolute;
       right: -97px;
-      top: 8px; }
+      top: 8px;
+      z-index: 99999; }
       .cz-sidebar .cz-sidebar-link .cz-sidebar-link-dropdown .cz-sidebar-link-dropdown-link {
         padding: 10px 20px;
         background: #004a99;
@@ -6510,6 +6511,40 @@ a.text-dark:hover, a.text-dark:focus {
     border-bottom: 1px solid #6c757d;
     padding-bottom: 5px;
     margin-bottom: 20px; }
+
+.cz-dictionary {
+  z-index: 8000;
+  position: relative; }
+  .cz-dictionary .cz-dictionary-table__col:first-child {
+    width: 30px; }
+  .cz-dictionary .cz-dictionary-table .cz-dictionary-word {
+    transition-duration: 0.1s;
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ced4da;
+    color: #343a40; }
+    .cz-dictionary .cz-dictionary-table .cz-dictionary-word p {
+      margin-bottom: 0; }
+    .cz-dictionary .cz-dictionary-table .cz-dictionary-word:hover {
+      background: #6c757d;
+      color: #fff; }
+    .cz-dictionary .cz-dictionary-table .cz-dictionary-word__level {
+      float: right; }
+  .cz-dictionary .cz-dictionary-table .cz-dictionary-definition {
+    opacity: 0;
+    position: absolute;
+    left: 200px;
+    background: #fff;
+    border: 1px solid #6c757d;
+    color: #004a99;
+    max-width: 300px;
+    z-index: -1;
+    top: 0;
+    padding: 9px;
+    transition-duration: 0.2s;
+    transition-delay: 0.1s;
+    transform: translateX(10%); }
 
 body {
   background: #e9ecef;
