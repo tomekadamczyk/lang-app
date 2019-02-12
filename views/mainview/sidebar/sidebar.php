@@ -25,7 +25,7 @@ include('views/words/add-word.php');
         <a href="" class="cz-sidebar-link__item" data-toggle="modal" data-target="#addingNweWordModal">Dodaj słówko</a>
     </div>
     <div class="cz-sidebar-link">
-        <a href="#" class="cz-sidebar-link__item">Ćwiczenie</a>
+        <a href="index.php?id=3" class="cz-sidebar-link__item">Słownik</a>
     </div>
     <div class="cz-sidebar-link">
         <a href="#" class="cz-sidebar-link__item">Ćwiczenie</a>

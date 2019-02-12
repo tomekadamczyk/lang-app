@@ -34,10 +34,19 @@ include('views/mainview/dashboard/menubar.php');
             case 1:
             include('views/excercises/flashcards.php');
             break;
+
+            case 2:
+            include('views/excercises/wisielec.php');
+            break;
+
+            case 3:
+            include('views/words/dictionary.php');
+            break;
         }
     }
 ?>
 </section>
+<script src="assets/src/script.js"></script>
 
 <?php
 include('footer.php');

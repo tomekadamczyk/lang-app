@@ -1,4 +1,12 @@
 @import 'bootstrap/bootstrap.scss';
+@import 'custom/menu-bar.scss';
+@import 'custom/sidebar.scss';
+@import 'custom/main-logo.scss';
+@import 'custom/main-view.scss';
+@import 'custom/dashboard.scss';
+@import 'custom/flashcards.scss';
+@import 'custom/useraccount-forms.scss';
+@import 'custom/dictionary.scss';
 
 body {
     background: $gray-200;
@@ -8,45 +16,16 @@ body {
     background-attachment: fixed;
 }
 
-.cz-useraccount-form {
-    background: rgba(255,255,255,0.5);
-    padding: 30px;
 
-    form {
-        label {
-            color: $gray-900;
 
-            &:hover {
-                font-weight: bold;
-            }
-        }
-    }
 
-    .cz-useraccount-input {
-        background: transparent;
-        border: 2px solid $primary;
-        color: $gray-900;
 
-        &::placeholder {
-            color: $gray-900;
-        }
 
-        &:focus {
-            border: 2px solid $primary;
-            color: $primary;
-        }
-    }
 
-    .cz-register-form {
-        transition: 0.5s;
-        transition-delay: .3s;
-        width: 100%;
-    }
 
-    .cz-login-form {
-        display: none;
-    }
 
+<<<<<<< feature/CZ-11-word-cards
+=======
     .cz-login-form {
         width: 100%;
     }
@@ -327,3 +306,4 @@ body {
         }
     }
 }
+>>>>>>> development
