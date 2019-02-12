@@ -24,3 +24,286 @@ body {
 
 
 
+<<<<<<< feature/CZ-11-word-cards
+=======
+    .cz-login-form {
+        width: 100%;
+    }
+
+    .cz-button {
+        border: 2px solid $indigo;
+        background: $indigo;
+        color: $white;
+        font-weight: bold;
+        border-radius: 0;
+
+        &:hover {
+            border: 2px solid $primary;
+            background: $white;
+            color: $primary;
+        }
+    }
+
+    .cz-form-label {
+        margin-top: 20px;
+        display: block;
+        cursor: pointer;
+    }
+
+    .cz-password-reminder {
+        display: block;
+        text-align: center;
+        font-size: 80%;
+        margin-top: 30px;
+    }
+
+    .cz-form-header-container {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid $gray-600;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+.cz-sidebar {
+    float: left;
+    position: fixed;
+    height: 100vh;
+    background: darken($primary, 20%);
+    text-align: left;
+    width: 180px;
+    
+    @include media-breakpoint-up(xl) {
+        width: 240px;
+    }
+
+    .cz-sidebar-link {
+        padding: 15px;
+        border-bottom: 1px solid $gray-600;
+        transition-duration: 0.2s;
+        transition-delay: 0.1s;
+        position: relative;
+
+        &:hover {
+            background: darken($primary, 10%);
+            .cz-sidebar-link-dropdown {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        &__item {
+            color: $white;
+            font-size: 12px;
+            display: block;
+
+            @include media-breakpoint-up(xl) {
+                font-size: 16px;
+            }
+        }
+
+        .cz-sidebar-link-dropdown {
+            opacity: 0;
+            transition-duration: 0.15s;
+            transition-delay: 0.2s;
+            transform: translateX(-70%);
+            position: absolute;
+            right: -97px;
+            top: 8px;
+
+            .cz-sidebar-link-dropdown-link {
+                padding: 10px 20px;
+                background: darken($primary, 20%);
+                text-align: left;
+                border-bottom: 1px solid $gray-600;
+
+                &:hover {
+                    background: darken($primary, 10%);
+                }
+
+                a {
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+.cz-mainview {
+    width: calc(100% - 240px);
+    margin-left: auto;
+    height: 100vh;
+}
+
+.cz-flashcards {
+    padding: 10px;
+
+    &__card {
+        background: rgba(255,255,255,0.5);
+        padding: 50px 0;
+        margin-top: 100px;
+    }
+}
+
+
+.cz-dashboard {
+    
+    &__panels {
+        padding: 10px;
+    }
+
+   &__item {
+       margin-top: 10px;
+       z-index: -1;
+   }
+
+    .cz-module {
+        background: $white;
+        border-radius: 4px;
+        padding: 15px;
+    }
+}
+
+.cz-menubar {
+    background: lighten($gray-700,65%);
+    color: $gray-900;
+    padding: 15px 20px;
+
+    div {
+        margin-left: 15px;
+    }
+
+    &__user {
+        display: inline-block;
+
+        span {
+            float: left;
+        }
+    }
+    .cz-menubar-options {
+        position: relative;
+        display: inline-block;
+
+        .cz-menubar-dots {
+            position: relative;
+            display: inline-block;
+
+            &__dot {
+                display: block;
+                width: 6px;
+                height: 6px;
+                margin-bottom: 2px;
+                background: $gray-700;
+                border-radius: 50%;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            } 
+        }
+    }
+
+    .cz-menubar-listmenu {
+        position: absolute;
+        top: 35px;
+        right: 0;
+        transition-duration: 0.2s;
+        transition-delay: 0.1s;
+        transform: translateY(50%);
+        z-index: 10;
+        opacity: 0;
+        
+
+        &__item {
+            background: lighten($gray-700,60%);
+            padding: 10px 20px;
+            border-bottom: 1px solid $gray-400;
+
+            &:hover {
+                background: lighten($gray-700,50%);
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+
+.cz-logo {
+    position: relative;
+    border-radius: 50%;
+    display: block;
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+
+    .logo-dot {
+        position: absolute;
+        width: 0; 
+        height: 0; 
+        border-radius: 50%;
+        transform-origin: 50%;
+        transition-duration: .4s; 
+
+        &--white {
+            border-top: 30px solid white;
+            transform: rotate(11deg);
+        }
+        &--blue {
+            border-top: 30px solid blue;
+            transform: rotate(-103deg);
+            left: -38px;
+            top: 37px;
+        }
+        &--red {
+            border-top: 30px solid red;
+            transform: rotate(135deg);
+            left: 17px;
+            top: 50px;
+        }
+    }
+
+    
+}
+
+.logo-transformed {
+    position: relative;
+    border-radius: 50%;
+    display: block;
+    width: 100px;
+    height: 70px;
+
+    .logo-dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: none;
+
+        &--white {
+            left: 40px;
+            top: 32px;
+            background: $white;
+            transition-duration: 1s; 
+        }
+        &--red {
+            left: 40px;
+            top: 55px;
+            background: $red;
+            transition-duration: 1.4s; 
+        }
+        &--blue {
+            left: 20px;
+            top: 43px;
+            background: $blue;
+            transition-duration: 1.8s; 
+        }
+    }
+}
+>>>>>>> development

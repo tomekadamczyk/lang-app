@@ -6382,6 +6382,76 @@ a.text-dark:hover, a.text-dark:focus {
         .cz-sidebar .cz-sidebar-link .cz-sidebar-link-dropdown .cz-sidebar-link-dropdown-link a {
           color: #fff; }
 
+<<<<<<< feature/CZ-11-word-cards
+=======
+.cz-mainview {
+  width: calc(100% - 240px);
+  margin-left: auto;
+  height: 100vh; }
+
+.cz-flashcards {
+  padding: 10px; }
+  .cz-flashcards__card {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 50px 0;
+    margin-top: 100px; }
+
+.cz-dashboard__panels {
+  padding: 10px; }
+
+.cz-dashboard__item {
+  margin-top: 10px;
+  z-index: -1; }
+
+.cz-dashboard .cz-module {
+  background: #fff;
+  border-radius: 4px;
+  padding: 15px; }
+
+.cz-menubar {
+  background: #f5f6f7;
+  color: #212529;
+  padding: 15px 20px; }
+  .cz-menubar div {
+    margin-left: 15px; }
+  .cz-menubar__user {
+    display: inline-block; }
+    .cz-menubar__user span {
+      float: left; }
+  .cz-menubar .cz-menubar-options {
+    position: relative;
+    display: inline-block; }
+    .cz-menubar .cz-menubar-options .cz-menubar-dots {
+      position: relative;
+      display: inline-block; }
+      .cz-menubar .cz-menubar-options .cz-menubar-dots__dot {
+        display: block;
+        width: 6px;
+        height: 6px;
+        margin-bottom: 2px;
+        background: #495057;
+        border-radius: 50%; }
+        .cz-menubar .cz-menubar-options .cz-menubar-dots__dot:last-child {
+          margin-bottom: 0; }
+  .cz-menubar .cz-menubar-listmenu {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    transition-duration: 0.2s;
+    transition-delay: 0.1s;
+    transform: translateY(50%);
+    z-index: 10;
+    opacity: 0; }
+    .cz-menubar .cz-menubar-listmenu__item {
+      background: #e7e9eb;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ced4da; }
+      .cz-menubar .cz-menubar-listmenu__item:hover {
+        background: #cbd0d4; }
+      .cz-menubar .cz-menubar-listmenu__item:last-child {
+        border-bottom: none; }
+
+>>>>>>> development
 .cz-logo {
   position: relative;
   border-radius: 50%;
