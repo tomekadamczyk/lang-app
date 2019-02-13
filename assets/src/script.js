@@ -18,3 +18,21 @@ const showDefinition = () => {
 }
 
 showDefinition();
+
+const searchWord = () => {
+    const wordRow = document.querySelectorAll(".cz-dictionary-word");
+    const search = document.getElementById("cz-dictionary-search-word");
+    search.addEventListener('input', function(e) {
+        wordRow.forEach(word => {
+            word.style.display = 'none';
+            let wordContent = word.children[0].textContent;
+            if(wordContent.toLowerCase().includes(e.target.value)) {
+                console.log(wordContent);
+                word.style.display = 'block';
+            }
+        })
+    })
+    
+}
+
+searchWord();

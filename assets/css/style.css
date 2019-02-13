@@ -6545,6 +6545,11 @@ a.text-dark:hover, a.text-dark:focus {
     transition-duration: 0.2s;
     transition-delay: 0.1s;
     transform: translateX(10%); }
+  .cz-dictionary .cz-dictionary-search-word {
+    justify-content: right; }
+    .cz-dictionary .cz-dictionary-search-word input {
+      flex: 0;
+      width: 300px; }
 
 .cz-modal {
   z-index: 99999; }

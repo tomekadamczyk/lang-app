@@ -48,4 +48,13 @@
 
         }
     }
+
+    .cz-dictionary-search-word {
+        justify-content: right;
+
+        input {
+            flex: 0;
+            width: 300px;
+        }
+    }
 }
