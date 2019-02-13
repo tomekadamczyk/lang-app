@@ -17,6 +17,16 @@
     }
 
     .cz-menubar-options {
+        float: right;
+        position: relative;
+
+        .cz-menubar-listmenu {
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    .cz-menubar-dots {
         position: relative;
         display: inline-block;
 

@@ -1,0 +1,19 @@
+.cz-pagination {
+    text-align: center;
+    margin: 30px;
+
+    ul {
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            cursor: pointer;
+            color: $primary;
+            font-weight: bold;
+            padding: 0 4px;
+        }
+    }
+
+    &__control {
+    }
+}

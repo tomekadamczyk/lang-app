@@ -14,14 +14,23 @@ $word = new Words($con);
                 </div>
                 <div class="input-group mb-3 cz-dictionary-search-word">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Szukaj</span>
+                        <button type="button" class="input-group-text" id="searchWordButton">Szukaj</button>
                     </div>
                     <input type="text" class="form-control" id="cz-dictionary-search-word" class="float-right cz-dictionary-search-word">
                 </div>
+                <div id="searchResults"></div>
                 <hr>
             </div>
             <div id="cz-dictionary-table__content">
                 <?php $word->displayDictionary() ?>
+            </div>
+            <div class="cz-pagination">
+                <ul>
+                    <li id="prevPage" class="cz-pagination__item cz-pagination__control">Poprzednia strona</li>
+                    <li class="cz-pagination__item">1</li>
+                    <li class="cz-pagination__item">2</li>
+                    <li id="nextPage" class="cz-pagination__item cz-pagination__control">Następna strona</li>
+                </ul>
             </div>
         </div>
     </div>

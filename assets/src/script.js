@@ -19,20 +19,154 @@ const showDefinition = () => {
 
 showDefinition();
 
-const searchWord = () => {
-    const wordRow = document.querySelectorAll(".cz-dictionary-word");
-    const search = document.getElementById("cz-dictionary-search-word");
-    search.addEventListener('input', function(e) {
-        wordRow.forEach(word => {
-            word.style.display = 'none';
-            let wordContent = word.children[0].textContent;
-            if(wordContent.toLowerCase().includes(e.target.value)) {
-                console.log(wordContent);
-                word.style.display = 'block';
-            }
-        })
-    })
+// const searchWord = () => {
+//     const wordRow = document.querySelectorAll(".cz-dictionary-word");
+//     const search = document.getElementById("cz-dictionary-search-word");
+//     search.addEventListener('input', function(e) {
+//         wordRow.forEach(word => {
+//             word.style.display = 'none';
+//             let wordContent = word.children[0].textContent;
+//             if(wordContent.toLowerCase().includes(e.target.value)) {
+//                 console.log(wordContent);
+//                 word.style.display = 'block';
+//             }
+//         })
+//     })
     
+// }
+
+// searchWord();
+
+class Pagination{
+    constructor(totalItems, currentPage) {
+        this.totalItems = totalItems;
+        this.currentPage = currentPage;
+    }
+
+    getTotalPages() {
+        let totalPages = Math.ceil(this.totalItems/this.setPageSize(this.size));
+        return totalPages;
+    }
+
+    setPageSize(size) {
+        this.size = size;
+        return size;
+    }
+
+    getItems() {
+        const wordRow = document.querySelectorAll(".cz-dictionary-word");
+        // console.log(`We have ${this.setPageSize(20)} words per page`);
+        // console.log(`We have ${this.getTotalPages()} pages of words`);
+        // console.log(`We have ${wordRow.length} words in dictionary`);
+        // console.log(wordRow);
+    }
+
+    putItemsIntoPage() {
+        let pages = [
+
+        ];
+        let searchResults = document.getElementById('searchResults');
+        let searchWordButton = document.querySelector('#searchWordButton');
+        const wordRow = document.querySelectorAll(".cz-dictionary-word");
+        const wordsArray = Array.from(wordRow);
+
+        let pageArray,
+        limiter = 20;
+        for (let i = 0; i < wordsArray.length; i = i + limiter) {
+            pageArray = wordsArray.slice(i,i+limiter);
+            pages.push(pageArray);
+        }
+        
+        const search = document.getElementById("cz-dictionary-search-word");
+        console.log(search)
+        searchWordButton.addEventListener('click', function(e) {
+            pages.forEach(words => {
+                words.forEach(word => {
+                 let wordContent = word.children[0].textContent;
+                    if(wordContent.toLowerCase().includes(search.value)) {
+                        searchResults.innerHTML = '';
+                        searchResults.appendChild(word)
+                    }
+                })
+            })
+        });
+
+    return pages;
+    }
+    // searchWord() {
+    //     const search = document.getElementById("cz-dictionary-search-word");
+    //     let pages = this.putItemsIntoPage();
+    //     console.log(pages)
+    //     search.addEventListener('input', function(e) {
+    //         pages.forEach(words => {
+    //             words.forEach(word => {
+                   
+    //             word.style.display = 'none';
+    //             let wordContent = word.children[0].textContent;
+    //             if(wordContent.toLowerCase().includes(e.target.value)) {
+    //                 word.style.display = 'block';
+    //             }
+    //         })
+    //     })
+    // }
+
+    // searchWord() {
+    //     console.log(this.putItemsIntoPage());
+    //     const search = document.getElementById("cz-dictionary-search-word");
+    //     search.addEventListener('input', function(e) {
+    //         word.forEach(word => {
+    //             word.style.display = 'none';
+    //             let wordContent = word.children[0].textContent;
+    //             if(wordContent.toLowerCase().includes(e.target.value)) {
+    //                 word.style.display = 'block';
+    //             }
+    //         })
+    //     })
+    // }
+    
+
+    displayItemsOnPage(pageIndex) {
+        let wordContainer = document.getElementById('cz-dictionary-table__content');
+        let pages = this.putItemsIntoPage();
+        wordContainer.innerHTML = '';
+        pageIndex = 0;
+        pages[pageIndex].forEach(el => {
+            wordContainer.appendChild(el.attributes[0].ownerElement);
+        }); 
+
+        let nextPage = document.getElementById('nextPage');
+        nextPage.addEventListener('click', function() { 
+            let previousPage = pageIndex;
+            pages[previousPage].forEach(el => {
+                wordContainer.removeChild(el.attributes[0].ownerElement);
+            }); 
+            pageIndex++;
+            if(pageIndex >= pages.length-1) {
+                pageIndex = pages.length-1;
+            }
+            pages[pageIndex].forEach(el => {
+                wordContainer.appendChild(el.attributes[0].ownerElement);
+            }); 
+        }); 
+
+        let prevPage = document.getElementById('prevPage');
+        prevPage.addEventListener('click', function() {
+            let forwardPage = pageIndex;
+            pages[forwardPage].forEach(el => {
+                wordContainer.removeChild(el.attributes[0].ownerElement);
+            }); 
+            pageIndex--;
+            if (pageIndex <= 0) {
+                pageIndex = 0;
+            }
+            pages[pageIndex].forEach(el => {
+                wordContainer.appendChild(el.attributes[0].ownerElement);
+            }); 
+        })
+    }
 }
 
-searchWord();
+const wordRow = document.querySelectorAll(".cz-dictionary-word");
+const wordItems = wordRow.length;
+const page = new Pagination(wordItems, 1);
+page.displayItemsOnPage();
