@@ -20,9 +20,23 @@
         float: right;
         position: relative;
 
+        &:hover {
+            .cz-menubar-listmenu {
+                display: block; 
+            }
+        }
+
         .cz-menubar-listmenu {
+            display: none;
             position: absolute;
             right: 0;
+            top: 44px;
+
+            &__item {
+                background: $white;
+                padding: 10px 20px;
+                display: block;
+            }
         }
     }
 

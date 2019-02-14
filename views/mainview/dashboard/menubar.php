@@ -12,8 +12,8 @@
                     </div>
                 </a>
                 <div class="cz-menubar-listmenu">
-                    <div class="cz-menubar-listmenu__item">Profil</div>
-                    <div class="cz-menubar-listmenu__item">Wyloguj</div>
+                    <a class="cz-menubar-listmenu__item" href="#">Profil</a>
+                    <a class="cz-menubar-listmenu__item" href="#">Wyloguj</a>
                 </div>
             </div>
     </div>

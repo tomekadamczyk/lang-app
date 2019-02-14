@@ -79,16 +79,16 @@ class Pagination{
         
         const search = document.getElementById("cz-dictionary-search-word");
         console.log(search)
-        searchWordButton.addEventListener('click', function(e) {
-            pages.forEach(words => {
-                words.forEach(word => {
+        searchResults.innerHTML = '';
+        searchWordButton.addEventListener('click', function() {
+            searchResults.innerHTML = '';
+            wordRow.forEach(word => {
                  let wordContent = word.children[0].textContent;
+                    let wordCopy = word;
                     if(wordContent.toLowerCase().includes(search.value)) {
-                        searchResults.innerHTML = '';
-                        searchResults.appendChild(word)
+                        searchResults.appendChild(wordCopy)
                     }
                 })
-            })
         });
 
     return pages;

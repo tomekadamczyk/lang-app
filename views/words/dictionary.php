@@ -14,7 +14,7 @@ $word = new Words($con);
                 </div>
                 <div class="input-group mb-3 cz-dictionary-search-word">
                     <div class="input-group-prepend">
-                        <button type="button" class="input-group-text" id="searchWordButton">Szukaj</button>
+                        <button type="button" class="input-group-text text-white bg-warning" id="searchWordButton">Szukaj</button>
                     </div>
                     <input type="text" class="form-control" id="cz-dictionary-search-word" class="float-right cz-dictionary-search-word">
                 </div>
