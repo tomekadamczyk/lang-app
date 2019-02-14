@@ -6325,9 +6325,17 @@ a.text-dark:hover, a.text-dark:focus {
   .cz-menubar .cz-menubar-options {
     float: right;
     position: relative; }
+    .cz-menubar .cz-menubar-options:hover .cz-menubar-listmenu {
+      display: block; }
     .cz-menubar .cz-menubar-options .cz-menubar-listmenu {
+      display: none;
       position: absolute;
-      right: 0; }
+      right: 0;
+      top: 44px; }
+      .cz-menubar .cz-menubar-options .cz-menubar-listmenu__item {
+        background: #fff;
+        padding: 10px 20px;
+        display: block; }
   .cz-menubar .cz-menubar-dots {
     position: relative;
     display: inline-block; }
