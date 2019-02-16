@@ -1,5 +1,7 @@
+'use strict'
+
 const showWord = async() => {
-    const response = await fetch('http://localhost:3002/words');
+    const response = await fetch('http://localhost:3000/www/appcz/lang-app/api/words/read.php');
     if (response.status === 200) {
         const data = await response.json();
         return data[0];
@@ -11,12 +13,13 @@ const showWord = async() => {
 
 const randomWord = document.getElementById('cz-flashcards-button');
 const wordSubject = document.getElementById('cz-flashcards-subject');
-const wordToTranslate = document.querySelector('#flash-word>h2');
-const wordTranslation = document.querySelector('#flash-translation>h2');
+const wordToTranslate = document.getElementById('flash-word');
+const wordTranslation = document.getElementById('flash-translation');
 const checkTranslation = document.getElementById('cz-flashcards-check-translation');
 
 const renderWord = async() => {
     const word = await showWord();
+    console.log(word)
     
     wordTranslation.style.display = 'none';
     wordToTranslate.style.display = 'block';
@@ -25,7 +28,7 @@ const renderWord = async() => {
     wordToTranslate.innerHTML = '';
     wordTranslation.innerHTML = '';
 
-    wordSubject.append(word.topic);
+    wordSubject.append('Temat: ' + word.topic);
     wordToTranslate.append(word.word);
     wordTranslation.append(word.translation);
 
