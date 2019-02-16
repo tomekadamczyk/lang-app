@@ -6568,6 +6568,9 @@ a.text-dark:hover, a.text-dark:focus {
 .cz-modal {
   z-index: 99999; }
 
+#newPhraseForm {
+  display: none; }
+
 .cz-pagination {
   text-align: center;
   margin: 30px; }

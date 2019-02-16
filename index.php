@@ -42,6 +42,10 @@ include('views/mainview/dashboard/menubar.php');
             case 3:
             include('views/words/dictionary.php');
             break;
+
+            case 4:
+            include('views/words/phrases.php');
+            break;
         }
     }
 ?>
