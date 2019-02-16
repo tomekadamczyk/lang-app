@@ -18,11 +18,22 @@ class Words {
         }
         $user = $account->getUserID($userLoggedIn);
     
-        $query = mysqli_query($this->con, "INSERT INTO user_words VALUES ('','".$_POST['slowo']."','".$_POST['tlumaczenie']."','".$_POST['temat']."','".$_POST['definicja']."', '".$_POST['level']."', '$user')");
-            
-        if(!$query) {
-            echo 'Wystąpił błąd podczas dodawania';
+        
+        if(isset($_POST['addWord'])){
+            $query = mysqli_query($this->con, "INSERT INTO user_words VALUES ('','".$_POST['slowo']."','".$_POST['tlumaczenie']."','".$_POST['temat']."','".$_POST['definicja']."', '".$_POST['level']."', '$user')");
+             
+            if(!$query) {
+                echo 'Wystąpił błąd podczas dodawania';
+            }
         }
+        else if (isset($_POST['addPhrase'])) {
+            $query = mysqli_query($this->con, "INSERT INTO user_phrases VALUES ('','".$_POST['phrase']."','".$_POST['phraseTranslate']."','".$_POST['temat']."','".$_POST['level']."', '$user')");
+             
+            if(!$query) {
+                echo 'Wystąpił błąd podczas dodawania';
+            }
+        }
+           
     }
 
     public function displayLastAddedWords() {
