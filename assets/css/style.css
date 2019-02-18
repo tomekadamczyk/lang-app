@@ -6475,6 +6475,20 @@ a.text-dark:hover, a.text-dark:focus {
     background: rgba(255, 255, 255, 0.5);
     padding: 50px 0;
     margin-top: 100px; }
+  .cz-flashcards .cz-flashcards-to-translate {
+    width: 50%;
+    position: relative;
+    justify-content: center;
+    padding: 40px;
+    margin: auto;
+    font-size: 30px;
+    color: #fff; }
+    .cz-flashcards .cz-flashcards-to-translate--word {
+      background: #fd7e14;
+      display: block; }
+    .cz-flashcards .cz-flashcards-to-translate--translation {
+      background: #28a745;
+      display: none; }
 
 .cz-useraccount-form {
   background: rgba(255, 255, 255, 0.5);

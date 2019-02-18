@@ -7,4 +7,25 @@
         padding: 50px 0;
         margin-top: 100px;
     }
+    
+    .cz-flashcards-to-translate {
+        width: 50%;
+        position: relative;
+        justify-content: center;
+        padding: 40px;
+        margin: auto;
+        font-size: 30px;
+        color: $white;
+
+        &--word {
+            background: $orange;
+            display: block;
+        }
+
+        &--translation {
+            background: $green;
+            display: none;
+        }
+
+    }
 }
