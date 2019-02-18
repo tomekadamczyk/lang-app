@@ -52,6 +52,7 @@ include('views/mainview/dashboard/menubar.php');
 </section>
 <script src="assets/src/script.js"></script>
 <script src="assets/src/requests.js"></script>
+<script src="assets/src/hangman.js"></script>
 
 <?php
 include('footer.php');

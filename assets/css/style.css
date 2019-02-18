@@ -6612,33 +6612,51 @@ a.text-dark:hover, a.text-dark:focus {
       font-weight: bold;
       padding: 0 4px; }
 
-.cz-hangman__game h1 {
-  margin: 10px 0 40px;
-  padding: 20px 0;
-  border-bottom: 1px solid #ced4da;
-  font-weight: bold; }
+.cz-hangman__game {
+  width: 100%; }
+  .cz-hangman__game h1 {
+    margin: 10px 0 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ced4da;
+    font-weight: bold; }
 
-.cz-hangman__word {
-  padding: 50px;
-  border: 1px solid #444;
-  letter-spacing: 6px;
-  font-size: 21px; }
-
-.cz-hangman__left-guesses {
+.cz-hangman__box {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
   padding: 10px;
-  background: #dee2e6;
-  margin-top: 20px; }
+  text-align: center; }
+  .cz-hangman__box--guesses {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .cz-hangman__box--reset {
+    font-size: 14px; }
+  .cz-hangman__box--definition {
+    font-style: italic; }
+  .cz-hangman__box--word {
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    letter-spacing: 6px;
+    font-size: 21px; }
+  .cz-hangman__box--left-guesses {
+    background: #e100ff;
+    color: #fff; }
+  .cz-hangman__box--win {
+    display: none;
+    background: #5dd879; }
+  .cz-hangman__box--fail {
+    display: none;
+    background: #ff0000; }
 
 .cz-hangman__result {
   margin-top: 20px;
   padding: 30px;
   font-size: 20px;
   font-weight: bold;
-  color: #fff; }
-  .cz-hangman__result--win {
-    background: #e100ff; }
-  .cz-hangman__result--fail {
-    background: #ff0000; }
+  text-align: center;
+  color: #fff;
+  transition-duration: 0.5s; }
 
 body {
   background: #e9ecef;

@@ -1,6 +1,8 @@
 .cz-hangman {
 
     &__game {
+        width: 100%;
+
         h1 {
             margin: 10px 0 40px;
             padding: 20px 0;
@@ -9,33 +11,61 @@
         }
     }
 
-    &__word {
-        padding: 50px;
-        border: 1px solid #444;
-        letter-spacing: 6px;
-        font-size: 21px;
+    &__box {
+        border-radius: 10px;
+        background: rgba(255,255,255,0.7);
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: center;
+
+        &--guesses {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &--reset {
+            font-size: 14px;
+        }
+
+        &--definition {
+            font-style: italic;
+        }
+        
+        &--word {
+            padding: 50px;
+            background: rgba(255,255,255,0.9);
+            letter-spacing: 6px;
+            font-size: 21px;
+        }
+
+        &--left-guesses {
+            background: #e100ff;
+            color: $white;
+        }
+        
+        &--win {
+            display: none;
+            background: lighten($green, 20%);
+        }
+
+        &--fail {
+            display: none;
+            background: #ff0000;
+        }
+
     }
 
-    &__left-guesses {
-        padding: 10px;
-        background: $gray-300;
-        margin-top: 20px;
-    }
+
 
     &__result {
         margin-top: 20px;
         padding: 30px;
         font-size: 20px;
         font-weight: bold;
+        text-align: center;
         color: $white;
+        transition-duration: 0.5s;
 
-        &--win {
-            background: #e100ff;
-            
-        }
-
-        &--fail {
-            background: #ff0000;
-        }
     }
 }

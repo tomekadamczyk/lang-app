@@ -1,7 +1,7 @@
 'use strict'
 
 const showWord = async() => {
-    const response = await fetch('http://localhost:3000/www/appcz/lang-app/api/words/read.php');
+    const response = await fetch('./api/words/read.php');
     if (response.status === 200) {
         const data = await response.json();
         return data[0];
