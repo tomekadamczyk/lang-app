@@ -36,7 +36,7 @@ include('views/mainview/dashboard/menubar.php');
             break;
 
             case 2:
-            include('views/excercises/wisielec.php');
+            include('views/excercises/hangman.php');
             break;
 
             case 3:
