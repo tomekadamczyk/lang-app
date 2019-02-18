@@ -36,6 +36,31 @@ class Words {
            
     }
 
+    public function resetWordIncrement() {
+        $sql = mysqli_query($this->con, "SET @count = 0");
+        $sql = mysqli_query($this->con, "UPDATE `user_words` SET `user_words`.`id_words` = @count:= @count + 1");
+
+        $query = mysqli_query($this->con, "SELECT MAX(`id_words`) AS max FROM `user_words`");
+        $row = mysqli_fetch_array( $query );
+        $largestNumber = $row['max'];
+
+        $query2 = mysqli_query($this->con, "ALTER TABLE `user_words` AUTO_INCREMENT = $largestNumber");
+    }
+
+    
+
+    public function resetPhraseIncrement() {
+        $sql = mysqli_query($this->con, "SET @count = 0");
+        $sql = mysqli_query($this->con, "UPDATE `user_words` SET `user_words`.`id_words` = @count:= @count + 1");
+
+        $query = mysqli_query($this->con, "SELECT MAX(`id_words`) AS max FROM `user_words`");
+        $row = mysqli_fetch_array( $query );
+        $largestNumber = $row['max'];
+
+        $query2 = mysqli_query($this->con, "ALTER TABLE `user_words` AUTO_INCREMENT = $largestNumber");
+    }
+
+
     public function displayLastAddedWords() {
         require_once 'class.account.php';
 
@@ -66,8 +91,8 @@ class Words {
         }
         $user = $account->getUserID($userLoggedIn);
 
-        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user'");
-        while($row = mysqli_fetch_assoc($query)) {
+        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user' ORDER BY RAND()");
+        while($row = mysqli_fetch_object($query)) {
             $rows[] = $row;
         }
         return json_encode($rows);

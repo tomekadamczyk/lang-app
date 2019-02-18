@@ -2,6 +2,8 @@
 require_once './modules/config.php';
 require_once './modules/class.phrases.php';
 $phrase = new Phrase($con);
+$word = new Words($con);
+$word->resetPhraseIncrement();
 
 ?>
 <section class="cz-dictionary">

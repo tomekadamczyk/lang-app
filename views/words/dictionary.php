@@ -2,6 +2,7 @@
 require_once './modules/config.php';
 require_once './modules/class.words.php';
 $word = new Words($con);
+$word->resetWordIncrement();
 
 ?>
 <section class="cz-dictionary">
