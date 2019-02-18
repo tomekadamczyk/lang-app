@@ -6,6 +6,7 @@
     background: darken($primary, 20%);
     text-align: left;
     width: 180px;
+    z-index: 99999;
     
     @include media-breakpoint-up(xl) {
         width: 240px;

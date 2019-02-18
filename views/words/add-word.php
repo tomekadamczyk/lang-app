@@ -17,11 +17,13 @@ $word = new Words($con);
       <div class="modal-body">
         <div class="addWord">
             <form action="" method="POST">
-              <label for="newWord">Nowe słowo</label>
-              <input type="radio" name="newWord" id="showWordForm" unchecked>
-              <label for="newWord">Nowy zwrot</label>
-              <input type="radio" name="newWord" id="showPhraseForm" unchecked>
-
+              <div class="cz-modal-pick-option">
+                <label for="newWord">Nowe słowo</label>
+                <input type="radio" name="newWord" id="showWordForm" unchecked></div>
+              <div class="cz-modal-pick-option">
+                <label for="newWord">Nowy zwrot</label>
+                <input type="radio" name="newWord" id="showPhraseForm" unchecked>
+              </div>
                 <div id="newWordForm">
                   <input type="text" class="form-control my-2" id="slowo" name="slowo" placeholder="Dodaj nowe słowo">
                   <input type="text" class="form-control my-2" id="tlumaczenie" name="tlumaczenie" placeholder="Wpisz tłumaczenie">
