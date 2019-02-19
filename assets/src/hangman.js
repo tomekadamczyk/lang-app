@@ -65,7 +65,6 @@ class Hangman {
         if(isBadGuess && isUnique && this.status == 'Playing') {
             this.guesses--;
             if(setGuesses.value == 10) {
-                console.log('10 prób')
                 if(this.guesses === 9) {
                     fail1.style.display = 'block';
                 }
@@ -98,7 +97,6 @@ class Hangman {
                 }
             }
             else if(setGuesses.value == 7) {
-                console.log('7 prób')
                 if(this.guesses === 6) {
                     fail1.style.display = 'block';
                     fail2.style.display = 'block';
@@ -125,7 +123,6 @@ class Hangman {
                 }
             }
             else if(setGuesses.value == 5) {
-                console.log('5 prób')
                 if(this.guesses === 4) {
                     fail1.style.display = 'block';
                     fail2.style.display = 'block';
@@ -148,7 +145,6 @@ class Hangman {
                 }
             }
             else if(setGuesses.value == 3) {
-                console.log('3 prób')
                 if(this.guesses === 2) {
                     fail1.style.display = 'block';
                     fail2.style.display = 'block';
@@ -226,44 +222,6 @@ const hideHangingMan = () => {
     fail9.style.display = 'none';
     fail10.style.display = 'none';
 }
-
-// const drawHangman = () => {
-//     if(setGuesses.value == 10) {
-//         console.log('10 prób')
-//         if(game.guesses === 9) {
-//             fail1.style.display = 'block';
-//         }
-//         if(game.guesses === 8) {
-//             fail2.style.display = 'block';
-//         }
-//         if(game.guesses === 7) {
-//             fail3.style.display = 'block';
-//         }
-//         if(game.guesses === 6) {
-//             fail4.style.display = 'block';
-//         }
-//         if(game.guesses === 5) {
-//             fail5.style.display = 'block';
-//         }
-//         if(game.guesses === 4) {
-//             fail6.style.display = 'block';
-//         }
-//         if(game.guesses === 3) {
-//             fail7.style.display = 'block';
-//         }
-//         if(game.guesses === 2) {
-//             fail8.style.display = 'block';
-//         }
-//         if(game.guesses === 1) {
-//             fail9.style.display = 'block';
-//         }
-//         if(game.guesses === 0) {
-//             fail10.style.display = 'block';
-//         }
-//     }
-// }
-
-    
 
 const startGame = async() => {
     let puzzle = await showWord();
