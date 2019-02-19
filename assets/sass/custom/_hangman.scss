@@ -69,3 +69,111 @@
 
     }
 }
+
+.cz-hangman-drawing {
+    position: relative;
+    height: 100px;
+
+    .cz-hangman-drawing-line {
+        display: none;
+
+        &--column{
+            position: absolute;
+            left: 20px;
+            width: 2px;
+            height: 100px;
+            top: 0;
+            background: #000;
+        }
+
+        &--base {
+            position: absolute;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            bottom: 0;
+            background: #000;
+        }
+
+        &--top {
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: 60px;
+            height: 2px;
+            background: #000;
+        }
+
+        &--rope {
+            position: absolute;
+            top: 0;
+            left: 70px;
+            width: 2px;
+            height: 20px;
+            background: #000;
+        }
+
+        &--head {
+            position: absolute;
+            top: 20px;
+            left: 60px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #000;
+        }
+
+        &--body {
+            position: absolute;
+            top: 40px;
+            left: 70px;
+            width: 2px;
+            height: 35px;
+            background: #000;
+        }
+
+        &--hand1 {
+            position: absolute;
+            top: 33px;
+            left: 77px;
+            width: 2px;
+            height: 25px;
+            transform: rotate(36deg);
+            background: #000;
+        }
+
+        &--hand2 {
+            position: absolute;
+            top: 33px;
+            left: 63px;
+            width: 2px;
+            height: 25px;
+            transform: rotate(-36deg);
+            background: #000;
+        }
+
+        &--leg1 {
+            position: absolute;
+            left: 63px;
+            width: 2px;
+            height: 25px;
+            top: 70px;
+            transform: rotate(39deg);
+            background: #000;
+        }
+
+        &--leg2 {
+            position: absolute;
+            left: 77px;
+            width: 2px;
+            height: 25px;
+            top: 70px;
+            transform: rotate(-39deg);
+            background: #000;
+        }
+    }
+}
+
+.cz-hangman-display-answer {
+    display: none;
+}

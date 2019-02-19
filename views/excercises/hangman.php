@@ -21,6 +21,7 @@
                         <div class="cz-hangman__box">
                             <div class="btn bg-success text-white btn-sm my-2 " id="cz-hangman-new">Losuj nowe słowo</div>
                         </div>
+                            <div class="btn bg-dark text-white btn-sm my-2 cz-hangman-display-answer" id="cz-hangman-display-answer">Pokaż prawidłową odpowiedź</div>
                     </div>
                     <div class="col-md-9">
                         <div class="text-center">
@@ -30,6 +31,19 @@
                         <div id="cz-hangman-win" class="cz-hangman__box cz-hangman__box--win">Udało się!</div>
                         <div id="cz-hangman-fail" class="cz-hangman__box cz-hangman__box--fail">Nie udało się!</div>
                         <div id="cz-hangman-left-guesses" class="cz-hangman__box cz-hangman__box--left-guesses"></div>
+
+                        <div class="cz-hangman-drawing">
+                            <div id="hangman-fail-1" class="cz-hangman-drawing-line cz-hangman-drawing-line--base"></div>
+                            <div id="hangman-fail-2" class="cz-hangman-drawing-line cz-hangman-drawing-line--column"></div>
+                            <div id="hangman-fail-3" class="cz-hangman-drawing-line cz-hangman-drawing-line--top"></div>
+                            <div id="hangman-fail-4" class="cz-hangman-drawing-line cz-hangman-drawing-line--rope"></div>
+                            <div id="hangman-fail-5" class="cz-hangman-drawing-line cz-hangman-drawing-line--head"></div>
+                            <div id="hangman-fail-6" class="cz-hangman-drawing-line cz-hangman-drawing-line--body"></div>
+                            <div id="hangman-fail-7" class="cz-hangman-drawing-line cz-hangman-drawing-line--hand1"></div>
+                            <div id="hangman-fail-8" class="cz-hangman-drawing-line cz-hangman-drawing-line--hand2"></div>
+                            <div id="hangman-fail-9" class="cz-hangman-drawing-line cz-hangman-drawing-line--leg1"></div>
+                            <div id="hangman-fail-10" class="cz-hangman-drawing-line cz-hangman-drawing-line--leg2"></div>
+                        </div>
                     </div>
                 </div>
             </div>
