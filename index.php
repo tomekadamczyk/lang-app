@@ -36,7 +36,7 @@ include('views/mainview/dashboard/menubar.php');
             break;
 
             case 2:
-            include('views/excercises/wisielec.php');
+            include('views/excercises/hangman.php');
             break;
 
             case 3:
@@ -52,6 +52,7 @@ include('views/mainview/dashboard/menubar.php');
 </section>
 <script src="assets/src/script.js"></script>
 <script src="assets/src/requests.js"></script>
+<script src="assets/src/hangman.js"></script>
 
 <?php
 include('footer.php');
