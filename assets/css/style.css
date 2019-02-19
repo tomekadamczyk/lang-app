@@ -6749,5 +6749,16 @@ body {
   width: 100%;
   background-attachment: fixed; }
 
-.cz-addCategory {
+.cz-categories {
   padding: 0 15px; }
+  .cz-categories__item {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ced4da;
+    margin-bottom: 0; }
+  .cz-categories__container-list--scroll {
+    max-height: 400px;
+    overflow: scroll; }

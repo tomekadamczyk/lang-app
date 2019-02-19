@@ -44,18 +44,25 @@ class Categories {
     public function displayCategories() {
         require_once 'class.account.php';
 
+
         $account = new Account($this->con);
         
         if(isset($_SESSION['userLoggedIn'])) {
             $userLoggedIn = $_SESSION['userLoggedIn'];
-            
         }
+
         $user = $account->getUserID($userLoggedIn);
+        
+        if(!empty($_GET['delete'])) {
+            $topic_id = $_GET['delete'];
+            $delete = mysqli_query($this->con, "DELETE FROM topics WHERE id_topics='$topic_id' AND user='$user'");
+        }
+
         $query = mysqli_query($this->con, "SELECT * FROM topics WHERE user='$user'");
         $lp = 1;
         if(mysqli_num_rows($query) > 0) {
             while ($data = $query->fetch_object()) {  
-                echo '<p><strong>'.$lp.'</strong> - '.$data->name.'</p>';
+                echo '<p class="cz-categories__item"><span><strong>'.$lp.'</strong> - '.$data->name.'</span> <a class="btn btn-sm btn-danger" href="index.php?id=5&delete='.$data->id_topics.'">Usuń</a></p>';
                 $lp++;
             }
         }

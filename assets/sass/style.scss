@@ -19,10 +19,28 @@ body {
     background-attachment: fixed;
 }
 
-.cz-addCategory {
+.cz-categories {
     padding: 0 15px;
-    
+
     &__form {
         
+    }
+
+    &__item {
+        background: rgba(255,255,255,.5);
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $gray-400;
+        margin-bottom: 0;
+    }
+
+    &__container-list {
+        
+        &--scroll {
+            max-height: 400px;
+            overflow: scroll;
+        }
     }
 }

@@ -4,12 +4,12 @@ $category = new Categories($con);
 //$category->resetCategoryIncrement();
 ?>
 
-<section class="cz-addCategory">
+<section class="cz-categories">
             <h1>Kategorie</h1>
             <p>Tutaj możesz dodać nową kategorię, do której będziesz mógł przypisać słowo lub zwrot, np. Lekcja 1, Dom etc.</p>
         
         <div class="row">
-            <div class="col-md-6 cz-addCategory__form">
+            <div class="col-sm-6 col-md-6 cz-categories__form">
                 <h2>Dodaj</h2>
                 <form action="" method="POST">
                     <div class="form-group">
@@ -22,11 +22,13 @@ $category = new Categories($con);
             <?php 
                 $category->insertCategory();
             ?>
-            <div class="col-md-6">
+            <div class="col-sm-6 col-md-4">
                 <h2>Lista aktualnych kategorii</h2>
-                <?php 
-                    $category->displayCategories();
-                ?>
+                <div id="categoryList" class="cz-categories__container-list">
+                    <?php 
+                        $category->displayCategories();
+                    ?>
+                </div>
             </div>
         </div>
 </section>
