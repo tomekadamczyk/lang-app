@@ -1,6 +1,7 @@
 <?php 
 require_once './modules/class.categories.php';
 $category = new Categories($con);
+//$category->resetCategoryIncrement();
 ?>
 
 <section class="cz-addCategory">
@@ -23,6 +24,9 @@ $category = new Categories($con);
             ?>
             <div class="col-md-6">
                 <h2>Lista aktualnych kategorii</h2>
+                <?php 
+                    $category->displayCategories();
+                ?>
             </div>
         </div>
 </section>

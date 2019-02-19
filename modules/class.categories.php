@@ -29,19 +29,19 @@ class Categories {
            
     }
 
-    public function resetWordIncrement() {
+    public function resetCategoryIncrement() {
         $sql = mysqli_query($this->con, "SET @count = 0");
-        $sql = mysqli_query($this->con, "UPDATE `user_words` SET `user_words`.`id_words` = @count:= @count + 1");
+        $sql = mysqli_query($this->con, "UPDATE `topics` SET `topics`.`id_topics` = @count:= @count + 1");
 
-        $query = mysqli_query($this->con, "SELECT MAX(`id_words`) AS max FROM `user_words`");
+        $query = mysqli_query($this->con, "SELECT MAX(`id_topics`) AS max FROM `topics`");
         $row = mysqli_fetch_array( $query );
         $largestNumber = $row['max'];
 
-        $query2 = mysqli_query($this->con, "ALTER TABLE `user_words` AUTO_INCREMENT = $largestNumber");
+        $query2 = mysqli_query($this->con, "ALTER TABLE `topics` AUTO_INCREMENT = $largestNumber");
     }
 
 
-    public function displayLastAddedWords() {
+    public function displayCategories() {
         require_once 'class.account.php';
 
         $account = new Account($this->con);
@@ -51,11 +51,12 @@ class Categories {
             
         }
         $user = $account->getUserID($userLoggedIn);
-
-        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user' LIMIT 20");
-        if(mysqli_num_rows($query) > 1) {
+        $query = mysqli_query($this->con, "SELECT * FROM topics WHERE user='$user'");
+        $lp = 1;
+        if(mysqli_num_rows($query) > 0) {
             while ($data = $query->fetch_object()) {  
-                echo '<p><strong>'.$data->word.'</strong> - '.$data->translation.'</p>';
+                echo '<p><strong>'.$lp.'</strong> - '.$data->name.'</p>';
+                $lp++;
             }
         }
     }
@@ -114,6 +115,19 @@ class Categories {
         if(mysqli_num_rows($query) == 1) {
             while ($data = $query->fetch_object()) {   
                 return $data->name;
+            }
+        }
+        else {
+            return 'Brak powiązanego id';
+        }
+    }
+
+    public function getTopicId($id) {
+        
+        $query = mysqli_query($this->con, "SELECT * FROM topics WHERE id_topics='$id'");
+        if(mysqli_num_rows($query) == 1) {
+            while ($data = $query->fetch_object()) {   
+                return $data->id_topics;
             }
         }
         else {
