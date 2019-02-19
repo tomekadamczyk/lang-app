@@ -46,6 +46,10 @@ include('views/mainview/dashboard/menubar.php');
             case 4:
             include('views/words/phrases.php');
             break;
+            
+            case 5:
+            include('views/words/add-category.php');
+            break;
         }
     }
 ?>
