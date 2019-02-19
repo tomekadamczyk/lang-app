@@ -36,6 +36,7 @@ class Words {
            
     }
 
+
     public function resetWordIncrement() {
         $sql = mysqli_query($this->con, "SET @count = 0");
         $sql = mysqli_query($this->con, "UPDATE `user_words` SET `user_words`.`id_words` = @count:= @count + 1");

@@ -1,7 +1,7 @@
 <?php 
 require_once './modules/class.categories.php';
 $category = new Categories($con);
-//$category->resetCategoryIncrement();
+$category->resetCategoryIncrement();
 ?>
 
 <section class="cz-categories">
