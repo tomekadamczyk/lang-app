@@ -162,17 +162,81 @@ class Words {
 
         $lp = 1;
         $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user'");
-        if(mysqli_num_rows($query) > 1) {
+
+        $this->editWord();
+        if(mysqli_num_rows($query) > 0) {
             while ($data = $query->fetch_object()) { 
                 $level = $this->getLevelId($data->level); 
                 echo '<div class="cz-dictionary-word">';
-                echo '<p class="cz-dictionary-word__item"><span>'.$lp.'</span> <strong><span>'.$data->word.'</span> - </strong><span>'.$data->translation.'</span><span class="cz-dictionary-word__level"><small>'.$level.'</small></span></p>
+                echo '<p class="cz-dictionary-word__item"><span>'.$lp.'</span> <strong><span>'.$data->word.'</span> - </strong><span>'.$data->translation.'</span><span class="float-right ml-2"><a class="btn btn-sm btn-info cz-dictionary-word__edit" href="?id=3&edit='.$data->id_words.'">Edytuj</a></span><span class="cz-dictionary-word__level"><small>'.$level.'</small></span></p>
                 <p class="cz-dictionary-definition">'.$data->definition.'</p>';
                 echo '</div>';
                 $lp++;
             }
         }
     }
+
+    public function editWord() {
+        if(isset($_GET['edit'])) {
+            $word_id = $_GET['edit'];
+            $givenId = $this->getWordId($word_id);
+            $this->displayEditingWord($givenId);
+        }
+    }
+
+    public function displayEditingWord($id) {
+        require_once 'class.account.php';
+
+        $account = new Account($this->con);
+        
+        if(isset($_SESSION['userLoggedIn'])) {
+            $userLoggedIn = $_SESSION['userLoggedIn'];
+            
+        }
+        $user = $account->getUserID($userLoggedIn);
+
+
+        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user' AND id_words='$id'");
+        /* CHECKING DETAILED ERROR
+            var_dump(mysqli_error($this->con));
+        */
+        if(mysqli_num_rows($query) == 1){
+            $row = $query->fetch_assoc();
+        }
+            ?>
+                <form method="POST">
+                    <label for="editword"><?php echo $row['word']; ?></label>
+                    <input type="text" class="form-control" name="editword" id="editword" placeholder="Edytuj słowo">
+                    <label for="editword"><?php echo $row['translation']; ?></label>
+                    <input type="text" class="form-control" name="editranslation" id="edittranslation" placeholder="Edytuj tłumaczenie">
+                    <input type="submit" class="btn btn-sm btn-success" name="updateword" value="Zapisz">
+                </form>
+            <?php
+
+        if(isset($_POST['updateword'])){
+            $this->updateWord();
+        }
+    }
+
+    public function updateWord() {
+        require_once 'class.account.php';
+
+        $account = new Account($this->con);
+        
+        if(isset($_SESSION['userLoggedIn'])) {
+            $userLoggedIn = $_SESSION['userLoggedIn'];
+            
+        }
+        $user = $account->getUserID($userLoggedIn);
+
+        if(!empty($_GET['edit'])) {
+            $word = $_GET['edit'];
+                $update = mysqli_query($this->con, "UPDATE user_words SET word='".$_POST['editword']."', translation='".$_POST['editranslation']."' WHERE id_words='$word' AND user='$user'");
+        }
+        header("Location: index.php?id=3");
+    }
+
+    
     
     public function getLevelId($id) {
         
@@ -180,6 +244,19 @@ class Words {
         if(mysqli_num_rows($query) == 1) {
             while ($data = $query->fetch_object()) {   
                 return $data->name;
+            }
+        }
+        else {
+            return 'Brak powiązanego id';
+        }
+    }
+
+    public function getWordId($id) {
+        
+        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE id_words='$id'");
+        if(mysqli_num_rows($query) == 1) {
+            while ($data = $query->fetch_object()) {   
+                return $data->id_words;
             }
         }
         else {
