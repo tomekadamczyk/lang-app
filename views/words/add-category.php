@@ -1,7 +1,6 @@
 <?php 
 require_once './modules/class.categories.php';
 $category = new Categories($con);
-$category->resetCategoryIncrement();
 ?>
 
 <section class="cz-categories">
@@ -27,6 +26,7 @@ $category->resetCategoryIncrement();
                 <div id="categoryList" class="cz-categories__container-list">
                     <?php 
                         $category->displayCategories();
+                        $category->editCategory();
                     ?>
                 </div>
             </div>

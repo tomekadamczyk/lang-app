@@ -62,122 +62,42 @@ class Categories {
         $lp = 1;
         if(mysqli_num_rows($query) > 0) {
             while ($data = $query->fetch_object()) {  
-                echo '<p class="cz-categories__item"><span><strong>'.$lp.'</strong> - '.$data->name.'</span> <a class="btn btn-sm btn-danger" href="index.php?id=5&delete='.$data->id_topics.'">Usuń</a></p>';
+                echo '<p class="cz-categories__item"><span><strong>'.$lp.'</strong> - '.$data->name.'</span> <span><a class="btn btn-sm btn-info" href="index.php?id=5&edit='.$data->id_topics.'">Edytuj</a> <a class="btn btn-sm btn-danger" href="index.php?id=5&delete='.$data->id_topics.'">Usuń</a></span></p>';               
                 $lp++;
             }
         }
     }
 
-    public function generateWordForm() {
-        require_once 'class.account.php';
 
-
-        $account = new Account($this->con);
-        
-        if(isset($_SESSION['userLoggedIn'])) {
-            $userLoggedIn = $_SESSION['userLoggedIn'];
+    public function editCategory() {
+        if(!empty($_GET['edit'])) {
+            $topic_id = $_GET['edit'];
+            echo '<div id="categoryUpdate" class="cz-categories__update">
+                <form method="POST">
+                <input class="form-control my-2" type="text" name="newNameCategory" placeholder="Podaj nową nazwę kategorii">
+                <input type="submit" value="Zaktualizuj" name="updateCategory" class="btn btn-sm btn-success">
+                </form>
+                </div>';
         }
-
-        $user = $account->getUserID($userLoggedIn);
-        
-
-        $query = mysqli_query($this->con, "SELECT * FROM topics WHERE user='$user'");
-        echo '<form action="" method="POST">
-        <div id="newWordForm">
-        <input type="text" class="form-control my-2" id="slowo" name="slowo" placeholder="Dodaj nowe słowo">
-        <input type="text" class="form-control my-2" id="tlumaczenie" name="tlumaczenie" placeholder="Wpisz tłumaczenie">
-        
-        <textarea class="form-control my-2" name="definicja" placeholder="Wpisz definicję"></textarea>
-
-        <div class="input-group mb-3 ta-subject-select">
-        <div class="input-group-prepend">
-            <label class="input-group-text ta-subject-select__label" for="temat">Temat</label>
-        </div>';
-
-        if(mysqli_num_rows($query) > 0) {
-            echo '<select class="custom-select" name="temat" id="temat">';
-            (isset($_POST['temat'])) ? $temat = $_POST['temat'] : $temat='default';
-            echo '<option'?> <?php if ($temat == 'default' ) echo "selected='selected'"; ?> <?php echo 'value="default">Wybierz temat</option>';
-            while ($data = $query->fetch_object()) {  
-                echo '<option'?> <?php if ($temat == $data->id_topics) echo "selected='selected'"; ?> <?php echo 'value="'.$data->id_topics.'">'.$data->name.'</option>';
-            }
-            echo '</select>';
+        if(isset($_POST['updateCategory'])){
+            $this->updateCategory();
         }
-
-        echo '</div>
-
-            <div class="input-group mb-3 ta-subject-select">
-                <div class="input-group-prepend">
-                    <label class="input-group-text ta-subject-select__label" for="inputGroupSelect02">Poziom</label>
-                </div>
-                <select class="custom-select" name="level" id="inputGroupSelect02">';
-                (isset($_POST['level'])) ? $level = $_POST['level'] : $level='default';
-                ?>
-                    <option <?php if ($level == 'default' ) echo 'selected' ; ?> value="default">Wybierz poziom</option>
-                    <option <?php if ($level == 1 ) echo 'selected' ; ?> value="1">A</option>
-                    <option <?php if ($level == 2 ) echo 'selected' ; ?> value="2">B</option>
-                    <option <?php if ($level == 3 ) echo 'selected' ; ?> value="3">C</option>
-                    <?php
-
-               echo '</select>
-            </div>
-        <input type="submit" class="btn bg-primary text-white addNewWord" id="addWord" name="addWord" value="Dodaj nowe słowo">
-        </div>
-        </form>';
     }
 
-    public function generatePhraseForm() {
+    public function updateCategory() {
         require_once 'class.account.php';
-
 
         $account = new Account($this->con);
         
         if(isset($_SESSION['userLoggedIn'])) {
             $userLoggedIn = $_SESSION['userLoggedIn'];
-        }
-
-        $user = $account->getUserID($userLoggedIn);
-        
-
-        $query = mysqli_query($this->con, "SELECT * FROM topics WHERE user='$user'");
-        echo '<form action="" method="POST">
-        <div id="newPhraseForm">
-        <input type="text" class="form-control my-2" id="phrase" name="phrase" placeholder="Dodaj nowy zwrot">
-        <input type="text" class="form-control my-2" id="phraseTranslate" name="phraseTranslate" placeholder="Wpisz tłumaczenie">
-        
-        <div class="input-group mb-3 ta-subject-select">
-        <div class="input-group-prepend">
-            <label class="input-group-text ta-subject-select__label" for="inputGroupSelect01">Temat</label>
-        </div>';
-            if(mysqli_num_rows($query) > 0) {
-                echo '<select class="custom-select" name="temat" id="temat">';
-                (isset($_POST['temat'])) ? $temat = $_POST['temat'] : $temat='default';
-                echo '<option'?> <?php if ($temat == 'default' ) echo "selected='selected'"; ?> <?php echo 'value="default">Wybierz temat</option>';
-                while ($data = $query->fetch_object()) {  
-                    echo '<option'?> <?php if ($temat == $data->id_topics) echo "selected='selected'"; ?> <?php echo 'value="'.$data->id_topics.'">'.$data->name.'</option>';
-                }
-                echo '</select>';
-            }
             
-            echo '</div>
-                <div class="input-group mb-3 ta-subject-select">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text ta-subject-select__label" for="inputGroupSelect02">Poziom</label>
-                    </div>
-                    <select class="custom-select" name="level" id="inputGroupSelect02">';
-                    
-                    (isset($_POST['level'])) ? $level = $_POST['level'] : $level='default';
-                    ?>
-                        <option <?php if ($level == 'default' ) echo 'selected' ; ?> value="default">Wybierz poziom</option>
-                        <option <?php if ($level == 1 ) echo 'selected' ; ?> value="1">A</option>
-                        <option <?php if ($level == 2 ) echo 'selected' ; ?> value="2">B</option>
-                        <option <?php if ($level == 3 ) echo 'selected' ; ?> value="3">C</option>
-                        <?php
-                    echo '</select>
-                </div>
-                <input type="submit" class="btn bg-primary text-white addNewWord" id="addPhrase" name="addPhrase" value="Dodaj nowy zwrot">
-            </div>
-        </form> ';
+        }
+        $user = $account->getUserID($userLoggedIn);
+        if(!empty($_GET['edit'])) {
+            $topic_id = $_GET['edit'];
+                $update = mysqli_query($this->con, "UPDATE topics SET name='".$_POST['newNameCategory']."' WHERE id_topics='$topic_id' AND user='$user'");
+        }
     }
 
 

@@ -183,10 +183,8 @@ class Pagination{
         })
     }
 }
-const categoryList = document.querySelector('#categoryList');
-console.log(categoryList.childElementCount);
-console.log(categoryList);
 
+const categoryList = document.querySelector('#categoryList');
 const setScrolling = (el, elements) => {
     if(el.childElementCount > elements) {
         return el.classList.add('cz-categories__container-list--scroll');

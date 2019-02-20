@@ -3,9 +3,8 @@
 require_once './modules/config.php';
 require_once './modules/class.words.php';
 $word = new Words($con);
-require_once './modules/class.categories.php';
-$category = new Categories($con);
-$word->resetWordIncrement();
+require_once './modules/class.phrases.php';
+$phrase = new Phrase($con);
 ?>
 
 <!-- Modal -->
@@ -30,8 +29,8 @@ $word->resetWordIncrement();
                 </div>
                             
                       <?php
-                          $category->generateWordForm();
-                          $category->generatePhraseForm();
+                          $word->generateWordForm();
+                          $phrase->generatePhraseForm();
                           ?>
                       
                     
