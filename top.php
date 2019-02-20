@@ -1,5 +1,16 @@
 <?php
 include('modules/config.php');
+require_once 'modules/class.categories.php';
+require_once 'modules/class.words.php';
+require_once 'modules/class.phrases.php';
+
+$category = new Categories($con);
+$word = new Words($con);
+$phrase = new Phrase($con);
+
+$category->resetCategoryIncrement();
+$word->resetWordIncrement();
+$phrase->resetPhraseIncrement();
 ?>
 
 <!DOCTYPE html>

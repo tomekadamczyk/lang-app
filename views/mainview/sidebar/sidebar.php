@@ -31,6 +31,6 @@ include('views/words/add-word.php');
         <a href="index.php?id=4" class="cz-sidebar-link__item">Zwroty i wyrażenia</a>
     </div>
     <div class="cz-sidebar-link">
-        <a href="#" class="cz-sidebar-link__item">Ćwiczenie</a>
+        <a href="index.php?id=5" class="cz-sidebar-link__item">Kategorie</a>
     </div>
 </div>

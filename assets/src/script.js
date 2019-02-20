@@ -184,6 +184,15 @@ class Pagination{
     }
 }
 
+const categoryList = document.querySelector('#categoryList');
+const setScrolling = (el, elements) => {
+    if(el.childElementCount > elements) {
+        return el.classList.add('cz-categories__container-list--scroll');
+    }
+}
+
+setScrolling(categoryList, 8);
+
 const wordRow = document.querySelectorAll(".cz-dictionary-word");
 const wordItems = wordRow.length;
 const page = new Pagination(wordItems, 1);
