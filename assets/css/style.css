@@ -6546,6 +6546,9 @@ a.text-dark:hover, a.text-dark:focus {
   position: relative; }
   .cz-dictionary .cz-dictionary-table__col:first-child {
     width: 30px; }
+  .cz-dictionary .cz-dictionary-table__content {
+    max-height: 570px;
+    overflow: scroll; }
   .cz-dictionary .cz-dictionary-table .cz-dictionary-word {
     transition-duration: 0.1s;
     position: relative;

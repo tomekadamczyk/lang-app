@@ -17,14 +17,13 @@ $word->resetWordIncrement();
                 </div>
                 <div class="input-group mb-3 cz-dictionary-search-word">
                     <div class="input-group-prepend">
-                        <button type="button" class="input-group-text text-white bg-warning" id="searchWordButton">Szukaj</button>
+                        <span type="button" class="input-group-text text-white bg-warning" id="searchWordButton">Szukaj</span>
                     </div>
                     <input type="text" class="form-control" id="cz-dictionary-search-word" class="float-right cz-dictionary-search-word">
                 </div>
-                <div id="searchResults"></div>
                 <hr>
             </div>
-            <div id="cz-dictionary-table__content">
+            <div>
                 <div class="row">
                     <div class="col-md-2">
                         <h3>Kategorie</h3>
@@ -34,19 +33,19 @@ $word->resetWordIncrement();
                             ?>
                         </div>
                     </div>
-                    <div id="dictionary" class="col-md-10">
+                    <div id="dictionary" class="col-md-10 cz-dictionary-table__content">
                         <?php $word->displayDictionary() ?>
                     </div>
                 </div>
             </div>
-            <div class="cz-pagination">
+            <!--<div class="cz-pagination">
                 <ul>
                     <li id="prevPage" class="cz-pagination__item cz-pagination__control">Poprzednia strona</li>
                     <li class="cz-pagination__item">1</li>
                     <li class="cz-pagination__item">2</li>
                     <li id="nextPage" class="cz-pagination__item cz-pagination__control">Następna strona</li>
                 </ul>
-            </div>
+            </div>-->
         </div>
     </div>
 </section>

@@ -41,7 +41,6 @@ include('views/mainview/dashboard/menubar.php');
 
             case 3:
             include('views/words/dictionary.php');
-            ?><script src="views/words/pagination.js"></script><?php
             break;
 
             case 4:
@@ -56,6 +55,7 @@ include('views/mainview/dashboard/menubar.php');
 ?>
 </section>
 
+<script src="views/words/pagination.js"></script>
 <script src="assets/src/script.js"></script>
 <script src="assets/src/requests.js"></script>
 <script src="assets/src/hangman.js"></script>
