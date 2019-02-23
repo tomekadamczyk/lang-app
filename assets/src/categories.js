@@ -56,21 +56,3 @@ Promise.all([getCategory(), showAll()]).then((valArray) => {
     }
     getCategoryValue()
 })
-
-// getCategory().then((result) => {
-//     result.forEach(topic => {
-//         console.log(topic);
-//         return Promise.all([prom, otherValue]);
-//     })
-// }).then(
-// showAll().then((result) => {
-//     result.forEach(word => {
-//         console.log(word)
-//     })
-// }))
-
-//getWordFromCategory();
-
-// const checkbox = document.querySelectorAll('.cz-categories-check');
-// console.log(checkbox);
-

@@ -26,7 +26,7 @@ $word->resetWordIncrement();
             </div>
             <div id="cz-dictionary-table__content">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <h3>Kategorie</h3>
                         <div id="selectCategories2" class="cz-categories__container-list">
                             <?php 
@@ -34,7 +34,7 @@ $word->resetWordIncrement();
                             ?>
                         </div>
                     </div>
-                    <div id="dictionary" class="col-md-9">
+                    <div id="dictionary" class="col-md-10">
                         <?php $word->displayDictionary() ?>
                     </div>
                 </div>
