@@ -19,7 +19,7 @@ class Categories {
         $user = $account->getUserID($userLoggedIn);
         
         if(isset($_POST['addcategory'])){
-            $query = mysqli_query($this->con, "INSERT INTO topics VALUES ('','".$_POST['categoryname']."', '$user')");
+            $query = mysqli_query($this->con, "INSERT INTO topics VALUES ('','".$_POST['categoryname']."', '$user', 1)");
                 
             if(!$query) {
                 echo 'Wystąpił błąd podczas dodawania';
@@ -68,6 +68,86 @@ class Categories {
         }
     }
 
+    public function displayCategoriesInDictionary() {
+        require_once 'class.account.php';
+
+
+        $account = new Account($this->con);
+        
+        if(isset($_SESSION['userLoggedIn'])) {
+            $userLoggedIn = $_SESSION['userLoggedIn'];
+        }
+
+        $user = $account->getUserID($userLoggedIn);
+
+        $query = mysqli_query($this->con, "SELECT * FROM topics WHERE user='$user'");
+        if(mysqli_num_rows($query) > 0) {
+            echo '<form method="POST">';
+            while ($data = $query->fetch_object()) { 
+
+                $id = $this->getTopicId($data->id_topics);
+                $checking = $data->checked;
+                if($data->checked == 1) { 
+                    $check ='checked';
+                } 
+                if($data->checked == 0) {
+                    $check = 'unchecked';
+                }
+                //$namePost = "dictCategory$id";
+                echo '<div class="cz-categories__item">
+                            <label for="dictCategory[]">'.$data->name.'</label>
+                            <input class="cz-categories-check check-word-'.$id.'" type="checkbox" name="dictCategory[]" value="'.$id.'" '.$check.'></div>';
+                            // $check = $_POST["dictCategory".$data->id_topics.""];
+        echo $this->checkCategory($id);
+
+                }
+            echo '<input name="selectCategories" type="submit" class="btn btn-sm btn-success mt-2" value="Zapisz">';
+            
+            echo '</form>';
+                
+        }
+    }    
+
+    public function checkCategory($id) {
+        require_once 'class.account.php';
+
+
+        $account = new Account($this->con);
+        
+        if(isset($_SESSION['userLoggedIn'])) {
+            $userLoggedIn = $_SESSION['userLoggedIn'];
+        }
+
+        $user = $account->getUserID($userLoggedIn);
+        //$namePost = 'dictCategory'.$id.'';
+        if(isset($_POST['selectCategories'])) {
+                if(!empty($_POST['dictCategory'])) {
+                    foreach ($_POST['dictCategory'] as $category) {
+                            echo $category;
+                            echo "UPDATE topics SET checked=$category WHERE id_topics='$id' AND user='$user'"; echo '<br>';
+                            $query = mysqli_query($this->con, "UPDATE topics SET checked=0 WHERE id_topics='$id' AND user='$user'");
+                        
+                    }
+                }
+                else {
+                    foreach ($_POST['dictCategory'] as $category) {
+                            echo $category;
+                            echo "UPDATE topics SET checked=$category WHERE id_topics='$id' AND user='$user'"; echo '<br>';
+                            $query = mysqli_query($this->con, "UPDATE topics SET checked=1 WHERE id_topics='$id' AND user='$user'");
+                        
+                    }
+                }
+                    // $query = mysqli_query($this->con, "UPDATE topics SET checked=$_POST[$namePost] WHERE user='$user' AND id_topics='$id'");
+                
+                }
+            }
+        
+    
+        
+        
+        
+    
+
 
     public function editCategory() {
         if(!empty($_GET['edit'])) {
@@ -83,6 +163,7 @@ class Categories {
             $this->updateCategory();
         }
     }
+    
 
     public function updateCategory() {
         require_once 'class.account.php';
@@ -94,6 +175,8 @@ class Categories {
             
         }
         $user = $account->getUserID($userLoggedIn);
+
+
         if(!empty($_GET['edit'])) {
             $topic_id = $_GET['edit'];
                 $update = mysqli_query($this->con, "UPDATE topics SET name='".$_POST['newNameCategory']."' WHERE id_topics='$topic_id' AND user='$user'");
@@ -103,7 +186,7 @@ class Categories {
 
 
 
-    public function getWordsToJson() {
+    public function getCategoriesToJson() {
         require_once 'class.account.php';
 
         $account = new Account($this->con);
@@ -114,7 +197,7 @@ class Categories {
         }
         $user = $account->getUserID($userLoggedIn);
 
-        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user' ORDER BY RAND()");
+        $query = mysqli_query($this->con, "SELECT * FROM topics WHERE user='$user'");
         while($row = mysqli_fetch_object($query)) {
             $rows[] = $row;
         }

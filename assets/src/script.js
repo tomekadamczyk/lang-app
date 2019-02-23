@@ -96,7 +96,6 @@ class Pagination{
         }
         
         const search = document.getElementById("cz-dictionary-search-word");
-        console.log(search)
         searchResults.innerHTML = '';
         searchWordButton.addEventListener('click', function() {
             searchResults.innerHTML = '';
@@ -184,16 +183,29 @@ class Pagination{
     }
 }
 
-const categoryList = document.querySelector('#categoryList');
+
+const categoryList = document.getElementById('selectCategories');
+const categoryList2 = document.getElementById('selectCategories2');
+//const selectCategory = document.getElementById('selectCategory');
+
 const setScrolling = (el, elements) => {
     if(el.childElementCount > elements) {
-        return el.classList.add('cz-categories__container-list--scroll');
+        el.classList.add('cz-categories__container-list--scroll');
     }
 }
+const getSetScrolling = () => {
+   setScrolling(categoryList, 8);
+   setScrolling(categoryList2, 8);
+}
+getSetScrolling();
 
-setScrolling(categoryList, 8);
+//setScrolling(selectCategory, 8);
 
 const wordRow = document.querySelectorAll(".cz-dictionary-word");
 const wordItems = wordRow.length;
 const page = new Pagination(wordItems, 1);
-page.displayItemsOnPage();
+const setPagination = () => {
+    page.displayItemsOnPage();
+}
+
+setPagination();

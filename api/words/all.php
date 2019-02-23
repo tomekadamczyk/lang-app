@@ -8,6 +8,6 @@ include_once '../../modules/class.words.php';
 
 $word = new Words($con);
 
-$displayJsonWords = $word->getWordsToJson();
+$displayJsonWords = $word->getAllWordsToJson();
 
 echo $displayJsonWords;
