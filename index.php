@@ -57,6 +57,7 @@ include('views/mainview/dashboard/menubar.php');
 <script src="assets/src/script.js"></script>
 <script src="assets/src/requests.js"></script>
 <script src="assets/src/hangman.js"></script>
+<script src="assets/src/categories.js"></script>
 
 <?php
 include('footer.php');

@@ -126,7 +126,7 @@ class Words {
         }
     }
 
-    public function getWordsToJson() {
+    public function getRandomWordToJson() {
         require_once 'class.account.php';
 
         $account = new Account($this->con);
@@ -149,6 +149,24 @@ class Words {
         // }
     }
 
+    public function getAllWordsToJson() {
+        require_once 'class.account.php';
+
+        $account = new Account($this->con);
+        
+        if(isset($_SESSION['userLoggedIn'])) {
+            $userLoggedIn = $_SESSION['userLoggedIn'];
+            
+        }
+        $user = $account->getUserID($userLoggedIn);
+
+        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user'");
+        while($row = mysqli_fetch_object($query)) {
+            $rows[] = $row;
+        }
+        return json_encode($rows);
+    }
+
     public function displayDictionary() {
         require_once 'class.account.php';
 
@@ -161,13 +179,13 @@ class Words {
         $user = $account->getUserID($userLoggedIn);
 
         $lp = 1;
-        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user'");
+        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user' AND topic in (SELECT id_topics FROM topics WHERE checked=1)");
 
         $this->editWord();
         if(mysqli_num_rows($query) > 0) {
             while ($data = $query->fetch_object()) { 
                 $level = $this->getLevelId($data->level); 
-                echo '<div class="cz-dictionary-word">';
+                echo '<div class="cz-dictionary-word cz-dictionary-item-'.$data->topic.'">';
                 echo '<p class="cz-dictionary-word__item"><span>'.$lp.'</span> <strong><span>'.$data->word.'</span> - </strong><span>'.$data->translation.'</span><span class="float-right ml-2"><a class="btn btn-sm btn-info cz-dictionary-word__edit" href="?id=3&edit='.$data->id_words.'">Edytuj</a></span><span class="cz-dictionary-word__level"><small>'.$level.'</small></span></p>
                 <p class="cz-dictionary-definition">'.$data->definition.'</p>';
                 echo '</div>';

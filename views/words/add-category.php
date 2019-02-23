@@ -23,7 +23,7 @@ $category = new Categories($con);
             ?>
             <div class="col-sm-6 col-md-4">
                 <h2>Lista aktualnych kategorii</h2>
-                <div id="categoryList" class="cz-categories__container-list">
+                <div id="selectCategories" class="cz-categories__container-list">
                     <?php 
                         $category->displayCategories();
                         $category->editCategory();

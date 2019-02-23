@@ -1,6 +1,8 @@
 <?php
 require_once './modules/config.php';
 require_once './modules/class.words.php';
+require_once './modules/class.categories.php';
+$category = new Categories($con);
 $word = new Words($con);
 $word->resetWordIncrement();
 
@@ -23,7 +25,19 @@ $word->resetWordIncrement();
                 <hr>
             </div>
             <div id="cz-dictionary-table__content">
-                <?php $word->displayDictionary() ?>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Kategorie</h3>
+                        <div id="selectCategories2" class="cz-categories__container-list">
+                            <?php 
+                                $category->displayCategoriesInDictionary();
+                            ?>
+                        </div>
+                    </div>
+                    <div id="dictionary" class="col-md-9">
+                        <?php $word->displayDictionary() ?>
+                    </div>
+                </div>
             </div>
             <div class="cz-pagination">
                 <ul>
