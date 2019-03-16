@@ -6,10 +6,11 @@
 @import 'custom/dashboard.scss';
 @import 'custom/flashcards.scss';
 @import 'custom/useraccount-forms.scss';
-@import 'custom/dictionary.scss';
+@import 'custom/datacontent.scss';
 @import 'custom/modal.scss';
 @import 'custom/pagination.scss';
 @import 'custom/hangman.scss';
+@import 'custom/flashcards-test.scss';
 
 body {
     background: $gray-200;
@@ -17,23 +18,33 @@ body {
     height: 100vh;
     width: 100%;
     background-attachment: fixed;
+
+    @include media-breakpoint-down(lg) {
+        font-size: 90%;
+    }
 }
 
 .cz-categories {
-    padding: 0 15px;
+    background: $gray-100;
+    padding: 20px 15px;
+    margin-top: 20px;
 
     &__form {
-        
+        margin-bottom: 30px;
     }
 
     &__item {
-        background: rgba(255,255,255,.5);
         padding: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid $gray-400;
         margin-bottom: 0;
+
+        @include media-breakpoint-down(sm) {
+            border-bottom: none;
+            display: inline-block;
+        }
     }
 
     &__container-list {
@@ -41,7 +52,48 @@ body {
         &--scroll {
             max-height: 400px;
             overflow: scroll;
+            font-size: $font-size-sm;
         }
     }
 
+    &__phrasespage {
+
+        .cz-categories__item {
+            display: flex!important;
+        }
+    }
+
+}
+
+.cz-edit-form {
+    padding: 10px;
+    label {
+        margin: 10px 0;
+        font-style: italic;
+    }
+
+    .btn {
+        margin: 10px;
+    }
+}
+
+.edit-icon {
+
+    &:hover {
+        color: $gray-100;
+    }
+}
+
+.no-margin {
+    margin: 0 -15px;
+}
+
+.logo-mobile {
+    position: absolute;
+    left: 0;
+    top: -20px;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
 }

@@ -1,8 +1,11 @@
-.cz-dictionary {
+.cz-datacontent {
     z-index: 8000;
     position: relative;
+    background: $gray-100;
+    padding: 20px 0;
+    margin-top: 20px;
 
-    .cz-dictionary-table {
+    .cz-datacontent-table {
         &__col {
             &:first-child {
                 width: 30px;
@@ -12,9 +15,11 @@
         &__content {
             max-height: 570px;
             overflow: scroll;
+            margin: 0 -15px;
+            border-left: 1px solid $gray-400;
         }
 
-        .cz-dictionary-word {
+        .cz-datacontent-word {
             transition-duration: 0.1s;
             position: relative;
             padding: 10px;
@@ -24,19 +29,36 @@
 
             p {
                 margin-bottom: 0;
+
+                @include media-breakpoint-down(sm) {
+                    font-size: 12px;
+                }
             }
 
             &:hover {
-                background: $gray-600;
+                background: $secondary;
                 color: $white;
             }
 
             &__level {
                 float: right;
+
+                @include media-breakpoint-down(lg) {
+                    display: none;
+                }
+            }
+
+            &__edit {
+                
+                &:hover {
+                    i {
+                        color: $gray-100;
+                    }
+                }
             }
         }
 
-        .cz-dictionary-definition {
+        .cz-datacontent-definition {
             opacity: 0;
             position: absolute;
             left: 200px;
@@ -51,10 +73,15 @@
             transition-delay: 0.1s;
             transform: translateX(10%);
 
+            @include media-breakpoint-down(sm) {
+                left: 30px;
+                max-width: 240px;
+            }
+
         }
     }
 
-    .cz-dictionary-search-word {
+    .cz-datacontent-search-word {
         justify-content: right;
 
         input {

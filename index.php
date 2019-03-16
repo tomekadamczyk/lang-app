@@ -50,6 +50,10 @@ include('views/mainview/dashboard/menubar.php');
             case 5:
             include('views/words/add-category.php');
             break;
+
+            case 6:
+            include('views/test/flashcards-test.php');
+            break;
         }
     }
 ?>
@@ -60,6 +64,7 @@ include('views/mainview/dashboard/menubar.php');
 <script src="assets/src/requests.js"></script>
 <script src="assets/src/hangman.js"></script>
 <script src="assets/src/categories.js"></script>
+<script src="assets/src/flashcards-test.js"></script>
 
 <?php
 include('footer.php');

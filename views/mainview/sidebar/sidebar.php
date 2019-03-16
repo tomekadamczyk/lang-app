@@ -3,7 +3,7 @@ include('views/words/add-word.php');
 ?>
 
 <div class="cz-sidebar">
-<a href="index.php">
+<a href="index.php" class="logo">
 <div class="logo-transformed">
     <span class="logo-dot logo-dot--white"></span>
     <span class="logo-dot logo-dot--red"></span>
@@ -18,6 +18,14 @@ include('views/words/add-word.php');
             </div>
             <div class="cz-sidebar-link-dropdown-link">
                 <a href="index.php?id=2" class="cz-sidebar-link-dropdown__item">Wisielec</a>
+            </div>
+        </div>
+    </div>
+    <div class="cz-sidebar-link">
+        <a href="#" class="cz-sidebar-link__item">Testy</a>
+        <div class="cz-sidebar-link-dropdown">
+            <div class="cz-sidebar-link-dropdown-link">
+                <a href="index.php?id=6" class="cz-sidebar-link-dropdown__item">Fiszki</a>
             </div>
         </div>
     </div>

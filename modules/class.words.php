@@ -185,9 +185,9 @@ class Words {
         if(mysqli_num_rows($query) > 0) {
             while ($data = $query->fetch_object()) { 
                 $level = $this->getLevelId($data->level); 
-                echo '<div class="cz-dictionary-word cz-dictionary-item-'.$data->topic.'">';
-                echo '<p class="cz-dictionary-word__item"><span>'.$lp.'</span> <strong><span>'.$data->word.'</span> - </strong><span>'.$data->translation.'</span><span class="float-right ml-2"><a class="btn btn-sm btn-info cz-dictionary-word__edit" href="?id=3&edit='.$data->id_words.'">Edytuj</a></span><span class="cz-dictionary-word__level"><small>'.$level.'</small></span></p>
-                <p class="cz-dictionary-definition">'.$data->definition.'</p>';
+                echo '<div class="cz-datacontent-word cz-datacontent-item-'.$data->topic.'">';
+                echo '<p class="cz-datacontent-word__item"><span>'.$lp.'</span> <strong><span>'.$data->word.'</span> - </strong><span>'.$data->translation.'</span><span class="float-right ml-2"><a class="cz-datacontent-word__edit" href="?id=3&edit='.$data->id_words.'"><i class="far fa-edit"></i></a></span><span class="cz-datacontent-word__level"><small>'.$level.'</small></span></p>
+                <p class="cz-datacontent-definition">'.$data->definition.'</p>';
                 echo '</div>';
                 $lp++;
             }
@@ -222,11 +222,13 @@ class Words {
             $row = $query->fetch_assoc();
         }
             ?>
-                <form method="POST">
-                    <label for="editword"><?php echo $row['word']; ?></label>
+                <form method="POST" class="cz-edit-form">
+                    <label for="editword">"<?php echo $row['word']; ?>"</label>
                     <input type="text" class="form-control" name="editword" id="editword" placeholder="Edytuj słowo">
-                    <label for="editword"><?php echo $row['translation']; ?></label>
+                    <label for="editranslation">"<?php echo $row['translation']; ?>"</label>
                     <input type="text" class="form-control" name="editranslation" id="edittranslation" placeholder="Edytuj tłumaczenie">
+                    <label for="editdefinition">"<?php echo $row['definition']; ?>"</label>
+                    <input type="text" class="form-control" name="editdefinition" id="editdefinition" placeholder="Edytuj definicję">
                     <input type="submit" class="btn btn-sm btn-success" name="updateword" value="Zapisz">
                 </form>
             <?php
@@ -249,7 +251,7 @@ class Words {
 
         if(!empty($_GET['edit'])) {
             $word = $_GET['edit'];
-                $update = mysqli_query($this->con, "UPDATE user_words SET word='".$_POST['editword']."', translation='".$_POST['editranslation']."' WHERE id_words='$word' AND user='$user'");
+                $update = mysqli_query($this->con, "UPDATE user_words SET word='".$_POST['editword']."', translation='".$_POST['editranslation']."', definition='".$_POST['editdefinition']."' WHERE id_words='$word' AND user='$user'");
         }
         header("Location: index.php?id=3");
     }

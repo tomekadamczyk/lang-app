@@ -18,7 +18,7 @@ showWordForm.addEventListener('click', function() {
 
 
 const showDefinition = () => {
-    const word = document.querySelectorAll(".cz-dictionary-word");
+    const word = document.querySelectorAll(".cz-datacontent-word");
     word.forEach(element => {
         let click = false;
         element.addEventListener('click', function() {
@@ -38,8 +38,8 @@ const showDefinition = () => {
 showDefinition();
 
 const searchWord = () => {
-    const wordRow = document.querySelectorAll(".cz-dictionary-word");
-    const search = document.getElementById("cz-dictionary-search-word");
+    const wordRow = document.querySelectorAll(".cz-datacontent-word");
+    const search = document.getElementById("cz-datacontent-search-word");
     search.addEventListener('input', function(e) {
         wordRow.forEach(word => {
             word.style.display = 'none';
@@ -53,7 +53,48 @@ const searchWord = () => {
 
 }
 
+let getMobileMenu = document.getElementById('getMobileMenu');
+let mobileMenu = document.getElementById('mobileMenu');
+
+const showMobileMenu = (element, clicker) => {
+    let click = 0;
+    clicker.addEventListener('click', function() {
+        element.style.display = 'block';
+        clicker.classList.add('active');
+        click++;
+        
+        if(click === 2) {
+            element.style.display = 'none';
+            clicker.classList.remove('active');
+            click = 0;
+        }
+    });
+}
+
+
+showMobileMenu(mobileMenu, getMobileMenu);
+
+let menuDropdown = document.querySelectorAll('.cz-menubar-mainmenu-link-dropdown');
+let categoryDropdown = document.querySelectorAll('.toggleDropdown');
+let click = 0;
+const showDropdown = (list) => {
+    list.forEach(item => {
+        item.addEventListener('click', function() {
+            item.classList.add('active');
+            click++;
+            if (click === 2) {
+                item.classList.remove('active');
+                click = 0;
+            }
+        })
+    })
+}
+
+showDropdown(menuDropdown);
+showDropdown(categoryDropdown);
+
 searchWord();
+
 
 const categoryList = document.getElementById('categoryList');
 
@@ -65,8 +106,7 @@ const setScrolling = (el, elements) => {
 
 setScrolling(categoryList, 8);
 
-
-// const wordRow = document.querySelectorAll(".cz-dictionary-word");
+// const wordRow = document.querySelectorAll(".cz-datacontent-word");
 // const wordItems = wordRow.length;
 // const page = new Pagination(wordItems, 1);
 // page.displayItemsOnPage();

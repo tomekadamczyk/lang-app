@@ -1,19 +1,114 @@
 
 .cz-menubar {
-    background: lighten($gray-700,65%);
-    color: $gray-900;
+    background: $primary;
+    color: $gray-100;
     padding: 15px 20px;
+    position: relative;
 
-    div {
-        margin-left: 15px;
+    @include media-breakpoint-up(xl) {
+        background: $gray-100;
+        color: $gray-900;
     }
+
+    &-hamburger {
+        cursor: pointer;
+        float: right;
+        margin-top: -3px;
+
+        &.active {
+            
+            .cz-menubar-hamburger-toggle {
+                border-color: $orange;
+                padding: 14px 10px;
+
+                &__line {
+                    background: $orange;
+                    
+                    &:first-child {
+                        transform: rotate(45deg);
+                        margin-bottom: -5px;
+                    }
+
+                    &:nth-child(2) {
+                        visibility: hidden;
+                    }
+
+                    &:last-child {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-up(xl) {
+            display: none;
+        }
+
+        &-toggle {
+            border: 1px solid $gray-100;
+            border-radius: 5px;
+            padding: 10px;
+            display: inline-block;
+            transition-duration: .2s;
+    
+            &__line {
+                left: 0;
+                width: 20px;
+                height: 1px;
+                background: $gray-100;
+                margin-bottom: 3px;
+    
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
 
     &__user {
         display: inline-block;
+        margin-right: 15px;
+        vertical-align: middle;
 
         span {
             float: left;
         }
+    }
+
+    .cz-menubar-mainmenu {
+        display: none;
+        margin-top: 30px;
+
+        &-link {
+            padding: 10px;
+
+            &__item {
+                color: $gray-100;
+            }
+
+            &-dropdownlist {
+                margin-left: 10px;
+                display: none;
+    
+                &-link {
+                    padding: 10px;
+                }
+            }
+
+            &.active {
+
+               .cz-menubar-mainmenu-link-dropdownlist {
+                    display: block;
+
+                    &__item {
+                        color: $gray-100;
+                    }
+                }
+            }
+        }
+
+        
     }
 
     .cz-menubar-options {
@@ -55,8 +150,6 @@
             &:last-child {
                 margin-bottom: 0;
             }
-        }
-
-        
+        }        
     }
 }

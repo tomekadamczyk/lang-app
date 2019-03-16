@@ -3,13 +3,17 @@
     float: left;
     position: fixed;
     height: 100vh;
-    background: darken($primary, 20%);
+    background: $primary;
     text-align: left;
     width: 180px;
     z-index: 99999;
     
     @include media-breakpoint-up(xl) {
         width: 240px;
+    }
+
+    @include media-breakpoint-down(lg) {
+        display: none;
     }
 
     .cz-sidebar-link {
@@ -21,9 +25,10 @@
 
         &:hover {
             background: darken($primary, 10%);
+            
             .cz-sidebar-link-dropdown {
-                opacity: 1;
-                transform: translateX(0);
+                visibility: visible;
+                left: 100%;
             }
         }
 
@@ -38,12 +43,11 @@
         }
 
         .cz-sidebar-link-dropdown {
-            opacity: 0;
+            visibility: hidden;
             transition-duration: 0.15s;
             transition-delay: 0.2s;
-            transform: translateX(-70%);
             position: absolute;
-            right: -97px;
+            left: -100%;
             top: 8px;
             z-index: 99999;
 

@@ -1,0 +1,22 @@
+.cz-points {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.cz-time-left {
+    display: block;
+    margin: 20px 0;
+}
+
+.cz-next-word {
+    visibility: hidden;
+    top: 10px;
+    position: relative;
+    transition-duration: .2s;
+
+    &.active {
+        visibility: visible;
+        top: 0;
+    }
+}

@@ -1,11 +1,13 @@
 
 .cz-flashcards {
-    padding: 10px;
+    background: $gray-100;
+    padding: 20px 0;
+    margin-top: 20px;
 
     &__card {
         background: rgba(255,255,255,0.5);
         padding: 50px 0;
-        margin-top: 100px;
+        margin-top: 30px;
     }
     
     .cz-flashcards-to-translate {
@@ -18,12 +20,12 @@
         color: $white;
 
         &--word {
-            background: $orange;
+            background: $secondary;
             display: block;
         }
 
         &--translation {
-            background: $green;
+            background: $info;
             display: none;
         }
 

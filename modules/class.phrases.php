@@ -131,8 +131,8 @@ class Phrase {
         if(mysqli_num_rows($query) > 0) {
             while ($data = $query->fetch_object()) { 
                 $level = $word->getLevelId($data->level); 
-                echo '<div class="cz-dictionary-word">';
-                echo '<p class="cz-dictionary-word__item"><span>'.$lp.'</span> <strong><span>'.$data->phrase.'</span> - </strong><span>'.$data->translation.'</span><span class="cz-dictionary-word__level"><small>'.$level.'</small></span></p>';
+                echo '<div class="cz-datacontent-word">';
+                echo '<p class="cz-datacontent-word__item"><span>'.$lp.'</span> <strong><span>'.$data->phrase.'</span> - </strong><span>'.$data->translation.'</span><span class="cz-datacontent-word__level"><small>'.$level.'</small></span></p>';
                 echo '</div>';
                 $lp++;
             }
