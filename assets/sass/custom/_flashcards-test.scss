@@ -1,3 +1,18 @@
+.cz-flashcards-to-translate {
+    &.empty {
+        opacity: 0;
+        transition-duration: .5s;
+        transition-delay: .3s;
+        position: relative;
+        top: -30%;
+    }
+
+    &.active {
+        opacity: 1;
+        top: 0;
+    }
+}
+
 .cz-points {
     position: absolute;
     left: 10px;
@@ -21,4 +36,19 @@
     position: absolute;
     transition-duration: .2s;
     right: 10px;
+}
+
+#cz-flashcards-test-scores {
+    transition-duration: .3s;
+    &.inactive {
+        display: none;
+    }
+
+    .cz-flashcard-score {
+        color: $red;
+    
+        &.active {
+            color: $green;
+        }
+    }
 }

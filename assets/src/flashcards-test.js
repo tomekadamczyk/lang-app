@@ -4,6 +4,8 @@ let typeWord = document.querySelector('#typeWord');
 let nextWord = document.querySelector('#all-words');
 let achievedPoints = document.querySelector('#achieved-points');
 let timeLeft = document.querySelector('#time-left');
+let scoreTable = document.querySelector('#score-table');
+let testScoresTable = document.querySelector('#cz-flashcards-test-scores');
 
 
 class Test {
@@ -11,6 +13,7 @@ class Test {
         this.seconds = 10;
         this.word = word;
         this.interval = 0;
+        this.finished = false;
     }
 
     setTime() {
@@ -66,11 +69,14 @@ class Test {
 let counting;
 
 let points = 0;
-let hit = false;
 let words = 10;
 let allWords = 10;
-let all = [];
 let valid = [];
+let hit;
+let scores = [];
+let word;
+let col1;
+let lp;
 
 const startTest = async() => {
     let test = await showWord();
@@ -84,15 +90,46 @@ const startTest = async() => {
     if(words === 0) {
         endGame();
     }     
-
-    all.push(counting.word);
-    console.log(all);
-    console.log(valid)
+    word = Object.create(null);
+    word.word = counting.word.word;
+    word.hit = false;
+    word.class = 'missed';
+    scores.push(word);
+    generateWordScore();
+    generateTranslation(); 
 }
 
-timeLeft.addEventListener('click', startTest);
+const generateWordScore = () => {
+    col1 = document.createElement('tr');
+    col1.classList.add('cz-flashcard-score');
+    let cell1 = document.createElement('td');
+    cell1.textContent = counting.word.word;
+    col1.appendChild(cell1);
+    scoreTable.appendChild(col1);
+}
+
+const generateTranslation = () => {
+    let cell2 = document.createElement('td');
+    cell2.textContent = counting.word.translation;
+    cell2.style.color = '#000';
+    col1.appendChild(cell2);
+    scoreTable.appendChild(col1);
+}
+
+timeLeft.addEventListener('click', function() {
+    getWord.classList.add('active');
+    startTest();
+});
 
 const endGame = () => {
+    counting.finished = true;
+    
+    if(counting.finished === true) {
+        counting.word.word = null;
+        counting.word.translation = null;
+    }
+    
+    getWord.textContent = '';
     clearInterval(counting.interval)
     counting.clear();
     alert('Koniec testu, sprawdź swoje odpowiedzi :)')
@@ -100,10 +137,11 @@ const endGame = () => {
     timeLeft.style.visibility = 'hidden';
     flashcardContent(getWord, flashcard.finish);
     addBackgroundColor(getWord, '#fd7e14');
+    testScoresTable.classList.remove('inactive');   
 }
 
 const flashcard = {
-    start: 'Rozpocznij test',
+    start: ' s',
     finish: 'Koniec testu'
 }
 
@@ -119,6 +157,10 @@ typeWord.addEventListener('input', function(e) {
     if(e.target.value === counting.word.translation) {
         points++;
         words--;
+        word.hit = true;
+        word.class = 'active'; 
+        col1.classList.add(word.class)
+
         nextWord.textContent = words + "/" + allWords;
         achievedPoints.textContent = points;
         clearImmediate(counting.interval);
@@ -129,9 +171,9 @@ typeWord.addEventListener('input', function(e) {
     }
 })
 
+
 const renderNewWord = () => {
     getWord.textContent = counting.getWord();
 }
 
 flashcardContent(getWord, flashcard.start);
-addBackgroundColor(getWord, '#28a745');

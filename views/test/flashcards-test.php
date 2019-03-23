@@ -10,14 +10,25 @@
                     <div class="cz-all-words">
                         Liczba słów: <span id="all-words">10/10</span>
                     </div>
-                    <div id="flash-word" class="cz-flashcards-to-translate cz-flashcards-to-translate--word"></div>
+                    <div id="flash-word" class="cz-flashcards-to-translate cz-flashcards-to-translate--word empty"></div>
                     <div class="cz-translate-the-word mt-3">
-                        <span class="cz-time-left" id="time-left">Start</span>
+                        <span class="cz-time-left" id="time-left">Rozpocznij test</span>
                         <label for="typeWord">Przetłumacz</label>
                         <input type="text" class="form-control text-center" name="typeWord" id="typeWord">
                     </div>
                 </div>
             </div>
         </div>
+
+        <table class="table inactive" id="cz-flashcards-test-scores">
+            <thead>
+                <tr>
+                <th scope="col">Słowo</th>
+                <th scope="col">Tłumaczenie</th>
+                </tr>
+            </thead>
+            <tbody id="score-table">
+            </tbody>
+        </table>
     </div>
 </section>
