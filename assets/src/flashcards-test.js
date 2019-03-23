@@ -1,91 +1,137 @@
 let getWord = document.querySelector('#flash-word');
 let getTranslation = document.querySelector('#flash-translation');
 let typeWord = document.querySelector('#typeWord');
-let nextWord = document.querySelector('#next-word');
+let nextWord = document.querySelector('#all-words');
 let achievedPoints = document.querySelector('#achieved-points');
 let timeLeft = document.querySelector('#time-left');
 
-// class Flashtest {
-//     constructor(word) {
-//         this.word = word;
-//         this.points = 0;
-//     }
 
-//     countPoints() {
-//         this.points++;
-//     }
-
-//     typeWordToTranslate() {
-
-//     }
-// }
-
-const countPoints = (points) => {
-    points = points + 1;
-}
-achievedPoints.textContent = countPoints();
-
-const getAnotherWord = (e, nextWord, nextTranslation) => {
-        getTranslation.textContent = nextTranslation;
-        getWord.textContent = nextWord;
-}
-
-const shuffleWords = (a) => {
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
+class Test {
+    constructor(word) {
+        this.seconds = 10;
+        this.word = word;
+        this.interval = 0;
     }
-    return a;
+
+    setTime() {
+        timeLeft.textContent = `0:${this.seconds}`;
+        this.countDownWord();
+    }
+    
+    reset() {
+      this.seconds = 10;
+      this.interval = 0;
+    }
+    
+    clear() {      
+      clearInterval(this.interval);
+      this.reset();
+    }
+
+    getWord() {
+        return this.word.word;
+    }
+
+    getTranslation() {
+        return this.word.translation;
+    }
+
+    countDownWord() {
+        this.interval = setInterval(() => {
+            this.seconds--;
+            timeLeft.textContent = `0:${this.seconds}`;
+            if(this.seconds < 10) {
+                timeLeft.textContent = `0:0${this.seconds}`;
+            }
+
+            if(this.seconds < 4) {
+                timeLeft.style.color = "red";
+            }
+            if(this.seconds >= 4) {
+                timeLeft.style.color = "inherit";
+            }
+            if(this.seconds === 0) {
+                words--;
+                nextWord.textContent = words + "/" + allWords;
+                clearInterval(this.interval)
+                typeWord.value = '';
+                this.clear();     
+                startTest(); 
+            }
+            return this.seconds;
+        }, 1000)
+    }
 }
 
+let counting;
 
-const getNewWordIndex = (arr) => Math.floor(Math.random() * arr.length);
+let points = 0;
+let hit = false;
+let words = 10;
+let allWords = 10;
+let all = [];
+let valid = [];
 
 const startTest = async() => {
-    let points = 0;
-    let test = await showAllWords();
-    let word = getNewWordIndex(test);
-    getWord.textContent = test[word].word;
-
+    let test = await showWord();
+    counting = new Test(test);
+    nextWord.textContent = words + "/" + allWords;
     achievedPoints.textContent = points;
-    nextWord.classList.remove('active');
+    renderNewWord();
+    counting.countDownWord();
+    addBackgroundColor(getWord, '#1b64b0');
 
-    typeWord.addEventListener('input', function(e) {
-        if(e.target.value === test[word].translation) {
-            getTranslation.textContent = test[word].translation;
-            getWord.style.background = '#17a2b8';
-            nextWord.classList.add('active');
-            points++;
-            achievedPoints.textContent = points;
-            
-            nextWord.addEventListener('click', function(e) {
-                e.target.value = '';
-                nextWord.classList.remove('active');
-                word = getNewWordIndex(test);
-                getAnotherWord(test[word].word, test[word].translation);
-            });
-        }
-    })
+    if(words === 0) {
+        endGame();
+    }     
 
-    timeLeft.addEventListener('click', function() {
-
-        let seconds = 15;
-        timeLeft.textContent = `0:${seconds}`;
-        const countDownWord = () => {
-            seconds = seconds - 1; 
-            timeLeft.textContent = `0:${seconds}`;
-            if(seconds < 10) {
-                timeLeft.textContent = `0:0${seconds}`;
-            }
-            if(seconds === 0) {
-                clearInterval(timeDown);
-                alert('czas minął');
-                word = getNewWordIndex(test);
-                getAnotherWord(test[word].word, test[word].translation);
-                timeLeft.textContent = 'START';
-            }
-        }
-        let timeDown = setInterval(countDownWord, 1000);
-    })
+    all.push(counting.word);
+    console.log(all);
+    console.log(valid)
 }
-startTest();
+
+timeLeft.addEventListener('click', startTest);
+
+const endGame = () => {
+    clearInterval(counting.interval)
+    counting.clear();
+    alert('Koniec testu, sprawdź swoje odpowiedzi :)')
+    typeWord.disabled = true;
+    timeLeft.style.visibility = 'hidden';
+    flashcardContent(getWord, flashcard.finish);
+    addBackgroundColor(getWord, '#fd7e14');
+}
+
+const flashcard = {
+    start: 'Rozpocznij test',
+    finish: 'Koniec testu'
+}
+
+const flashcardContent = (element, content) => {
+    element.textContent = content;
+}
+
+const addBackgroundColor = (element, color) => {
+    element.style.background = color;
+}
+
+typeWord.addEventListener('input', function(e) {
+    if(e.target.value === counting.word.translation) {
+        points++;
+        words--;
+        nextWord.textContent = words + "/" + allWords;
+        achievedPoints.textContent = points;
+        clearImmediate(counting.interval);
+        typeWord.value = '';
+        counting.clear();
+        startTest();
+        valid.push(counting.word);
+    }
+})
+
+const renderNewWord = () => {
+    getWord.textContent = counting.getWord();
+}
+
+flashcardContent(getWord, flashcard.start);
+addBackgroundColor(getWord, '#28a745');

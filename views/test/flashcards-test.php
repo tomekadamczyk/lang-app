@@ -7,14 +7,15 @@
                     <div class="cz-points">
                         Punkty <span id="achieved-points"></span>/10
                     </div>
+                    <div class="cz-all-words">
+                        Liczba słów: <span id="all-words">10/10</span>
+                    </div>
                     <div id="flash-word" class="cz-flashcards-to-translate cz-flashcards-to-translate--word"></div>
-                    <div id="flash-translation" style="display: block;" class="cz-flashcards-to-translate cz-flashcards-to-translate--translation"></div>
                     <div class="cz-translate-the-word mt-3">
-                        <span class="cz-time-left" id="time-left">START</span>
+                        <span class="cz-time-left" id="time-left">Start</span>
                         <label for="typeWord">Przetłumacz</label>
                         <input type="text" class="form-control text-center" name="typeWord" id="typeWord">
                     </div>
-                    <div class="cz-next-word" id="next-word">Następne słowo <i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
         </div>

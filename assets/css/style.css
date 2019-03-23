@@ -6833,16 +6833,18 @@ a.text-dark:hover, a.text-dark:focus {
 
 .cz-time-left {
   display: block;
-  margin: 20px 0; }
-
-.cz-next-word {
-  visibility: hidden;
-  top: 10px;
-  position: relative;
+  margin: 20px 0;
+  cursor: pointer;
+  font-weight: bold;
   transition-duration: .2s; }
-  .cz-next-word.active {
-    visibility: visible;
-    top: 0; }
+  .cz-time-left:hover {
+    color: #28a745; }
+
+.cz-all-words {
+  top: 10px;
+  position: absolute;
+  transition-duration: .2s;
+  right: 10px; }
 
 body {
   background: #f3f3f3;
