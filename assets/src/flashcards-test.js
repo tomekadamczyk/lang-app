@@ -6,7 +6,17 @@ let achievedPoints = document.querySelector('#achieved-points');
 let timeLeft = document.querySelector('#time-left');
 let scoreTable = document.querySelector('#score-table');
 let testScoresTable = document.querySelector('#cz-flashcards-test-scores');
+let categoriesList = document.querySelector('#select-cat');
 
+let counting;
+let points = 0;
+let words = 10;
+let allWords = 10;
+let hit;
+let scores = [];
+let word;
+let col1;
+let categorizedWordsArray = [];
 
 class Test {
     constructor(word) {
@@ -66,18 +76,6 @@ class Test {
     }
 }
 
-let counting;
-
-let points = 0;
-let words = 10;
-let allWords = 10;
-let valid = [];
-let hit;
-let scores = [];
-let word;
-let col1;
-let lp;
-
 
 const getCategoryIndex = (arr, number) => {
     return arr.findIndex((item, index) => {
@@ -91,7 +89,6 @@ const getRandomIndex = arr => {
     return Math.floor(Math.random() * arr.length);
 }
 
-let categorizedWordsArray = [];
 
 const categorizedWords = (word, category) => {
     word.forEach((item, index) => {
@@ -101,17 +98,36 @@ const categorizedWords = (word, category) => {
     })
 }
 
+const createCategoriesList = (categories) => {
+    categories.forEach(item => {
+        let option = document.createElement('option');
+        option.textContent = item.name;
+        categoriesList.appendChild(option)
+        return option.value = item.id_topics;
+    })
+}
+
+
+const selectCategory = () => {   
+    return Number(categoriesList.value);
+}
+
+const displayCategories = async() => {
+    let categories = await getCategories();
+    createCategoriesList(categories);
+}
 
 const startTest = async() => {
     let test = await showAllWords();
     let categories = await getCategories();
     
-    const category = getCategoryIndex(categories, 6);
+    const category = getCategoryIndex(categories, selectCategory());
     
     categorizedWords(test, category);
     const index = getRandomIndex(categorizedWordsArray);
 
     counting = new Test(categorizedWordsArray[index]);
+
     nextWord.textContent = words + "/" + allWords;
     achievedPoints.textContent = points;
     renderNewWord();
@@ -125,11 +141,11 @@ const startTest = async() => {
     word.hit = false;
     word.class = 'missed';
     scores.push(word);
-    generateWordScore();
-    generateTranslation(); 
+    generateTableWordScore();
+    generateTableTranslation(); 
 }
 
-const generateWordScore = () => {
+const generateTableWordScore = () => {
     col1 = document.createElement('tr');
     col1.classList.add('cz-flashcard-score');
     let cell1 = document.createElement('td');
@@ -138,7 +154,7 @@ const generateWordScore = () => {
     scoreTable.appendChild(col1);
 }
 
-const generateTranslation = () => {
+const generateTableTranslation = () => {
     let cell2 = document.createElement('td');
     cell2.textContent = counting.word.translation;
     cell2.style.color = '#000';
@@ -171,7 +187,7 @@ const endGame = () => {
 }
 
 const flashcard = {
-    start: ' s',
+    start: '-',
     finish: 'Koniec testu'
 }
 
@@ -197,7 +213,6 @@ typeWord.addEventListener('input', function(e) {
         typeWord.value = '';
         counting.clear();
         startTest();
-        valid.push(counting.word);
     }
 })
 
@@ -207,3 +222,5 @@ const renderNewWord = () => {
 }
 
 flashcardContent(getWord, flashcard.start);
+categoriesList.addEventListener('change', selectCategory);
+displayCategories();

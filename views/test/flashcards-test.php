@@ -1,3 +1,8 @@
+<?php 
+require_once './modules/class.categories.php';
+$category = new Categories($con);
+?>
+
 <section class="cz-flashcards">
     <div class="container">
         <h1><strong>Test słówek</strong></h1>
@@ -19,7 +24,9 @@
                 </div>
             </div>
         </div>
-
+        <div class="cz-flashcards-categories">
+            <select name="" id="select-cat"></select>
+        </div>
         <table class="table inactive" id="cz-flashcards-test-scores">
             <thead>
                 <tr>
