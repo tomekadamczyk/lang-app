@@ -1,4 +1,5 @@
 .cz-hangman {
+    background: $gray-100;
 
     &__game {
         width: 100%;
@@ -12,7 +13,7 @@
     }
 
     &__box {
-        border-radius: 10px;
+        border-radius: 5px;
         background: rgba(255,255,255,0.7);
         margin-bottom: 10px;
         padding: 10px;

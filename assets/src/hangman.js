@@ -185,6 +185,7 @@ class Hangman {
             this.status = 'Failed';
         }
     }
+    
 }
 
 let game;
@@ -194,6 +195,15 @@ window.addEventListener('keypress', function(e) {
     let guess = String.fromCharCode(e.charCode);
     wordToGuess.textContent = game.makeGuess(guess);
     renderGame();
+    
+    if(game.status === 'Finished') {
+        setTimeout(function() {
+            game.refreshWord();
+            refreshWord();
+            startGame();
+        },3000);
+            
+    }
 })
 
 const renderGame = () => {
@@ -236,6 +246,7 @@ const startGame = async() => {
         }
     })
     displayAnswer.style.display = 'none';
+    
 }
 
 const refreshWord = () => {

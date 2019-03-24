@@ -62,7 +62,7 @@ class Categories {
         $lp = 1;
         if(mysqli_num_rows($query) > 0) {
             while ($data = $query->fetch_object()) {  
-                echo '<p class="cz-categories__item"><span><strong>'.$lp.'</strong> - '.$data->name.'</span> <span><a class="btn btn-sm btn-info" href="index.php?id=5&edit='.$data->id_topics.'">Edytuj</a> <a class="btn btn-sm btn-danger" href="index.php?id=5&delete='.$data->id_topics.'">Usuń</a></span></p>';               
+                echo '<p class="cz-categories__item"><span><strong>'.$lp.'</strong> - '.$data->name.'</span> <span><a class="edit-icon" href="index.php?id=5&edit='.$data->id_topics.'"><i class="far fa-edit"></i></a></p>';               
                 $lp++;
             }
         }
@@ -82,7 +82,6 @@ class Categories {
 
         $query = mysqli_query($this->con, "SELECT * FROM topics WHERE user='$user'");
         if(mysqli_num_rows($query) > 0) {
-            echo '<form method="POST">';
             while ($data = $query->fetch_object()) { 
 
                 $id = $this->getTopicId($data->id_topics);
@@ -101,9 +100,6 @@ class Categories {
         echo $this->checkCategory($id);
 
                 }
-            echo '<input name="selectCategories" type="submit" class="btn btn-sm btn-success mt-2" value="Zapisz">';
-            
-            echo '</form>';
                 
         }
     }    

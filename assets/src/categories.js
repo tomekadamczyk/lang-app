@@ -16,13 +16,13 @@ Promise.all([getCategory(), showAll()]).then((valArray) => {
     const word = valArray[1];
     //console.log(category);
     const checkbox = document.querySelectorAll('.cz-categories-check');
-    const wordDiv = document.querySelectorAll(".cz-dictionary-word");
+    const wordDiv = document.querySelectorAll(".cz-datacontent-word");
     
     const addClassToCheckbox = (topic) => {
         checkbox.forEach(input => {
             if (input.classList.contains('check-word-' + topic)) {
                 wordDiv.forEach(item => {
-                    if (item.classList.contains('cz-dictionary-item-' + topic)) {
+                    if (item.classList.contains('cz-datacontent-item-' + topic)) {
                         item.classList.add('hideWord');
                     }
                 })
@@ -34,7 +34,7 @@ Promise.all([getCategory(), showAll()]).then((valArray) => {
         checkbox.forEach(input => {
             if (input.classList.contains('check-word-' + topic)) {
                 wordDiv.forEach(item => {
-                    if (item.classList.contains('cz-dictionary-item-' + topic) && item.classList.contains('hideWord')) {
+                    if (item.classList.contains('cz-datacontent-item-' + topic) && item.classList.contains('hideWord')) {
                         item.classList.remove('hideWord');
                     }
                 })
@@ -56,21 +56,3 @@ Promise.all([getCategory(), showAll()]).then((valArray) => {
     }
     getCategoryValue()
 })
-
-// getCategory().then((result) => {
-//     result.forEach(topic => {
-//         console.log(topic);
-//         return Promise.all([prom, otherValue]);
-//     })
-// }).then(
-// showAll().then((result) => {
-//     result.forEach(word => {
-//         console.log(word)
-//     })
-// }))
-
-//getWordFromCategory();
-
-// const checkbox = document.querySelectorAll('.cz-categories-check');
-// console.log(checkbox);
-

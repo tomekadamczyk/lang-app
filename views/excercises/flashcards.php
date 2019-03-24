@@ -5,10 +5,11 @@
 
 <section class="cz-flashcards">
     <div class="container">
+        <h1><strong>Fiszki</strong></h1>
         <div class="row">
             <div class="col-md-8 mx-auto cz-flashcards__card">
                 <div class="text-center mx-autotranslateBox">
-                    <h1>Kliknij i przetłumacz</h1>
+                    <span>Kliknij i przetłumacz</span><br>
                     <div class="btn btn-lg btn-primary my-2 " id="cz-flashcards-button">Wylosuj słowo</div>
                     <div class="text-center my-3">
                         <p id="cz-flashcards-subject" class="cz-flashcards-subject"></p>

@@ -7,46 +7,45 @@ $word = new Words($con);
 $word->resetWordIncrement();
 
 ?>
-<section class="cz-dictionary">
-    <div class="cz-dictionary-table">
+<section class="cz-datacontent">
+    <div class="cz-datacontent-table">
         <div class="col">
             <div class="my-3">
-                <div class="cz-dictionary-header">
+                <div class="cz-datacontent-header">
                     <h1 class="text-primary"><strong>Słownik</strong></h1>
                     <small>Kliknij na wybrane słowo i zobacz jego definicję</small>
                 </div>
-                <div class="input-group mb-3 cz-dictionary-search-word">
-                    <div class="input-group-prepend">
-                        <button type="button" class="input-group-text text-white bg-warning" id="searchWordButton">Szukaj</button>
-                    </div>
-                    <input type="text" class="form-control" id="cz-dictionary-search-word" class="float-right cz-dictionary-search-word">
+                <div class="input-group mb-3 cz-datacontent-search-word">
+                    <input type="text" class="form-control" id="cz-datacontent-search-word" class="float-right cz-datacontent-search-word" placeholder="Szukaj">
                 </div>
-                <div id="searchResults"></div>
                 <hr>
             </div>
-            <div id="cz-dictionary-table__content">
+            <div>
                 <div class="row">
-                    <div class="col-md-3">
-                        <h3>Kategorie</h3>
+                    <div class="col-md-4 col-xl-2 mb-4">
+                        <h4>Kategorie</h4>
                         <div id="selectCategories2" class="cz-categories__container-list">
                             <?php 
                                 $category->displayCategoriesInDictionary();
                             ?>
                         </div>
                     </div>
-                    <div id="dictionary" class="col-md-9">
-                        <?php $word->displayDictionary() ?>
+                    <div id="dictionary" class="col-md-8 col-xl-10">
+                        <h4>Lista słów</h4>
+                        <div class="cz-datacontent-table__content">
+                            <?php $word->displayDictionary() ?>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="cz-pagination">
+            <!--<div class="cz-pagination">
                 <ul>
                     <li id="prevPage" class="cz-pagination__item cz-pagination__control">Poprzednia strona</li>
                     <li class="cz-pagination__item">1</li>
                     <li class="cz-pagination__item">2</li>
                     <li id="nextPage" class="cz-pagination__item cz-pagination__control">Następna strona</li>
                 </ul>
-            </div>
+            </div>-->
         </div>
     </div>
 </section>
