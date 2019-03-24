@@ -78,15 +78,45 @@ let word;
 let col1;
 let lp;
 
+
+const getCategoryIndex = (arr, number) => {
+    return arr.findIndex((item, index) => {
+        if(number === index) {
+            return number;
+        }
+    })
+}
+
+const getRandomIndex = arr => {
+    return Math.floor(Math.random() * arr.length);
+}
+
+let categorizedWordsArray = [];
+
+const categorizedWords = (word, category) => {
+    word.forEach((item, index) => {
+        if (item.topic == category) {
+            categorizedWordsArray.push(item);
+        }
+    })
+}
+
+
 const startTest = async() => {
-    let test = await showWord();
-    counting = new Test(test);
+    let test = await showAllWords();
+    let categories = await getCategories();
+    
+    const category = getCategoryIndex(categories, 6);
+    
+    categorizedWords(test, category);
+    const index = getRandomIndex(categorizedWordsArray);
+
+    counting = new Test(categorizedWordsArray[index]);
     nextWord.textContent = words + "/" + allWords;
     achievedPoints.textContent = points;
     renderNewWord();
     counting.countDownWord();
     addBackgroundColor(getWord, '#1b64b0');
-
     if(words === 0) {
         endGame();
     }     
