@@ -8,10 +8,10 @@ $word = new Words($con);
 ?>
 <section class="cz-datacontent">
     <div class="cz-datacontent-table">
-        <div class="col">
-            <div class="my-3">
+        <div class="row">
+            <div class="col-md-12">
                 <div class="cz-datacontent-header">
-                    <h1 class="text-primary"><strong>Zwroty i wyrażenia</strong></h1>
+                    <h1><strong>Zwroty i wyrażenia</strong></h1>
                 </div>
                 <div class="input-group mb-3 cz-datacontent-search-word">
                     <input type="text" class="form-control" id="cz-datacontent-search-word" class="float-right cz-datacontent-search-word" placeholder="Szukaj">
@@ -19,8 +19,12 @@ $word = new Words($con);
                 <div id="searchResults"></div>
                 <hr>
             </div>
-            <div class="cz-datacontent-table__content">
-                <?php $phrase->displayPhrases() ?>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cz-datacontent-table__content">
+                    <?php $phrase->displayPhrases() ?>
+                </div>
             </div>
             <!--<div class="cz-pagination">
                 <ul>

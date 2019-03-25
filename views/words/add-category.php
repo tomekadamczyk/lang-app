@@ -5,7 +5,7 @@ $category = new Categories($con);
 
 <section class="cz-categories">
         <div class="my-3">
-            <h1 class="text-primary"><strong>Kategorie</strong></h1>
+            <h1><strong>Kategorie</strong></h1>
             <p>Tutaj możesz dodać nową kategorię, do której będziesz mógł przypisać słowo lub zwrot, np. Lekcja 1, Dom etc.</p>
         </div>
         

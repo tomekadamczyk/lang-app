@@ -132,7 +132,7 @@ const startTest = async() => {
     achievedPoints.textContent = points;
     renderNewWord();
     counting.countDownWord();
-    addBackgroundColor(getWord, '#1b64b0');
+    addBackgroundColor(getWord, '#5e9fca');
     if(words === 0) {
         endGame();
     }     
@@ -182,7 +182,7 @@ const endGame = () => {
     typeWord.disabled = true;
     timeLeft.style.visibility = 'hidden';
     flashcardContent(getWord, flashcard.finish);
-    addBackgroundColor(getWord, '#fd7e14');
+    addBackgroundColor(getWord, '#ffa155');
     testScoresTable.classList.remove('inactive');   
 }
 
@@ -209,7 +209,7 @@ typeWord.addEventListener('input', function(e) {
 
         nextWord.textContent = words + "/" + allWords;
         achievedPoints.textContent = points;
-        clearImmediate(counting.interval);
+        clearInterval(counting.interval);
         typeWord.value = '';
         counting.clear();
         startTest();

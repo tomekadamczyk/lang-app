@@ -13,24 +13,56 @@
     }
 
     &__box {
-        border-radius: 5px;
         background: rgba(255,255,255,0.7);
         margin-bottom: 10px;
         padding: 10px;
         text-align: center;
+        height: 100px;
+        transition-duration: .3s;
 
         &--guesses {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: $custom;
+            color: $white;
+            font-size: 20px;
+            cursor: pointer;
+            
+            &:hover {
+                background: darken($custom, 10%);
+            }
         }
 
         &--reset {
             font-size: 14px;
+            background: $green;
+            color: $white;
+            font-size: 20px;
+            cursor: pointer;
+            
+            &:hover {
+                background: darken($green, 10%);
+            }
+        }
+
+        &--new-word {
+            background: $orange;
+            color: $white;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            cursor: pointer;
+            
+            &:hover {
+                background: darken($orange, 10%);
+            }
         }
 
         &--definition {
             font-style: italic;
+            height: auto;
         }
         
         &--word {
@@ -38,21 +70,36 @@
             background: rgba(255,255,255,0.9);
             letter-spacing: 6px;
             font-size: 21px;
+            height: auto;
         }
 
         &--left-guesses {
             background: #e100ff;
             color: $white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            cursor: pointer;
+            
+            &:hover {
+                background: darken(#e100ff, 10%);
+            }
         }
         
         &--win {
             display: none;
-            background: lighten($green, 20%);
+            color: lighten($green, 20%);
+            height: auto;
         }
 
         &--fail {
             display: none;
-            background: #ff0000;
+            color: #ff0000;
+            height: auto;
+        }
+
+        small {
+            font-size: 12px;
         }
 
     }
@@ -177,4 +224,5 @@
 
 .cz-hangman-display-answer {
     display: none;
+    width: auto;
 }

@@ -1,5 +1,9 @@
 'use strict'
 
+const categoriesSelection = document.querySelector('#selectCategories2');
+const categoriesListContent = document.querySelector('#categoriesListContent');
+
+
 
 const getCategory = async() => {
     let category = await getCategories();
@@ -56,3 +60,17 @@ Promise.all([getCategory(), showAll()]).then((valArray) => {
     }
     getCategoryValue()
 })
+
+const toggleCategories = () => {
+var click = 0;
+    categoriesSelection.addEventListener('click', function() {
+        categoriesListContent.classList.add('active');
+        click++;
+
+        if(click == 2) {
+            categoriesListContent.classList.remove('active');
+            click = 0;
+        }
+    })
+}
+toggleCategories();

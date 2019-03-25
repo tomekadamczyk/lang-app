@@ -11,6 +11,7 @@
 @import 'custom/pagination.scss';
 @import 'custom/hangman.scss';
 @import 'custom/flashcards-test.scss';
+@import 'custom/categories.scss';
 
 body {
     background: $gray-200;
@@ -24,46 +25,6 @@ body {
     }
 }
 
-.cz-categories {
-    background: $gray-100;
-    padding: 20px 15px;
-    margin-top: 20px;
-
-    &__form {
-        margin-bottom: 30px;
-    }
-
-    &__item {
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid $gray-400;
-        margin-bottom: 0;
-
-        @include media-breakpoint-down(sm) {
-            border-bottom: none;
-            display: inline-block;
-        }
-    }
-
-    &__container-list {
-        
-        &--scroll {
-            max-height: 400px;
-            overflow: scroll;
-            font-size: $font-size-sm;
-        }
-    }
-
-    &__phrasespage {
-
-        .cz-categories__item {
-            display: flex!important;
-        }
-    }
-
-}
 
 .cz-edit-form {
     padding: 10px;

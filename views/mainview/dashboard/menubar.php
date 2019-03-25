@@ -34,35 +34,35 @@
     </div>
     <div id="mobileMenu" class="cz-menubar-mainmenu">
         <div class="cz-menubar-mainmenu-link cz-menubar-mainmenu-link-dropdown">
-            <a href="#" class="cz-menubar-mainmenu-link__item">Ćwiczenia</a>
+            <a href="#" class="cz-menubar-mainmenu-link__item"><i class="fas fa-graduation-cap"></i>Ćwiczenia</a>
             <div class="cz-menubar-mainmenu-link-dropdownlist">
                 <div class="cz-menubar-mainmenu-link-dropdownlist-link">
-                    <a href="index.php?id=1" class="cz-menubar-mainmenu-link-dropdownlist__item">Fiszki</a>
+                    <a href="index.php?id=1" class="cz-menubar-mainmenu-link-dropdownlist__item"><i class="fas fa-layer-group"></i>Fiszki</a>
                 </div>
                 <div class="cz-menubar-mainmenu-link-dropdownlist-link">
-                    <a href="index.php?id=2" class="cz-menubar-mainmenu-link-dropdownlist__item">Wisielec</a>
+                    <a href="index.php?id=2" class="cz-menubar-mainmenu-link-dropdownlist__item"><i class="far fa-keyboard"></i>Wisielec</a>
                 </div>
             </div>
         </div>
-        <div class="cz-sidebar-link">
-            <a href="#" class="cz-sidebar-link__item">Testy</a>
-            <div class="cz-sidebar-link-dropdown">
-                <div class="cz-sidebar-link-dropdown-link">
-                    <a href="index.php?id=6" class="cz-sidebar-link-dropdown__item">Fiszki</a>
+        <div class="cz-menubar-mainmenu-link cz-menubar-mainmenu-link-dropdown">
+            <a href="#" class="cz-menubar-mainmenu-link__item"><i class="fas fa-user-graduate"></i>Testy</a>
+            <div class="cz-menubar-mainmenu-link-dropdownlist">
+                <div class="cz-menubar-mainmenu-link-dropdownlist-link">
+                    <a href="index.php?id=6" class="cz-menubar-mainmenu-link-dropdownlist__item"><i class="fas fa-layer-group"></i>Fiszki</a>
                 </div>
             </div>
         </div>
         <div class="cz-menubar-mainmenu-link">
-            <a href="" class="cz-menubar-mainmenu-link__item" data-toggle="modal" data-target="#addNewWord">Dodaj</a>
+            <a href="" class="cz-menubar-mainmenu-link__item" data-toggle="modal" data-target="#addNewWord"><i class="fas fa-plus"></i>Dodaj</a>
         </div>
         <div class="cz-menubar-mainmenu-link">
-            <a href="index.php?id=3" class="cz-menubar-mainmenu-link__item">Słownik</a>
+            <a href="index.php?id=3" class="cz-menubar-mainmenu-link__item"><i class="fas fa-book"></i>Słownik</a>
         </div>
         <div class="cz-menubar-mainmenu-link">
-            <a href="index.php?id=4" class="cz-menubar-mainmenu-link__item">Zwroty i wyrażenia</a>
+            <a href="index.php?id=4" class="cz-menubar-mainmenu-link__item"><i class="far fa-comments"></i>Zwroty i wyrażenia</a>
         </div>
         <div class="cz-menubar-mainmenu-link">
-            <a href="index.php?id=5" class="cz-menubar-mainmenu-link__item">Kategorie</a>
+            <a href="index.php?id=5" class="cz-menubar-mainmenu-link__item"><i class="fas fa-filter"></i>Kategorie</a>
         </div>
     </div>
 </section>
