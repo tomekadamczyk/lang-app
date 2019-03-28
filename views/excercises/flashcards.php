@@ -15,7 +15,7 @@
                     </div>
                     <div id="flash-word" class="cz-flashcards-to-translate cz-flashcards-to-translate--word"></div>
                     <div id="flash-translation" class="cz-flashcards-to-translate cz-flashcards-to-translate--translation"></div>
-                    <div class="btn btn-sm btn-outline">Nie pamiętasz tego słowa?<br><span id="cz-flashcards-check-translation"><strong>Zobacz tłumaczenie</strong></span></div>
+                    <div class="btn btn-sm btn-outline"><span id="cz-flashcards-check-translation"><strong>Zobacz tłumaczenie</strong></span></div>
                 </div>
             </div>
         </div>

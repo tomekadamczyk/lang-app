@@ -54,6 +54,10 @@ include('views/mainview/dashboard/menubar.php');
             case 6:
             include('views/test/flashcards-test.php');
             break;
+
+            case 7:
+            include('views/favorites/travel.php');
+            break;
         }
     }
 ?>

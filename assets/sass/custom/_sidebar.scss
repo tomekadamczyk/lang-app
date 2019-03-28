@@ -29,8 +29,7 @@
         }
 
         &:hover {
-            background: darken($primary, 10%);
-            
+            background: lighten($custom, 30%);
             .cz-sidebar-link-dropdown {
                 width: 100%;
             }

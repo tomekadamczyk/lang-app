@@ -46,6 +46,7 @@
     "express-session": "^1.15.6",
     "fs": "0.0.1-security",
     "graphql": "^14.1.1",
+    "leaflet": "^1.4.0",
     "morgan": "^1.9.1",
     "mssql": "^4.3.1",
     "mysql": "^2.16.0"
