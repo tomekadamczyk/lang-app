@@ -23,6 +23,12 @@ class Account{
         }
     }
 
+    public function logout(){
+        unset($_SESSION['userLoggedIn']);
+        session_destroy();
+        header("Location: register.php");
+    }
+
     public function getError($error) {
         if(!in_array($error, $this->errorArray)) {
             return false;

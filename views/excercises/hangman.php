@@ -2,7 +2,7 @@
     <div class="container">
         <div class="cz-hangman__game">
             <div class="mx-auto translateBox">
-                <h1 class="text-center">Wisielec</h1>
+                <h1><strong>Wisielec</strong></h1>
                 
                 <div class="row">
                     <div class="col-md-12">

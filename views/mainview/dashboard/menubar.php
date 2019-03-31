@@ -8,7 +8,8 @@
     </a>
     <div class="text-right">
         <div class="cz-menubar__user">
-            <span><?php echo $_SESSION['userLoggedIn']; ?></span>
+            <span class="mr-3"><i class="fas fa-users"></i> <?php echo $_SESSION['userLoggedIn']; ?></span>
+            <a href="views/register/logout.php" class=""><i class="fas fa-sign-out-alt"></i>Wyloguj</a>
         </div>
         
         <div id="getMobileMenu" class="cz-menubar-hamburger">

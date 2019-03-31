@@ -63,9 +63,9 @@ include('views/mainview/dashboard/menubar.php');
 ?>
 </section>
 
-<script src="views/words/pagination.js"></script>
 <script src="assets/src/script.js"></script>
 <script src="assets/src/requests.js"></script>
+<script src="views/words/pagination.js"></script>
 <script src="assets/src/hangman.js"></script>
 <script src="assets/src/categories.js"></script>
 <script src="assets/src/flashcards-test.js"></script>

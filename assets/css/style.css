@@ -6417,7 +6417,7 @@ a.text-custom:hover, a.text-custom:focus {
 
 .cz-menubar {
   background: #5e9fca;
-  color: #364150;
+  color: #fbfbfb;
   padding: 15px 20px;
   position: relative; }
   @media (min-width: 1200px) {
@@ -6444,7 +6444,7 @@ a.text-custom:hover, a.text-custom:focus {
       .cz-menubar-hamburger {
         display: none; } }
     .cz-menubar-hamburger-toggle {
-      border: 1px solid #364150;
+      border: 1px solid #fbfbfb;
       border-radius: 5px;
       padding: 10px;
       display: inline-block;
@@ -6453,7 +6453,7 @@ a.text-custom:hover, a.text-custom:focus {
         left: 0;
         width: 20px;
         height: 1px;
-        background: #364150;
+        background: #fbfbfb;
         margin-bottom: 3px; }
         .cz-menubar-hamburger-toggle__line:last-child {
           margin-bottom: 0; }
@@ -6463,22 +6463,34 @@ a.text-custom:hover, a.text-custom:focus {
     vertical-align: middle; }
     .cz-menubar__user span {
       float: left; }
+    .cz-menubar__user a {
+      color: #fbfbfb; }
+      .cz-menubar__user a:hover {
+        color: #5e9fca; }
+      @media only screen and (min-width: 1200px) {
+        .cz-menubar__user a {
+          color: #212529; }
+          .cz-menubar__user a:hover {
+            color: #5e9fca; } }
   .cz-menubar .cz-menubar-mainmenu {
     display: none;
     margin-top: 30px; }
+    .cz-menubar .cz-menubar-mainmenu i {
+      margin-right: 10px; }
     .cz-menubar .cz-menubar-mainmenu-link {
       padding: 10px; }
       .cz-menubar .cz-menubar-mainmenu-link__item {
-        color: #364150; }
+        color: #fbfbfb; }
       .cz-menubar .cz-menubar-mainmenu-link-dropdownlist {
-        margin-left: 10px;
-        display: none; }
+        margin-left: 10px; }
+        .cz-menubar .cz-menubar-mainmenu-link-dropdownlist a {
+          color: #fff; }
         .cz-menubar .cz-menubar-mainmenu-link-dropdownlist-link {
           padding: 10px; }
       .cz-menubar .cz-menubar-mainmenu-link.active .cz-menubar-mainmenu-link-dropdownlist {
         display: block; }
         .cz-menubar .cz-menubar-mainmenu-link.active .cz-menubar-mainmenu-link-dropdownlist__item {
-          color: #364150; }
+          color: #fbfbfb; }
   .cz-menubar .cz-menubar-options {
     float: right;
     position: relative; }
@@ -6799,14 +6811,11 @@ a.text-custom:hover, a.text-custom:focus {
       padding: 0 4px; }
 
 .cz-hangman {
-  background: #fbfbfb; }
+  background: #fbfbfb;
+  padding: 20px 0;
+  margin-top: 20px; }
   .cz-hangman__game {
     width: 100%; }
-    .cz-hangman__game h1 {
-      margin: 10px 0 40px;
-      padding: 20px 0;
-      border-bottom: 1px solid #ced4da;
-      font-weight: bold; }
   .cz-hangman__box {
     background: rgba(255, 255, 255, 0.7);
     margin-bottom: 10px;
@@ -7021,7 +7030,7 @@ a.text-custom:hover, a.text-custom:focus {
 
 .cz-categories {
   background: #fbfbfb;
-  padding: 20px 15px;
+  padding: 20px 30px;
   margin-top: 20px; }
   .cz-categories__list {
     opacity: 0;
