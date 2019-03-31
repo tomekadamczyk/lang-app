@@ -1,6 +1,6 @@
 
 .cz-useraccount-form {
-    background: rgba(255,255,255,0.5);
+    background: $white;
     padding: 30px;
 
     form {
@@ -15,7 +15,7 @@
 
     .cz-useraccount-input {
         background: transparent;
-        border: 2px solid $primary;
+        border: 2px solid $custom;
         color: $gray-900;
 
         &::placeholder {
@@ -23,8 +23,8 @@
         }
 
         &:focus {
-            border: 2px solid $primary;
-            color: $primary;
+            border: 2px solid $custom;
+            color: $custom;
         }
     }
 
@@ -43,16 +43,16 @@
     }
 
     .cz-button {
-        border: 2px solid $indigo;
-        background: $indigo;
+        border: 2px solid $custom;
+        background: $custom;
         color: $white;
         font-weight: bold;
         border-radius: 0;
 
         &:hover {
-            border: 2px solid $primary;
+            border: 2px solid $custom;
             background: $white;
-            color: $primary;
+            color: $custom;
         }
     }
 
@@ -67,6 +67,7 @@
         text-align: center;
         font-size: 80%;
         margin-top: 30px;
+        color: $custom;
     }
 
     .cz-form-header-container {

@@ -13,22 +13,22 @@ include('base.php');
                     </div>
                         <?php echo $account->getError(Constants::$usernameCharacters) ?>
                         <?php echo $account->getError(Constants::$usernameTaken) ?>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label for="username">Imię</label>
                         <input type="text" class="form-control cz-useraccount-input" name="firstname" id="firstname" aria-describedby="firstname" placeholder="Podaj swoje imię" required>
-                    </div>
-                        <?php echo $account->getError(Constants::$firstnameCharacter) ?>
-                    <div class="form-group">
+                    </div>-->
+                        <?php //echo $account->getError(Constants::$firstnameCharacter) ?>
+                    <!--<div class="form-group">
                         <label for="email">E-mail</label><br>
                         <input type="email" class="form-control cz-useraccount-input" name="email" aria-describedby="emailHelp" id="email" placeholder="Podaj adres e-mail" required>
                     </div>
                     <div class="form-group">
                         <label for="email2">Potwierdź e-mail</label><br>
                         <input type="email" class="form-control cz-useraccount-input" name="email2" id="email2" aria-describedby="emailHelp2" placeholder="Potwierdź e-mail" required>
-                    </div>
-                        <?php echo $account->getError(Constants::$emailIsInvalid) ?>
-                        <?php echo $account->getError(Constants::$emailsDoNotMatch) ?>
-                        <?php echo $account->getError(Constants::$emailTaken) ?>
+                    </div>-->
+                        <?php // echo $account->getError(Constants::$emailIsInvalid) ?>
+                        <?php // echo $account->getError(Constants::$emailsDoNotMatch) ?>
+                        <?php // echo $account->getError(Constants::$emailTaken) ?>
                     <div class="form-group">
                         <label for="password">Hasło</label><br>
                         <input type="password" class="form-control cz-useraccount-input" name="password" id="password" placeholder="Ustaw swoje hasło" required>

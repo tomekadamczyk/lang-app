@@ -31,23 +31,41 @@ class Account{
         
     }
 
-    public function register($username, $firstname, $email, $email2, $password, $password2) {
-        $this->validateUsername($username);
-        $this->validateFirstname($firstname);
-        $this->validateEmail($email, $email2);
-        $this->validatePasswords($password, $password2);
+    // public function register($username, $firstname, $email, $email2, $password, $password2) {
+    //     $this->validateUsername($username);
+    //     $this->validateFirstname($firstname);
+    //     $this->validateEmail($email, $email2);
+    //     $this->validatePasswords($password, $password2);
 
-        if(empty($this->errorArray)) {
-            return $this->insertUserDetails($username, $firstname, $email, $password);
-        }
-        else {
-            return false;
-        }
-    }
+    //     if(empty($this->errorArray)) {
+    //         return $this->insertUserDetails($username, $firstname, $email, $password);
+    //     }
+    //     else {
+    //         return false;
+    //     }
+    // }
 
-    public function insertUserDetails($username, $firstname, $email, $password) {
+    public function register($username, $password, $password2) {
+            $this->validateUsername($username);
+            $this->validatePasswords($password, $password2);
+    
+            if(empty($this->errorArray)) {
+                return $this->insertUserDetails($username, $password);
+            }
+            else {
+                return false;
+            }
+        }
+
+    // public function insertUserDetails($username, $firstname, $email, $password) {
+    //     $encryptedPassword = md5($password);
+    //     $result = mysqli_query($this->con, "INSERT INTO users VALUES('', '$username', '$firstname', '$email', '$encryptedPassword')");
+    //     return $result;
+    // }
+
+    public function insertUserDetails($username, $password) {
         $encryptedPassword = md5($password);
-        $result = mysqli_query($this->con, "INSERT INTO users VALUES('', '$username', '$firstname', '$email', '$encryptedPassword')");
+        $result = mysqli_query($this->con, "INSERT INTO users VALUES('', '$username', '', '', '$encryptedPassword')");
         return $result;
     }
 
