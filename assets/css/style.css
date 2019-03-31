@@ -6632,6 +6632,8 @@ a.text-custom:hover, a.text-custom:focus {
 
 .cz-dashboard__panels {
   padding: 10px; }
+  .cz-dashboard__panels div {
+    width: 100%; }
 
 .cz-dashboard__item {
   margin-top: 10px;
@@ -7082,6 +7084,22 @@ a.text-custom:hover, a.text-custom:focus {
 
 #worldMap {
   height: 180px; }
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+  max-height: 250px; }
+  .circular-chart .circle {
+    stroke: #4CC790;
+    fill: none;
+    stroke-width: 1;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards; }
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 20; } }
 
 body {
   background: #f3f3f3;

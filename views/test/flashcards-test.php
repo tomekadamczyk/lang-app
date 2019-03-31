@@ -35,7 +35,7 @@ $category = new Categories($con);
                 </div>
             </div>
         </div>
-        <table class="table inactive" id="cz-flashcards-test-scores">
+        <table class="table inactive mt-2" id="cz-flashcards-test-scores">
             <thead>
                 <tr>
                 <th scope="col">Słowo</th>

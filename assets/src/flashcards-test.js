@@ -178,13 +178,15 @@ const endGame = () => {
     
     getWord.textContent = '';
     clearInterval(counting.interval)
-    counting.clear();
+    counting.clear(); 
+    localStorage.setItem('lastWordTestPoints', points);
+
     alert('Koniec testu, sprawdź swoje odpowiedzi :)')
     typeWord.disabled = true;
     timeLeft.style.visibility = 'hidden';
     flashcardContent(getWord, flashcard.finish);
     addBackgroundColor(getWord, '#ffa155');
-    testScoresTable.classList.remove('inactive');   
+    testScoresTable.classList.remove('inactive');  
 }
 
 const flashcard = {

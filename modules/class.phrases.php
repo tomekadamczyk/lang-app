@@ -141,6 +141,32 @@ class Phrase {
             echo 'Brak połączenia';
         }
     }
+
+    public function displayLastAddedPhrases() {
+        require_once 'class.account.php';
+        require_once 'class.words.php';
+        $word = new Words($this->con);
+
+        $account = new Account($this->con);
+        
+        if(isset($_SESSION['userLoggedIn'])) {
+            $userLoggedIn = $_SESSION['userLoggedIn'];
+        }
+
+        $user = $account->getUserID($userLoggedIn);
+
+        $query = mysqli_query($this->con, "SELECT * FROM user_phrases WHERE user='$user' LIMIT 20");
+        if(mysqli_num_rows($query) > 0) {
+            while ($data = $query->fetch_object()) { 
+                echo '<div class="cz-datacontent-word">';
+                echo '<p class="cz-datacontent-word__item"><strong><span>'.$data->phrase.'</span> - </strong><span>'.$data->translation.'</span></p>';
+                echo '</div>';
+            }
+        }
+        else {
+            echo 'Brak połączenia';
+        }
+    }
     
 
 }

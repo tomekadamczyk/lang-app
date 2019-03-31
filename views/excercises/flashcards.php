@@ -10,7 +10,7 @@
             <div class="cz-flashcards__card">
                 <div class="text-center mx-autotranslateBox">
                     <div class="btn btn-lg btn-custom my-2 " id="cz-flashcards-button">Wylosuj słowo</div>
-                    <div class="text-center my-3">
+                    <div class="text-center my-3 d-none">
                         <p id="cz-flashcards-subject" class="cz-flashcards-subject"></p>
                     </div>
                     <div id="flash-word" class="cz-flashcards-to-translate cz-flashcards-to-translate--word"></div>

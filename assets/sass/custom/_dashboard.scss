@@ -3,6 +3,10 @@
     
     &__panels {
         padding: 10px;
+
+        div {
+            width: 100%;
+        }
     }
 
    &__item {
