@@ -78,9 +78,10 @@ class Test {
 
 
 const getCategoryIndex = (arr, number) => {
-    return arr.findIndex((item, index) => {
-        if(number === index) {
-            return number;
+    return arr.find((item) => {
+        let num = Number(item.id_topics)
+        if(number === num) {
+            return num;
         }
     })
 }
@@ -123,7 +124,7 @@ const startTest = async() => {
     
     const category = getCategoryIndex(categories, selectCategory());
     
-    categorizedWords(test, category);
+    categorizedWords(test, category.id_topics);
     const index = getRandomIndex(categorizedWordsArray);
 
     counting = new Test(categorizedWordsArray[index]);

@@ -41,7 +41,6 @@ const checkTranslation = document.getElementById('cz-flashcards-check-translatio
 
 const renderWord = async() => {
     const word = await showWord();
-    console.log(word)
     
     wordTranslation.style.display = 'none';
     wordToTranslate.style.display = 'block';

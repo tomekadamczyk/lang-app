@@ -89,7 +89,7 @@ class Words {
 
                echo '</select>
             </div>
-        <input type="submit" class="btn bg-primary text-white addNewWord" id="addWord" name="addWord" value="Dodaj nowe słowo">
+        <input type="submit" class="btn bg-custom text-white addNewWord" id="addWord" name="addWord" value="Dodaj nowe słowo">
         </div>
         </form>';
     }

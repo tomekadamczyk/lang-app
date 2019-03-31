@@ -74,7 +74,7 @@ class Phrase {
                         <?php
                     echo '</select>
                 </div>
-                <input type="submit" class="btn bg-primary text-white addNewWord" id="addPhrase" name="addPhrase" value="Dodaj nowy zwrot">
+                <input type="submit" class="btn bg-custom text-white addNewWord" id="addPhrase" name="addPhrase" value="Dodaj nowy zwrot">
             </div>
         </form> ';
     }

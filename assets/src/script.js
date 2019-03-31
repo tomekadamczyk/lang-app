@@ -45,7 +45,6 @@ const searchWord = () => {
             word.style.display = 'none';
             let wordContent = word.children[0].textContent;
             if(wordContent.toLowerCase().includes(e.target.value)) {
-                console.log(wordContent);
                 word.style.display = 'block';
             }
         })
