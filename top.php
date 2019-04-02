@@ -25,8 +25,6 @@ $phrase->resetPhraseIncrement();
 	<meta name="keywords" content="Language app" />
 	<meta name="description" content="Language app" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<link rel="stylesheet" href="assets/map/css/leaflet.css">
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 	<link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 

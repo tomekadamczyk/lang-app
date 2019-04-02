@@ -7119,6 +7119,10 @@ a.text-custom:hover, a.text-custom:focus {
 #worldMap {
   height: 180px; }
 
+#mapid {
+  height: 100vh;
+  will-change: auto; }
+
 .circular-chart {
   display: block;
   margin: 10px auto;

@@ -43,7 +43,7 @@ include('views/words/add-word.php');
     <div class="cz-sidebar-link">
         <a href="index.php?id=5" class="cz-sidebar-link__item"><i class="fas fa-filter"></i>Kategorie</a>
     </div>
-    <!--<div class="cz-sidebar-link">
+    <div class="cz-sidebar-link">
         <span class="cz-sidebar-link__label"><i class="far fa-star"></i>Ulubione</span>
         <div class="cz-sidebar-link-dropdown">
             <div class="cz-sidebar-link">
@@ -53,5 +53,5 @@ include('views/words/add-word.php');
                 <a href="index.php?id=6" class="cz-sidebar-link__item"><i class="far fa-newspaper"></i>Książki, filmy, artykuły</a>
             </div>
         </div>
-    </div>-->
+    </div>
 </div>
