@@ -21,6 +21,7 @@ let fail9 = document.querySelector('#hangman-fail-9');
 let fail10 = document.querySelector('#hangman-fail-10');
 let displayAnswer = document.querySelector('#cz-hangman-display-answer');
 let typeHangmanWord = document.querySelector('#typeHangmanWord');
+const alphabet = ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř', 'š', 'ť', 'ú', 'ů', 'ý', 'ž', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',];
 
 class Hangman {
     constructor(word, guesses) {
@@ -191,8 +192,41 @@ class Hangman {
 
 let game;
 let gameAttempts = 3;
+console.log(alphabet)
+const alphabetButtons = () => {
+    let letterButtons = document.querySelector('#letterButtons');
+    let letters = document.createElement('ul');
+    
+    alphabet.forEach(item => {
+        letters.id = 'alphabet';
+        let list = document.createElement('li');
+        let btn = document.createElement('button');
+        list.classList.add('letter');
+        btn.innerHTML = item;
+        list.appendChild(btn);
+        letterButtons.appendChild(letters);
+        letters.appendChild(list)
+    })
+    let lettersClickers = document.querySelectorAll('.letter');
+    lettersClickers.forEach(button => {
+        button.addEventListener('click', function(e) {
+            let guess = e.target.textContent;
+            wordToGuess.textContent = game.makeGuess(guess);
+            renderGame();
+            
+            if(game.status === 'Finished') {
+                setTimeout(function() {
+                    startGame();
+                    gameAttempts = 3;
+                    setGameAttempts();
+                },3000);
+                    
+            }
+        })
+    })
+} 
 
-typeHangmanWord.addEventListener('keypress', function(e) {
+window.addEventListener('keypress', function(e) {
     let guess = String.fromCharCode(e.charCode);
     wordToGuess.textContent = game.makeGuess(guess);
     renderGame();
@@ -283,3 +317,5 @@ newGame.addEventListener('click', function() {
 
 setGameAttempts();
 startGame();
+
+alphabetButtons();

@@ -6822,6 +6822,36 @@ a.text-custom:hover, a.text-custom:focus {
     max-width: 400px;
     margin: auto;
     text-align: center; }
+  .cz-hangman__letters {
+    display: block;
+    list-style-type: none;
+    padding: 0; }
+    .cz-hangman__letters ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0; }
+      .cz-hangman__letters ul li {
+        display: inline-block;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px; }
+        .cz-hangman__letters ul li button {
+          background: #fff;
+          font-weight: bold;
+          color: #5e9fca;
+          border: none;
+          box-shadow: 2px 2px 4px 2px #adb5bd;
+          padding: 5px 10px; }
+          .cz-hangman__letters ul li button:focus {
+            background: #5e9fca;
+            color: #fff; }
+          @media only screen and (min-width: 768px) {
+            .cz-hangman__letters ul li button {
+              padding: 10px 15px; } }
+    @media only screen and (min-width: 1200px) {
+      .cz-hangman__letters {
+        display: none; } }
   .cz-hangman__box {
     background: rgba(255, 255, 255, 0.7);
     margin-bottom: 10px;
