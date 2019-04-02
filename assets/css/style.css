@@ -6818,6 +6818,10 @@ a.text-custom:hover, a.text-custom:focus {
   margin-top: 20px; }
   .cz-hangman__game {
     width: 100%; }
+  .cz-hangman__input {
+    max-width: 400px;
+    margin: auto;
+    text-align: center; }
   .cz-hangman__box {
     background: rgba(255, 255, 255, 0.7);
     margin-bottom: 10px;

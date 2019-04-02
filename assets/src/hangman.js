@@ -20,6 +20,7 @@ let fail8 = document.querySelector('#hangman-fail-8');
 let fail9 = document.querySelector('#hangman-fail-9');
 let fail10 = document.querySelector('#hangman-fail-10');
 let displayAnswer = document.querySelector('#cz-hangman-display-answer');
+let typeHangmanWord = document.querySelector('#typeHangmanWord');
 
 class Hangman {
     constructor(word, guesses) {
@@ -191,16 +192,16 @@ class Hangman {
 let game;
 let gameAttempts = 3;
 
-window.addEventListener('keypress', function(e) {
+typeHangmanWord.addEventListener('keypress', function(e) {
     let guess = String.fromCharCode(e.charCode);
     wordToGuess.textContent = game.makeGuess(guess);
     renderGame();
     
     if(game.status === 'Finished') {
         setTimeout(function() {
-            game.refreshWord();
-            refreshWord();
             startGame();
+            gameAttempts = 3;
+            setGameAttempts();
         },3000);
             
     }
@@ -246,6 +247,8 @@ const startGame = async() => {
         }
     })
     displayAnswer.style.display = 'none';
+    hangmanWin.style.display = 'none';
+    hangmanFail.style.display = 'none';
     
 }
 

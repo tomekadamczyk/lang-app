@@ -10,6 +10,7 @@
                             <p id="cz-hangman-definition" class="cz-hangman__box cz-hangman__box--definition"></p>
                         </div>
                         <div id="cz-hangman-word" class="cz-hangman__box cz-hangman__box--word"></div>
+                        <input class="form-control cz-hangman__input" type="text" id="typeHangmanWord">
                         <div id="cz-hangman-win" class="cz-hangman__box cz-hangman__box--win">Udało się!</div>
                         <div id="cz-hangman-fail" class="cz-hangman__box cz-hangman__box--fail">Nie udało się!
                             
