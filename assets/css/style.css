@@ -7115,13 +7115,68 @@ a.text-custom:hover, a.text-custom:focus {
   background: #fbfbfb;
   padding: 20px 0;
   margin-top: 20px; }
+  .cz-travel__content .row {
+    margin: 0; }
 
 #worldMap {
   height: 180px; }
 
-#mapid {
-  height: 100vh;
-  will-change: auto; }
+.cz-map {
+  padding: 0; }
+  .cz-map #mapid {
+    height: 100vh;
+    will-change: auto; }
+  .cz-map__start, .cz-map__destination {
+    border: 1px solid #5e9fca;
+    background: transparent;
+    color: #5e9fca;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 0 5px;
+    padding: 5px 12px;
+    transition-duration: .3s; }
+    .cz-map__start:hover, .cz-map__destination:hover {
+      background: #5e9fca;
+      color: #fff;
+      transition-duration: .3s; }
+  .cz-map .leaflet-right .leaflet-routing-alternatives-container {
+    display: none; }
+  .cz-map .leaflet-right .leaflet-routing-container {
+    border: none;
+    border-radius: 0;
+    background: transparent; }
+    .cz-map .leaflet-right .leaflet-routing-container input {
+      padding: 10px;
+      padding-right: 25px;
+      font-size: 14px;
+      font-weight: bold;
+      background: #fff;
+      border: none; }
+  .cz-map .leaflet-right .leaflet-routing-geocoders {
+    border-bottom: none; }
+  .cz-map .leaflet-right .leaflet-routing-remove-waypoint::after {
+    background: transparent;
+    color: #5e9fca;
+    right: 6px; }
+    .cz-map .leaflet-right .leaflet-routing-remove-waypoint::after:hover {
+      color: #fff; }
+  .cz-map .leaflet-right .leaflet-routing-add-waypoint {
+    position: absolute;
+    left: -45px;
+    top: 16px;
+    border: none;
+    background: #5e9fca;
+    font-size: 35px;
+    border-radius: 0;
+    color: #fff;
+    transition-duration: .3s;
+    height: 44px;
+    width: 44px; }
+    .cz-map .leaflet-right .leaflet-routing-add-waypoint:hover {
+      color: #5e9fca;
+      background: #fff;
+      transition-duration: .3s; }
 
 .circular-chart {
   display: block;

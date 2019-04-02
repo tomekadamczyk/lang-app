@@ -17,7 +17,7 @@ crossorigin=""/>
 <section class="cz-travel">
     <div class="cz-travel__content">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 cz-map">
                 <div class="cz-datacontent-header">
                     <h1><strong>Podróże</strong></h1>
                 </div>

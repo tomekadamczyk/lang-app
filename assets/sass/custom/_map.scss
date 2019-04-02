@@ -1,4 +1,87 @@
-#mapid {
-    height: 100vh;    
-    will-change: auto;
+.cz-map {
+    padding: 0;
+
+    #mapid {
+        height: 100vh;    
+        will-change: auto;
+    }
+
+    &__start,
+    &__destination {
+        border: 1px solid $primary;
+        background: transparent;
+        color: $primary;
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 14px;
+        margin: 0 5px;
+        padding: 5px 12px;
+        transition-duration: .3s;
+
+        &:hover {
+            background: $primary;
+            color: $white;
+            transition-duration: .3s;
+        }
+    }
+
+    .leaflet-right {
+
+        .leaflet-routing-alternatives-container {
+            display: none;
+        }
+
+        .leaflet-routing-container {
+            border: none;
+            border-radius: 0;
+            background: transparent;
+
+            input {
+                padding: 10px;
+                padding-right: 25px;
+                font-size: 14px;
+                font-weight: bold;
+                background: $white;
+                border: none;
+            }
+        }
+
+        .leaflet-routing-geocoders {
+            border-bottom: none;
+        }
+
+        .leaflet-routing-remove-waypoint {
+
+            &::after {
+                background: transparent;
+                color: $primary;
+                right: 6px;
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+
+        .leaflet-routing-add-waypoint  {
+            position: absolute;
+            left: -45px;
+            top: 16px;
+            border: none;
+            background: $primary;
+            font-size: 35px;
+            border-radius: 0;
+            color: $white;
+            transition-duration: .3s;
+            height: 44px;
+            width: 44px;
+
+            &:hover {
+                color: $primary;
+                background: $white;
+                transition-duration: .3s;
+            }
+        }
+    }
 }
+
