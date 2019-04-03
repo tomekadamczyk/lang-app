@@ -7150,6 +7150,16 @@ a.text-custom:hover, a.text-custom:focus {
       background: #5e9fca;
       color: #fff;
       transition-duration: .3s; }
+  .cz-map__weather {
+    z-index: 99999;
+    position: absolute;
+    left: 55px;
+    top: 10px;
+    background: #fff;
+    padding: 10px; }
+    .cz-map__weather-element {
+      font-size: 12px;
+      color: #212529; }
   .cz-map .leaflet-right .leaflet-routing-alternatives-container {
     display: none; }
   .cz-map .leaflet-right .leaflet-routing-container {

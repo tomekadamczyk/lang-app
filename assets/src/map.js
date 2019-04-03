@@ -1,6 +1,7 @@
 let travelMap = {
     map: null,
     routingControl: null,
+    layers: [],
     api: {
         token: 'pk.eyJ1IjoidG9tYXN6YWRhbWN6eWsiLCJhIjoiY2p0enpob2E2MG04bTQ0bWdvY2xqdm56biJ9.QZfbhG1D29xt11aN7twvUw'
     },
@@ -29,6 +30,7 @@ let travelMap = {
             router: L.routing.mapbox(travelMap.api.token),
             autocomplete: true
         }).addTo(travelMap.map);
+        console.log(L.latLng(50.0567, 19.9422))
         //let service = 'https://api.mapbox.com/geocoding/v5/mapbox.places/11.746772804774764%2C55.10598087771291.json?access_token=pk.eyJ1IjoibWF0dGZpY2tlIiwiYSI6ImNqNnM2YmFoNzAwcTMzM214NTB1NHdwbnoifQ.Or19S7KmYPHW8YjRz82v6g&cachebuster=1554275594752&autocomplete=true&country=cz&types=country&bbox=11.746772804774793%2C48.1928942560119%2C25.049925760724335%2C55.10598087771291';
     }
 }
@@ -60,7 +62,7 @@ travelMap.control();
     travelMap.routingControl.geocoder.on('result', function(ev) {
         travelMap.map.getSource('single-point').setData(ev.result.geometry);
     });
-    });
+});
 
 const createButton = (label, container) => {
     const btn = L.DomUtil.create('button', '', container);
@@ -91,5 +93,13 @@ travelMap.map.on('click', function(e) {
             travelMap.routingControl.spliceWaypoints(travelMap.routingControl.getWaypoints().length - 1, 1, e.latlng);
             travelMap.map.closePopup();
         });
+
+        const currentWeather = async() => {
+            const newWeather = await weather(e.latlng.lat, e.latlng.lng);
+            return newWeather;
+        }
+        
+        currentWeather();
 });
+
 
