@@ -13,14 +13,13 @@ const weather = async(lat, lon) => {
     const point = await getWeather(lat, lon);
     const name = point.name;
     const temp = point.main.temp - 273.15;
-    const roundedTemp = Math.round(temp * 100) / 100;
+    const roundedTemp = `Temperatura: ${Math.round(temp * 100) / 100} °C`;
     const humidity = `Wilgotność: ${point.main.humidity}%`;
     const pressure = `Ciśnienie: ${point.main.pressure}hPa`;
-    const result = `${name}, ${roundedTemp} °C`;
-    const sky = point.weather[0].description;
+    const sky = `Niebo: ${point.weather[0].description}`;
     const weatherContainer = document.querySelector('#weather');
 
-    const weatherData = [result, sky, humidity, pressure];
+    const weatherData = [name, roundedTemp, sky, humidity, pressure];
     const container = document.createElement('div');
     weatherContainer.innerHTML = '';
     container.classList.add('cz-map__weather-info');
