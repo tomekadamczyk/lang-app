@@ -17,6 +17,7 @@ else {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="assets/src/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/src/requests.js"></script>
 
 <?php
 include('views/mainview/sidebar/sidebar.php');
@@ -61,14 +62,10 @@ include('views/mainview/dashboard/menubar.php');
         }
     }
 ?>
-</section>
 
-<script src="assets/src/script.js"></script>
-<script src="assets/src/requests.js"></script>
-<script src="views/words/pagination.js"></script>
-<script src="assets/src/hangman.js"></script>
-<script src="assets/src/categories.js"></script>
-<script src="assets/src/flashcards-test.js"></script>
+</footer>
+<script src="assets/src/mobilemenu.js"></script>
+<script src="assets/src/insertWord.js"></script>
 
 
 <?php

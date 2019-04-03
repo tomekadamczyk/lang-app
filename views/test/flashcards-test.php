@@ -47,3 +47,7 @@ $category = new Categories($con);
         </table>
     </div>
 </section>
+
+</section>
+<footer>
+<script src="assets/src/flashcards-test.js"></script>

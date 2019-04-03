@@ -1,48 +1,3 @@
-const toggleAddingForms = () => {
-    let newPhraseForm = document.getElementById('newPhraseForm');
-    let newWordForm = document.getElementById('newWordForm');
-    let showPhraseForm = document.getElementById('showPhraseForm');
-    let showWordForm = document.getElementById('showWordForm');
-
-    showPhraseForm.addEventListener('click', function() {
-        newPhraseForm.style.display = 'block';
-        newWordForm.style.display = 'none';
-    })
-
-    showWordForm.addEventListener('click', function() {
-        newPhraseForm.style.display = 'none';
-        newWordForm.style.display = 'block';
-    })
-}
-
-
-
-
-
-
-
-const showMobileMenu = () => {
-let getMobileMenu = document.getElementById('getMobileMenu');
-let mobileMenu = document.getElementById('mobileMenu');
-    const showMenu = (element, clicker) => {
-        let click = 0;
-        clicker.addEventListener('click', function() {
-            element.style.display = 'block';
-            clicker.classList.add('active');
-            click++;
-            
-            if(click === 2) {
-                element.style.display = 'none';
-                clicker.classList.remove('active');
-                click = 0;
-            }
-        });
-    }
-    return showMenu(mobileMenu, getMobileMenu);
-}
-
-
-
 const showWordDefinition = () => {
     const word = document.querySelectorAll(".cz-datacontent-word");
 
@@ -107,8 +62,6 @@ const searchWord = () => {
 }
 
 
-
-
 const categoryList = document.getElementById('categoryList');
 
 const setScrolling = (el, elements) => {
@@ -118,9 +71,7 @@ const setScrolling = (el, elements) => {
 }
 
 
-showMobileMenu();
 searchWord();
-toggleAddingForms();
 showWordDefinition();
 categoryDropdownFunction();
 setScrolling(categoryList, 8);
@@ -129,10 +80,3 @@ setScrolling(categoryList, 8);
 // const wordItems = wordRow.length;
 // const page = new Pagination(wordItems, 1);
 // page.displayItemsOnPage();
-
-// var worldMap = L.map('worldMap').setView([51.505, -0.09], 13);
-
-// L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-//         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-//     }).addTo(worldMap);
-    

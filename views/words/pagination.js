@@ -101,5 +101,3 @@ const page = new Pagination(wordItems, 1);
 const setPagination = () => {
     page.displayItemsOnPage();
 }
-
-setPagination();

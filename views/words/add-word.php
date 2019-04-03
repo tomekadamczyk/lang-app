@@ -42,7 +42,3 @@ $phrase = new Phrase($con);
     </div>
   </div>
 </div>
-
-<?php
-include('footer.php');
-?>

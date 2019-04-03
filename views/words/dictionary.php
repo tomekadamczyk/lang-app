@@ -50,6 +50,7 @@ $word->resetWordIncrement();
     </div>
 </section>
 
-<?php
-include('footer.php');
-?>
+</section>
+<footer>
+<script src="assets/src/script.js"></script>
+<script src="assets/src/categories.js"></script>

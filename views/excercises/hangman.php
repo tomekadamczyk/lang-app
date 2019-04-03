@@ -68,3 +68,7 @@
         </div>
     </div>
 </section>
+</section>
+
+<footer>
+<script src="assets/src/hangman.js"></script>

@@ -50,18 +50,20 @@
         </div>
     </div>
 </div>
+</section>
 
-<script>
+<footer>
+    <script>
 
-const setPointOnDashboard = () => {
-    const data = localStorage.getItem('lastWordTestPoints');
-    const pointsContainer = document.getElementById('lastWordTestPoints');
-    pointsContainer.textContent = data;
-    const circlePoints = document.getElementById('circlePoints');
-    const pointsPercentage = (data*100)/10;
-    circlePoints.setAttribute('stroke-dasharray', pointsPercentage + ',100');
-    console.log(circlePoints.getAttribute('stroke-dasharray'))
-}
+    const setPointOnDashboard = () => {
+        const data = localStorage.getItem('lastWordTestPoints');
+        const pointsContainer = document.getElementById('lastWordTestPoints');
+        pointsContainer.textContent = data;
+        const circlePoints = document.getElementById('circlePoints');
+        const pointsPercentage = (data*100)/10;
+        circlePoints.setAttribute('stroke-dasharray', pointsPercentage + ',100');
+        console.log(circlePoints.getAttribute('stroke-dasharray'))
+    }
 
-setPointOnDashboard();
-</script>
+    setPointOnDashboard();
+    </script>

@@ -36,3 +36,6 @@ $category = new Categories($con);
             </div>
         </div>
 </section>
+
+</section>
+<footer>

@@ -37,7 +37,8 @@ $word = new Words($con);
         </div>
     </div>
 </section>
+</section>
 
-<?php
-include('footer.php');
-?>
+<footer>
+<script src="assets/src/script.js"></script>
+<script src="assets/src/categories.js"></script>
