@@ -1,11 +1,13 @@
 <section class="cz-menubar">
-    <a href="index.php" class="logo-mobile">
-    <div class="logo-transformed">
-        <span class="logo-dot logo-dot--white"></span>
-        <span class="logo-dot logo-dot--red"></span>
-        <span class="logo-dot logo-dot--blue"></span>
+    <div class="cz-main-logo-container cz-main-logo-container--mobile">
+        <a href="index.php" class="logo">
+        <div class="logo-transformed">
+            <span class="logo-dot logo-dot--white"></span>
+            <span class="logo-dot logo-dot--red"></span>
+            <span class="logo-dot logo-dot--blue"></span>
+        </div>
+        </a>
     </div>
-    </a>
     <div class="text-right">
         <div class="cz-menubar__user">
             <span class="mr-3"><i class="fas fa-users"></i> <?php echo $_SESSION['userLoggedIn']; ?></span>
