@@ -1,10 +1,7 @@
 <?php
 require_once './modules/config.php';
-require_once './modules/class.words.php';
-require_once './modules/class.categories.php';
-$category = new Categories($con);
-$word = new Words($con);
-$word->resetWordIncrement();
+require_once './modules/class.travel.php';
+$travel = new Travel($con);
 
 
 ?>
@@ -23,7 +20,9 @@ crossorigin=""/>
                     <div class="cz-datacontent-header">
                         <h1><strong>Podróże</strong></h1>
                     </div>
-                    <div><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#showPlaces">Dodaj cel podróży</button></div>
+                    <div class="align-self-center">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#showPlaces">Moje miejsca</button>
+                    </div>
                 </div>
                 <div id="mapid">
                     <div class="cz-map__weather" id="weather"></div>
@@ -44,19 +43,33 @@ crossorigin=""/>
                 <div class="modal-body">
                     <div class="cz-travel__myPlaces" id="myPlaces">
                         <div class="row">
-                            <div class="col-md-3">
-                                <span>Miejsce</span>
+                            <div class="cz-travel__place-name" id="displayPlace">
+
                             </div>
-                            <div class="col-md-9">
-                                <div>
-                                    opis
-                                </div>
+                            <div class="cz-travel__place-point" id="displayPlacePoint">
+
                             </div>
                         </div>
                     </div>
                     <div class="cz-travel__addPlace" id="addPlaceView">
                         <div class="cz-travel__addPlaceForm" id="addPlaceForm">
+                            <form method="POST" action="" id="placeForm">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <span id="addNextPlace" class="btn btn-primary cz-travel__btn">Dodaj punkt zwiedzania</span>
+                                        <span id="savePoints" class="btn btn-success cz-travel__btn">Zatwierdź</span>
+                                        <input name="saveNewPlace" type="submit" value="Zapisz" class="btn btn-success cz-travel__btn">
+                                    </div>
+                                    <div class="col-md-8" id="travelInputs">
+                                        <input class="form-control" type="text" id="placeName" name="placeName" placeholder="Nazwa miejsca">
+                                        <textarea id="pointsContainer" class="cz-travel__newPlacesContainer" name="pointsContainer"></textarea>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
+                        <?php $travel->insertPlace(); ?>
+                        <small>Przed zapisem punktów podróży należy wcisnąć przycisk 'Zatwierdź'</small><br>
+                        <hr>
                         <button id="backtoView" class="btn btn-sm btn-secondary ml-2">Powrót</button>
                     </div>
                 </div>

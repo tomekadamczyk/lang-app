@@ -111,13 +111,13 @@ const changePlacesModalView = () => {
     let backtoView = document.querySelector('#backtoView');
 
     addNewPlace.addEventListener('click', function() {
-        newPlaceView.style.visibility = 'visible';
-        myPlaces.style.visibility = 'hidden';
+        newPlaceView.style.display = 'block';
+        myPlaces.style.display = 'none';
     })
 
     backtoView.addEventListener('click', function() {
-        newPlaceView.style.visibility = 'hidden';
-        myPlaces.style.visibility = 'visible';
+        newPlaceView.style.display = 'none';
+        myPlaces.style.display = 'block';
     })
 }
 
@@ -133,45 +133,20 @@ const generateInput = () => {
 }
 
 const generatePlacesForm = () => {
-    let addPlaceForm = document.querySelector('#addPlaceForm');
-    const form = document.createElement('form');
-    form.setAttribute('method', 'POST');
+    let travelInputs = document.querySelector('#travelInputs');
+    const form = document.querySelector('#placeForm');
+    const addNextPlace = document.querySelector('#addNextPlace');
+    const savePoints = document.querySelector('#savePoints'); 
 
-    const title = document.createElement('input');
-    title.classList.add('form-control');
-    title.setAttribute('type', 'text');
-    title.id = 'placeName';
-    title.setAttribute('name', 'placeName');
-    title.setAttribute('placeholder', 'Nazwa miejsca');
-
-    const addPoint = document.createElement('span'); 
-    addPoint.textContent = 'Dodaj punkt zwiedzania';
-    addPoint.classList.add('btn');
-    addPoint.classList.add('btn-success');
-
-    const savePoints = document.createElement('span'); 
-    savePoints.textContent = 'Zatwierdź';
-    savePoints.classList.add('btn');
-    savePoints.classList.add('btn-success');
-
-    const pointsContainer = document.createElement('textarea');
-    pointsContainer.id = 'pointsContainer';
-    pointsContainer.classList.add('cz-travel__newPlacesContainer');
-    pointsContainer.setAttribute('name', 'placesContainer');
-
-    addPoint.addEventListener('click', () => {
-        form.appendChild(generateInput());
+    addNextPlace.addEventListener('click', () => {
+        travelInputs.appendChild(generateInput());
     })
 
     savePoints.addEventListener('click', () => {
         getPlacesInputData();
     })
 
-    form.appendChild(title);
-    form.appendChild(addPoint);
-    form.appendChild(pointsContainer);
-    form.appendChild(savePoints);
-    addPlaceForm.appendChild(form);
+    
 }
 
 let pointsArray = [];
@@ -185,6 +160,53 @@ const getPlacesInputData = () => {
     })
 }
 
+const displayPlaces = async() => {
+    let place = await showAllPlaces();
+    const showPlaces = document.querySelector('#displayPlace');
+    const displayPlacePoint = document.querySelector('#displayPlacePoint');
+    place.forEach(item => {
+        const name = document.createElement('span');
+        const point = document.createElement('div');
+        name.classList.add('travelname');
+        name.classList.add('travelname' + item.id_travel);
+        point.classList.add('travelnamepoint');
+        point.classList.add('travelnamepoint' + item.id_travel);
+        name.innerHTML = item.name;
+        point.innerHTML = item.points;
+        showPlaces.appendChild(name);
+        displayPlacePoint.appendChild(point);
+    })
+
+    const placeNames = document.querySelectorAll('.travelname');
+    const pointNames = document.querySelectorAll('.travelnamepoint');
+
+    const displayPlacePoints = (id) => {
+        placeNames.forEach(element => {
+            if (element.classList.contains('travelname' + id)) {
+                pointNames.forEach(item => {
+                    item.classList.remove('active')
+                    if (item.classList.contains('travelnamepoint' + id)) {
+                        item.classList.add('active')
+                    }
+                })
+            };
+        })
+    }
+    const getPlaceId = () => {
+        for (const item of placeNames) {
+            item.onclick = function(e) {
+                let className = e.target.classList[1];
+                let id = className.replace(/^travelname/i, '');
+                displayPlacePoints(id);
+            }
+        }
+    }
+    getPlaceId();
+}
+
+
+
 
 generatePlacesForm();
 changePlacesModalView();
+displayPlaces();

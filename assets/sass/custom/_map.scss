@@ -45,6 +45,22 @@
                 color: $primary;
             }
         }
+
+        @media only screen and (max-width: 767px) {
+            left: 5px;
+            top: 77px;
+
+            &-info {
+                font-size: 9px;
+                padding: 6px;
+            }
+
+            &-element {
+                &:first-child {
+                    font-size: 16px;
+                }
+            }
+        }
     }
 
     &__header {
@@ -95,6 +111,7 @@
         .leaflet-routing-geocoders {
             border-bottom: none;
             padding: 0;
+            margin-top: 6px;
         }
 
         .leaflet-routing-remove-waypoint {
@@ -127,6 +144,10 @@
                 color: $primary;
                 background: $white;
                 transition-duration: .3s;
+            }
+
+            @media only screen and (min-width: 640px) {
+                top: 14px;
             }
         }
     }
