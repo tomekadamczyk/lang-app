@@ -47,10 +47,32 @@
         }
     }
 
+    .cz-datacontent-header {
+        padding-left: 30px;
+    }
+
     .leaflet-right {
 
         .leaflet-routing-alternatives-container {
-            display: none;
+            .leaflet-routing-alt {
+                background: $white;
+
+                h2 {
+                    float: left;
+                    margin-bottom: 0;
+                }
+
+                h3 {
+                    float: right;
+                    color: $primary;
+                    font-weight: bold;
+                    margin-bottom: 0;
+                }
+
+                table {
+                    display: none;
+                }
+            }
         }
 
         .leaflet-routing-container {
@@ -61,7 +83,7 @@
             input {
                 padding: 10px;
                 padding-right: 25px;
-                font-size: 14px;
+                font-size: 15px;
                 font-weight: bold;
                 background: $white;
                 border: none;
@@ -70,6 +92,7 @@
 
         .leaflet-routing-geocoders {
             border-bottom: none;
+            padding: 0;
         }
 
         .leaflet-routing-remove-waypoint {
@@ -87,16 +110,16 @@
 
         .leaflet-routing-add-waypoint  {
             position: absolute;
-            left: -45px;
-            top: 16px;
+            left: -51px;
+            top: 10px;
             border: none;
             background: $primary;
             font-size: 35px;
             border-radius: 0;
             color: $white;
             transition-duration: .3s;
-            height: 44px;
-            width: 44px;
+            height: 45px;
+            width: 45px;
 
             &:hover {
                 color: $primary;
