@@ -26,7 +26,7 @@
     }
 
     &__weather {
-        z-index: 99999;
+        z-index: 800;
         position: absolute;
         left: 55px;
         top: 10px;
@@ -47,8 +47,10 @@
         }
     }
 
-    .cz-datacontent-header {
-        padding-left: 30px;
+    &__header {
+        padding: 0 30px;
+        display: flex;
+        justify-content: space-between;
     }
 
     .leaflet-right {

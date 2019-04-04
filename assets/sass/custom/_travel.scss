@@ -11,6 +11,23 @@
             margin: 0;
         }
     }
+
+    &__modal {
+        max-width: 95%;
+
+        @media only screen and (min-width: 1200px) {
+            max-width: calc(100% - 264px);
+            left: 120px;
+        }
+    }
+
+    .modal {
+        background: rgba(0,0,0,.4);
+    }
+
+    &__addPlace {
+        visibility: hidden;
+    }
 }
 
 #worldMap { height: 180px; }

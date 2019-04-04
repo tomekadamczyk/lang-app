@@ -7127,6 +7127,16 @@ a.text-custom:hover, a.text-custom:focus {
   margin-top: 20px; }
   .cz-travel__content .row {
     margin: 0; }
+  .cz-travel__modal {
+    max-width: 95%; }
+    @media only screen and (min-width: 1200px) {
+      .cz-travel__modal {
+        max-width: calc(100% - 264px);
+        left: 120px; } }
+  .cz-travel .modal {
+    background: rgba(0, 0, 0, 0.4); }
+  .cz-travel__addPlace {
+    visibility: hidden; }
 
 #worldMap {
   height: 180px; }
@@ -7151,7 +7161,7 @@ a.text-custom:hover, a.text-custom:focus {
       color: #fff;
       transition-duration: .3s; }
   .cz-map__weather {
-    z-index: 99999;
+    z-index: 800;
     position: absolute;
     left: 55px;
     top: 10px; }
@@ -7164,8 +7174,10 @@ a.text-custom:hover, a.text-custom:focus {
     .cz-map__weather-element:first-child {
       font-size: 24px;
       color: #5e9fca; }
-  .cz-map .cz-datacontent-header {
-    padding-left: 30px; }
+  .cz-map__header {
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between; }
   .cz-map .leaflet-right .leaflet-routing-alternatives-container .leaflet-routing-alt {
     background: #fff; }
     .cz-map .leaflet-right .leaflet-routing-alternatives-container .leaflet-routing-alt h2 {

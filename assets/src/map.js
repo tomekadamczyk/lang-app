@@ -103,3 +103,88 @@ travelMap.map.on('click', function(e) {
 });
 
 
+
+const changePlacesModalView = () => {
+    let newPlaceView = document.querySelector('#addPlaceView');
+    let addNewPlace = document.querySelector('#addPlace');
+    let myPlaces = document.querySelector('#myPlaces');
+    let backtoView = document.querySelector('#backtoView');
+
+    addNewPlace.addEventListener('click', function() {
+        newPlaceView.style.visibility = 'visible';
+        myPlaces.style.visibility = 'hidden';
+    })
+
+    backtoView.addEventListener('click', function() {
+        newPlaceView.style.visibility = 'hidden';
+        myPlaces.style.visibility = 'visible';
+    })
+}
+
+const generateInput = () => {
+    const placePoint = document.createElement('input');
+    placePoint.classList.add('form-control');
+    placePoint.classList.add('cz-travel__newPlaceInput');
+    placePoint.setAttribute('type', 'text');
+    placePoint.id = 'placePoint';
+    placePoint.setAttribute('name', 'placePoint');
+    placePoint.setAttribute('placeholder', 'Punkt zwiedzania');
+    return placePoint;
+}
+
+const generatePlacesForm = () => {
+    let addPlaceForm = document.querySelector('#addPlaceForm');
+    const form = document.createElement('form');
+    form.setAttribute('method', 'POST');
+
+    const title = document.createElement('input');
+    title.classList.add('form-control');
+    title.setAttribute('type', 'text');
+    title.id = 'placeName';
+    title.setAttribute('name', 'placeName');
+    title.setAttribute('placeholder', 'Nazwa miejsca');
+
+    const addPoint = document.createElement('span'); 
+    addPoint.textContent = 'Dodaj punkt zwiedzania';
+    addPoint.classList.add('btn');
+    addPoint.classList.add('btn-success');
+
+    const savePoints = document.createElement('span'); 
+    savePoints.textContent = 'Zatwierdź';
+    savePoints.classList.add('btn');
+    savePoints.classList.add('btn-success');
+
+    const pointsContainer = document.createElement('textarea');
+    pointsContainer.id = 'pointsContainer';
+    pointsContainer.classList.add('cz-travel__newPlacesContainer');
+    pointsContainer.setAttribute('name', 'placesContainer');
+
+    addPoint.addEventListener('click', () => {
+        form.appendChild(generateInput());
+    })
+
+    savePoints.addEventListener('click', () => {
+        getPlacesInputData();
+    })
+
+    form.appendChild(title);
+    form.appendChild(addPoint);
+    form.appendChild(pointsContainer);
+    form.appendChild(savePoints);
+    addPlaceForm.appendChild(form);
+}
+
+let pointsArray = [];
+const getPlacesInputData = () => {
+    let placeInputs = document.querySelectorAll('.cz-travel__newPlaceInput');
+    let pointsContainer = document.querySelector('#pointsContainer');
+    pointsArray.length = 0;
+    return placeInputs.forEach(item => {
+        pointsArray.push(`<li>${item.value}</li>`);
+        pointsContainer.value = pointsArray;
+    })
+}
+
+
+generatePlacesForm();
+changePlacesModalView();
