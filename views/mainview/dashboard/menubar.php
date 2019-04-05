@@ -67,5 +67,16 @@
         <div class="cz-menubar-mainmenu-link">
             <a href="index.php?id=5" class="cz-menubar-mainmenu-link__item"><i class="fas fa-filter"></i>Kategorie</a>
         </div>
+        <div class="cz-menubar-mainmenu-link cz-menubar-mainmenu-link-dropdown">
+            <a href="#" class="cz-menubar-mainmenu-link__item"><i class="far fa-star"></i>Ulubione</a>
+            <div class="cz-menubar-mainmenu-link-dropdownlist">
+                <div class="cz-menubar-mainmenu-link-dropdownlist-link">
+                    <a href="index.php?id=7" class="cz-menubar-mainmenu-link-dropdownlist__item"><i class="far fa-map"></i>Podróże</a>
+                </div>
+                <div class="cz-menubar-mainmenu-link-dropdownlist-link" style="display: none;">
+                    <a href="index.php?id=6" class="cz-menubar-mainmenu-link-dropdownlist__item"><i class="far fa-map"></i>Podróże</a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>

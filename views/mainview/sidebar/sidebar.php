@@ -47,9 +47,9 @@ include('views/words/add-word.php');
         <span class="cz-sidebar-link__label"><i class="far fa-star"></i>Ulubione</span>
         <div class="cz-sidebar-link-dropdown">
             <div class="cz-sidebar-link">
-                <a href="index.php?id=7" class="cz-sidebar-link__item"><i class="fas fa-layer-group"></i>Podróże</a>
+                <a href="index.php?id=7" class="cz-sidebar-link__item"><i class="far fa-map"></i>Podróże</a>
             </div>
-            <div class="cz-sidebar-link">
+            <div class="cz-sidebar-link" style="display: none;">
                 <a href="index.php?id=6" class="cz-sidebar-link__item"><i class="far fa-newspaper"></i>Książki, filmy, artykuły</a>
             </div>
         </div>
