@@ -181,9 +181,17 @@ const displayPlaces = async() => {
         const regex = /(,<(li)>)/ig;
         const replacement = pointContent.replace(regex, '<li>');
         point.innerHTML = replacement;
+
+        const deleteButton = document.createElement('a');
+        deleteButton.classList.add('float-right');
+        deleteButton.classList.add('mr-1');
+        deleteButton.classList.add('deletePlaceButton');
+        deleteButton.setAttribute('href', 'index.php?id=7&deletePlace=' + item.id_travel);
+        deleteButton.innerHTML = '<i class="far fa-trash-alt"></i>';
         
         showPlaces.appendChild(name);
         displayPlacePoint.appendChild(point);
+        name.appendChild(deleteButton);
     })
 
     const placeNames = document.querySelectorAll('.travelname');

@@ -7168,6 +7168,11 @@ a.text-custom:hover, a.text-custom:focus {
         cursor: pointer;
         transition-duration: .2s;
         border-right: 1px solid #5e9fca; }
+        .cz-travel__place-name span .deletePlaceButton {
+          visibility: hidden;
+          transition-duration: .3s;
+          position: relative;
+          left: -10px; }
         .cz-travel__place-name span.active {
           border-bottom: 1px solid #5e9fca;
           border-top: 1px solid #5e9fca;
@@ -7177,6 +7182,10 @@ a.text-custom:hover, a.text-custom:focus {
           color: #5e9fca;
           font-weight: bold;
           transition-duration: .2s; }
+          .cz-travel__place-name span.active .deletePlaceButton {
+            visibility: visible;
+            transition-duration: .3s;
+            left: 0; }
         .cz-travel__place-name span:hover {
           color: #5e9fca;
           transition-duration: .2s;
