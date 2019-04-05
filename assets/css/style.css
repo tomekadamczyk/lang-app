@@ -7128,11 +7128,18 @@ a.text-custom:hover, a.text-custom:focus {
   .cz-travel__content .row {
     margin: 0; }
   .cz-travel__modal {
-    max-width: 95%; }
+    max-width: 800px;
+    margin-left: .5rem;
+    margin-right: .5rem; }
+    @media only screen and (min-width: 817px) {
+      .cz-travel__modal {
+        margin-left: auto;
+        margin-right: auto; } }
     @media only screen and (min-width: 1200px) {
       .cz-travel__modal {
-        max-width: calc(100% - 264px);
         left: 120px; } }
+    .cz-travel__modal .modal-content {
+      border-radius: 0; }
   .cz-travel .modal {
     background: rgba(0, 0, 0, 0.4); }
   .cz-travel__addPlace {
@@ -7149,26 +7156,47 @@ a.text-custom:hover, a.text-custom:focus {
     display: block;
     padding: 0 10px; }
     .cz-travel__place-name {
-      width: 40%;
+      width: 43%;
       padding: 0 10px;
       display: block; }
       @media only screen and (min-width: 768px) {
         .cz-travel__place-name {
-          width: 25%; } }
+          width: 35%; } }
       .cz-travel__place-name span {
         display: block;
         padding: 7px 0;
-        color: #306b92;
         cursor: pointer;
-        transition-duration: .2s; }
+        transition-duration: .2s;
+        border-right: 1px solid #5e9fca; }
+        .cz-travel__place-name span.active {
+          border-bottom: 1px solid #5e9fca;
+          border-top: 1px solid #5e9fca;
+          border-left: 1px solid #5e9fca;
+          border-right: none;
+          padding-left: 10px;
+          color: #5e9fca;
+          font-weight: bold;
+          transition-duration: .2s; }
         .cz-travel__place-name span:hover {
           color: #5e9fca;
-          margin-left: 10px; }
-    .cz-travel__place-point .travelnamepoint {
-      display: none; }
-      .cz-travel__place-point .travelnamepoint.active {
-        display: block;
-        float: left; }
+          transition-duration: .2s;
+          padding-left: 10px; }
+    .cz-travel__place-point {
+      width: 50%;
+      margin-right: auto; }
+      @media only screen and (min-width: 768px) {
+        .cz-travel__place-point {
+          width: 61%; } }
+      .cz-travel__place-point .travelnamepoint {
+        display: none;
+        width: 100%; }
+        .cz-travel__place-point .travelnamepoint li {
+          list-style-type: none;
+          border-bottom: 1px solid #ced4da;
+          padding: 7px 0; }
+        .cz-travel__place-point .travelnamepoint.active {
+          display: block;
+          float: left; }
 
 #worldMap {
   height: 180px; }

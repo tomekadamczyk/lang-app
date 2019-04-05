@@ -176,7 +176,6 @@ const displayPlaces = async() => {
         const pointContent = point.innerHTML;
         const regex = /(,<(li)>)/ig;
         const replacement = pointContent.replace(regex, '<li>');
-        console.log(replacement);
         point.innerHTML = replacement;
         
         showPlaces.appendChild(name);
@@ -193,9 +192,13 @@ const displayPlaces = async() => {
                     item.classList.remove('active')
                     if (item.classList.contains('travelnamepoint' + id)) {
                         item.classList.add('active')
+                        element.classList.add('active')
                     }
                 })
-            };
+            }
+            else {
+                element.classList.remove('active')
+            }
         })
     }
     const getPlaceId = () => {

@@ -13,11 +13,21 @@
     }
 
     &__modal {
-        max-width: 95%;
+        max-width: 800px;
+        margin-left: .5rem;
+        margin-right: .5rem;
+
+        @media only screen and (min-width: 817px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         @media only screen and (min-width: 1200px) {
-            max-width: calc(100% - 264px);
-            left: 120px;
+            left:120px;
+        }
+
+        .modal-content {
+            border-radius: 0;
         }
     }
 
@@ -52,41 +62,64 @@
         
 
         &-name {
-            width: 40%;
+            width: 43%;
             padding: 0 10px;
             display: block;
 
             @media only screen and (min-width: 768px) {
-                width: 25%;
+                width: 35%;
             }
             span {
                 display: block;
                 padding: 7px 0;
-                color: darken($primary, 20%);
                 cursor: pointer;
                 transition-duration: .2s;
+                border-right: 1px solid $primary;
+
+                &.active {
+                    border-bottom: 1px solid $primary;
+                    border-top: 1px solid $primary;
+                    border-left: 1px solid $primary;
+                    border-right: none;
+                    padding-left: 10px;
+                    color: $primary;
+                    font-weight: bold;
+                    transition-duration: .2s;
+                }
                 
                 &:hover {
                     color: $primary;
-                    margin-left: 10px;
+                    transition-duration: .2s;
+                    padding-left: 10px;
                 }
             }
         }
     
         &-point {
+            width: 50%;
+            margin-right: auto;
+
+            @media only screen and (min-width: 768px) {
+                width: 61%;
+            }
 
             .travelnamepoint {
                 display: none;
+                width: 100%;
+
+                li {
+                    list-style-type: none;
+                    border-bottom: 1px solid $gray-400;
+                    padding: 7px 0;
+                }
                 
                 &.active {
                     display: block;
                     float: left;
                 }
             }
-    
         }
     }
-
 }
 
 #worldMap { height: 180px; }
