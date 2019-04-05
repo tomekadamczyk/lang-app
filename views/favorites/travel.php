@@ -55,19 +55,19 @@ crossorigin=""/>
                         <div class="cz-travel__addPlaceForm" id="addPlaceForm">
                             <form method="POST" action="" id="placeForm">
                                 <div class="row">
-                                    <div class="col-sm-5">
-                                        <span id="addNextPlace" class="btn btn-primary cz-travel__btn">Dodaj punkt zwiedzania</span>
-                                        <span id="savePoints" class="btn btn-success cz-travel__btn">Zatwierdź</span>
-                                        <input name="saveNewPlace" type="submit" value="Zapisz" class="btn btn-success cz-travel__btn">
-                                    </div>
                                     <div class="col-sm-7" id="travelInputs">
                                         <input class="form-control" type="text" id="placeName" name="placeName" placeholder="Nazwa miejsca">
                                         <textarea id="pointsContainer" class="cz-travel__newPlacesContainer" name="pointsContainer"></textarea>
                                     </div>
+                                    <div class="col-sm-5">
+                                        <span id="addNextPlace" class="btn btn-primary cz-travel__btn">Dodaj punkt zwiedzania</span>
+                                        <span id="savePoints" class="btn btn-success cz-travel__btn">Zatwierdź</span>
+                                        <input name="saveNewPlace" id="saveNewPlace" type="submit" value="Zapisz" class="btn btn-success cz-travel__btn">
+                                        <?php $travel->insertPlace(); ?>
+                                    </div>
                                 </div>
                             </form>
                         </div>
-                        <?php $travel->insertPlace(); ?>
                         <small>Przed zapisem punktów podróży należy wcisnąć przycisk 'Zatwierdź'</small><br>
                         <hr>
                         <button id="backtoView" class="btn btn-sm btn-secondary ml-2">Powrót</button>

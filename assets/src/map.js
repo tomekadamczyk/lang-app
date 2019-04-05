@@ -126,7 +126,6 @@ const generateInput = () => {
     placePoint.classList.add('form-control');
     placePoint.classList.add('cz-travel__newPlaceInput');
     placePoint.setAttribute('type', 'text');
-    placePoint.id = 'placePoint';
     placePoint.setAttribute('name', 'placePoint');
     placePoint.setAttribute('placeholder', 'Punkt zwiedzania');
     return placePoint;
@@ -134,7 +133,6 @@ const generateInput = () => {
 
 const generatePlacesForm = () => {
     let travelInputs = document.querySelector('#travelInputs');
-    const form = document.querySelector('#placeForm');
     const addNextPlace = document.querySelector('#addNextPlace');
     const savePoints = document.querySelector('#savePoints'); 
 
@@ -153,10 +151,16 @@ let pointsArray = [];
 const getPlacesInputData = () => {
     let placeInputs = document.querySelectorAll('.cz-travel__newPlaceInput');
     let pointsContainer = document.querySelector('#pointsContainer');
+    let travelInputs = document.querySelector('#travelInputs');
     pointsArray.length = 0;
     return placeInputs.forEach(item => {
-        pointsArray.push(`<li>${item.value}</li>`);
-        pointsContainer.value = pointsArray;
+        if(item.value !== '') {
+            pointsArray.push(`<li>${item.value}</li>`);
+            pointsContainer.value = pointsArray;
+        }
+        else {
+            travelInputs.removeChild(item);
+        }
     })
 }
 
