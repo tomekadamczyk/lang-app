@@ -173,6 +173,12 @@ const displayPlaces = async() => {
         point.classList.add('travelnamepoint' + item.id_travel);
         name.innerHTML = item.name;
         point.innerHTML = item.points;
+        const pointContent = point.innerHTML;
+        const regex = /(,<(li)>)/ig;
+        const replacement = pointContent.replace(regex, '<li>');
+        console.log(replacement);
+        point.innerHTML = replacement;
+        
         showPlaces.appendChild(name);
         displayPlacePoint.appendChild(point);
     })
