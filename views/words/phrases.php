@@ -21,9 +21,17 @@ $word = new Words($con);
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8 col-xl-10">
                 <div class="cz-datacontent-table__content">
                     <?php $phrase->displayPhrases() ?>
+                </div>
+            </div>
+            <div class="col-md-4 col-xl-2 mb-4">
+                <h4 id="selectCategories2" >Kategorie <i class="fas fa-chevron-down"></i></h4>
+                <div id="categoriesListContent" class="cz-categories__list">
+                    <?php 
+                        $category->displayCategoriesInDictionary();
+                    ?>
                 </div>
             </div>
             <!--<div class="cz-pagination">
