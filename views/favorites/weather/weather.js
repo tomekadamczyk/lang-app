@@ -35,3 +35,5 @@ const weather = async(lat, lon) => {
 }
 
 
+export {weather as default}
+

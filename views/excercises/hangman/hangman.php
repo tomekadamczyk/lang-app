@@ -71,4 +71,4 @@
 </section>
 
 <footer>
-<script src="assets/src/hangman.js"></script>
+<script src="public/dist/js/hangman.bundle.js"></script>

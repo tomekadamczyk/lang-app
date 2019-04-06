@@ -1,3 +1,7 @@
+
+import weather from '../weather/weather.js';
+import showAllPlaces from './../../../api/requests/travelplaces/places.js';
+
 let travelMap = {
     map: null,
     routingControl: null,

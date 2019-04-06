@@ -17,7 +17,6 @@ else {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="assets/src/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/src/requests.js"></script>
 
 <?php
 include('views/mainview/sidebar/sidebar.php');
@@ -26,30 +25,30 @@ include('views/mainview/sidebar/sidebar.php');
 <section class="cz-mainview">
 <?php
 
-include('views/mainview/dashboard/menubar.php');
+include('views/mainview/dashboard/menubar/menubar.php');
     if (empty($_GET['id'])) {
         include('views/mainview/dashboard/dashboard.php');
     }
     else {
         switch($_GET['id']) {
             case 1:
-            include('views/excercises/flashcards.php');
+            include('views/excercises/flashcards/flashcards.php');
             break;
 
             case 2:
-            include('views/excercises/hangman.php');
+            include('views/excercises/hangman/hangman.php');
             break;
 
             case 3:
-            include('views/words/dictionary.php');
+            include('views/words/dictionary/dictionary.php');
             break;
 
             case 4:
-            include('views/words/phrases.php');
+            include('views/words/phrases/phrases.php');
             break;
             
             case 5:
-            include('views/words/add-category.php');
+            include('views/categories/add-category.php');
             break;
 
             case 6:
@@ -57,15 +56,15 @@ include('views/mainview/dashboard/menubar.php');
             break;
 
             case 7:
-            include('views/favorites/travel.php');
+            include('views/favorites/map/travel.php');
             break;
         }
     }
 ?>
 
 </footer>
-<script src="assets/src/mobilemenu.js"></script>
-<script src="assets/src/insertWord.js"></script>
+<script src="public/dist/js/mobilemenu.bundle.js"></script>
+<script src="public/dist/js/insertWord.bundle.js"></script>
 
 
 <?php

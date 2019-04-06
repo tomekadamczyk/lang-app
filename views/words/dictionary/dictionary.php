@@ -52,5 +52,5 @@ $word->resetWordIncrement();
 
 </section>
 <footer>
-<script src="assets/src/script.js"></script>
-<script src="assets/src/categories.js"></script>
+<script src="public/dist/js/wordsAndPhrases.bundle.js"></script>
+<script src="public/dist/js/categories.bundle.js"></script>

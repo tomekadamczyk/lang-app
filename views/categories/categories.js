@@ -1,5 +1,7 @@
 'use strict'
 
+import getCategories from '../../api/requests/categories/categories.js';
+import showAllWords from '../../api/requests/allWords/allwords.js';
 
 
 

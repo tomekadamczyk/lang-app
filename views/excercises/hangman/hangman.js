@@ -1,5 +1,7 @@
 'use strict'
 
+import showWord from '../../../api/requests/randomWord/randomword.js';
+
 let guessesLeft = document.querySelector('#cz-hangman-left-guesses');
 let wordToGuess = document.querySelector('#cz-hangman-word');
 let hangmanWin = document.querySelector('#cz-hangman-win');

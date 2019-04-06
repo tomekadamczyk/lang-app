@@ -1,10 +1,20 @@
 const path = require('path');
 
 module.exports = {
-    entry: './assets/src/index.js',
+    entry: {
+        categories: './views/categories/categories.js',
+        wordsAndPhrases: './views/words/wordsAndPhrases.js',
+        flashcardsTest: './views/test/flashcards-test.js',
+        flashcards: './views/excercises/flashcards/flashcards.js',
+        hangman: './views/excercises/hangman/hangman.js',
+        insertWord: './views/words/add/add-word.js',
+        map: './views/favorites/map/map.js',
+        mobilemenu: './views/mainview/dashboard/menubar/menubar.js',
+        weather: './views/favorites/weather/weather.js'
+    },
     output: {
-        path: path.resolve(__dirname, './assets/public/js'),
-        filename: 'app.bundle.js'
+        path: path.resolve(__dirname, 'public/dist/js'),
+        filename: '[name].bundle.js'
     },
     module: {
         rules: [{
@@ -20,7 +30,7 @@ module.exports = {
         }]
     },
     devServer: {
-        contentBase: path.resolve(__dirname, './assets'),
-        publicPath: '/public/js/'
+        contentBase: path.resolve(__dirname, 'public'),
+        publicPath: '/dist/js/'
       }
 }

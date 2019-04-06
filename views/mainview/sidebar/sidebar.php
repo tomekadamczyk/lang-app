@@ -1,5 +1,5 @@
 <?php
-include('views/words/add-word.php');
+include('views/words/add/add-word.php');
 ?>
 
 <div class="cz-sidebar">

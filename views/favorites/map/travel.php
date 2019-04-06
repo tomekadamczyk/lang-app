@@ -89,8 +89,10 @@ crossorigin=""></script>
 <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.6/mapbox-gl-geocoder.min.js'></script>
-<script src="assets/src/weather.js"></script>
-<script src="assets/src/map.js"></script>
+<script src="public/dist/js/weather.bundle.js"></script>
+<script src="public/dist/js/map.bundle.js"></script>
+<!-- <script src="views/favorites/weather/index.js"></script>
+<script src="views/favorites/map/index.js"></script> -->
 <script>
 $(document).ready(function() {
 $('#myModal').on('shown.bs.modal', function () {

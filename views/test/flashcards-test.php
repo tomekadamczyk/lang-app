@@ -50,4 +50,4 @@ $category = new Categories($con);
 
 </section>
 <footer>
-<script src="assets/src/flashcards-test.js"></script>
+<script src="public/dist/js/flashcardsTest.bundle.js"></script>

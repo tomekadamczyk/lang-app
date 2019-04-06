@@ -1,3 +1,7 @@
+
+import getCategories from '../../api/requests/categories/categories.js';
+import showAllWords from '../../api/requests/allWords/allwords.js';
+
 let getWord = document.querySelector('#flash-word');
 let getTranslation = document.querySelector('#flash-translation');
 let typeWord = document.querySelector('#typeWord');
