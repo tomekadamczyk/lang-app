@@ -1,5 +1,5 @@
 <?php
-include('modules/config.php');
+include('config.php');
 require_once 'modules/class.categories.php';
 require_once 'modules/class.words.php';
 require_once 'modules/class.phrases.php';

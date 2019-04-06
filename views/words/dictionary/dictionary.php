@@ -1,5 +1,5 @@
 <?php
-require_once './modules/config.php';
+require_once './config.php';
 require_once './modules/class.words.php';
 require_once './modules/class.categories.php';
 $category = new Categories($con);

@@ -1,6 +1,6 @@
 
 <?php 
-require_once './modules/config.php';
+require_once './config.php';
 require_once './modules/class.words.php';
 $word = new Words($con);
 require_once './modules/class.phrases.php';

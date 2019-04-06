@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 
-include('../../modules/config.php');
+include('../../config.php');
 include('../../modules/class.constants.php');
 include('../../modules/class.account.php');
 $account = new Account($con);

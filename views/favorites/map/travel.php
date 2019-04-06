@@ -1,5 +1,5 @@
 <?php
-require_once './modules/config.php';
+require_once './config.php';
 require_once './modules/class.travel.php';
 $travel = new Travel($con);
 $travel->resetTravelIncrement();
