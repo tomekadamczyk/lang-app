@@ -146,13 +146,26 @@ class Categories {
 
 
     public function editCategory() {
+        require_once 'class.account.php';
+        $account = new Account($this->con);
+        if(isset($_SESSION['userLoggedIn'])) {
+            $userLoggedIn = $_SESSION['userLoggedIn'];
+        }
+        $user = $account->getUserID($userLoggedIn);
+
+
         if(!empty($_GET['edit'])) {
             $topic_id = $_GET['edit'];
             echo '<div id="categoryUpdate" class="cz-categories__update">
                 <form method="POST">
-                <input class="form-control my-2" type="text" name="newNameCategory" placeholder="Podaj nową nazwę kategorii">
-                <input type="submit" value="Zaktualizuj" name="updateCategory" class="btn btn-sm btn-success">
-                </form>
+                <input class="form-control my-2" type="text" name="newNameCategory" placeholder="Podaj nową nazwę kategorii">';
+                if($user != 13) { 
+                    echo '<input type="submit" value="Zaktualizuj" name="updateCategory" class="btn btn-sm btn-success">';
+                }
+                else if ($user == 13) {
+                    echo '<div class="alert alert-danger mt-3">W wersji demonstracyjnej nie można edytować istniejących treści</div>';
+                }
+                echo '</form>
                 </div>';
         }
         if(isset($_POST['updateCategory'])){
@@ -205,31 +218,6 @@ class Categories {
         // }
     }
 
-    public function displayDictionary() {
-        require_once 'class.account.php';
-
-        $account = new Account($this->con);
-        
-        if(isset($_SESSION['userLoggedIn'])) {
-            $userLoggedIn = $_SESSION['userLoggedIn'];
-            
-        }
-        $user = $account->getUserID($userLoggedIn);
-
-        $lp = 1;
-        $query = mysqli_query($this->con, "SELECT * FROM user_words WHERE user='$user'");
-        if(mysqli_num_rows($query) > 1) {
-            while ($data = $query->fetch_object()) { 
-                $level = $this->getLevelId($data->level); 
-                echo '<div class="cz-dictionary-word">';
-                echo '<p class="cz-dictionary-word__item"><span>'.$lp.'</span> <strong><span>'.$data->word.'</span> - </strong><span>'.$data->translation.'</span><span class="cz-dictionary-word__level"><small>'.$level.'</small></span></p>
-                <p class="cz-dictionary-definition">'.$data->definition.'</p>';
-                echo '</div>';
-                $lp++;
-            }
-        }
-    }
-    
     public function getLevelId($id) {
         
         $query = mysqli_query($this->con, "SELECT * FROM levels WHERE id_levels='$id'");

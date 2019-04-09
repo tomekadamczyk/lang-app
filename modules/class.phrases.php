@@ -73,9 +73,14 @@ class Phrase {
                         <option <?php if ($level == 3 ) echo 'selected' ; ?> value="3">C</option>
                         <?php
                     echo '</select>
-                </div>
-                <input type="submit" class="btn bg-custom text-white addNewWord" id="addPhrase" name="addPhrase" value="Dodaj nowy zwrot">
-            </div>
+                </div>';
+                if($user != 13) { 
+                    echo '<input type="submit" class="btn bg-custom text-white addNewWord" id="addPhrase" name="addPhrase" value="Dodaj nowy zwrot">';
+                }
+                else if ($user == 13) {
+                    echo '<div class="alert alert-danger mt-3">W wersji demonstracyjnej nie można dodawać nowych treści</div>';
+                }
+            echo '</div>
         </form> ';
     }
 
@@ -173,11 +178,16 @@ class Phrase {
         }
             ?>
                 <form method="POST" class="cz-edit-form">
-                    <label for="editphrase">"<?php echo $row['phrase']; ?>"</label>
+                    <label for="editphrase" class="font-weight-bold text-primary text-center"><?php echo $row['phrase']; ?></label>
                     <input type="text" class="form-control" name="editphrase" id="editphrase" placeholder="Edytuj zwrot">
-                    <label for="editranslation">"<?php echo $row['translation']; ?>"</label>
+                    <label for="editranslation" class="font-weight-bold text-primary text-center"><?php echo $row['translation']; ?></label>
                     <input type="text" class="form-control" name="edittranslation" id="edittranslation" placeholder="Edytuj tłumaczenie">
-                    <input type="submit" class="btn btn-sm btn-success" name="updatePhrase" value="Zapisz">
+                    <?php if($user != 13) { 
+                        ?> <input type="submit" class="btn btn-sm btn-success" name="updatePhrase" value="Zapisz"> <?php
+                    }
+                    else if ($user == 13) {
+                        echo '<div class="alert alert-danger mt-3">W wersji demonstracyjnej nie można edytować istniejących treści</div>';
+                    } ?>                    
                 </form>
             <?php
 

@@ -88,9 +88,14 @@ class Words {
                     <?php
 
                echo '</select>
-            </div>
-        <input type="submit" class="btn bg-custom text-white addNewWord" id="addWord" name="addWord" value="Dodaj nowe słowo">
-        </div>
+            </div>';
+            if($user != 13) { 
+                echo '<input type="submit" class="btn bg-custom text-white addNewWord" id="addWord" name="addWord" value="Dodaj nowe słowo">';
+            }
+            else if ($user == 13) {
+                echo '<div class="alert alert-danger mt-3">W wersji demonstracyjnej nie można dodawać nowych treści</div>';
+            }
+        echo'</div>
         </form>';
     }
 
@@ -223,13 +228,18 @@ class Words {
         }
             ?>
                 <form method="POST" class="cz-edit-form">
-                    <label for="editword">"<?php echo $row['word']; ?>"</label>
+                    <label for="editword" class="font-weight-bold text-primary text-center"><?php echo $row['word']; ?></label>
                     <input type="text" class="form-control" name="editword" id="editword" placeholder="Edytuj słowo">
-                    <label for="editranslation">"<?php echo $row['translation']; ?>"</label>
+                    <label for="editranslation" class="font-weight-bold text-primary text-center"><?php echo $row['translation']; ?></label>
                     <input type="text" class="form-control" name="editranslation" id="edittranslation" placeholder="Edytuj tłumaczenie">
-                    <label for="editdefinition">"<?php echo $row['definition']; ?>"</label>
+                    <label for="editdefinition" class="font-weight-bold text-primary text-center"><?php echo $row['definition']; ?></label>
                     <input type="text" class="form-control" name="editdefinition" id="editdefinition" placeholder="Edytuj definicję">
-                    <input type="submit" class="btn btn-sm btn-success" name="updateword" value="Zapisz">
+                    <?php if($user != 13) { 
+                        ?> <input type="submit" class="btn btn-sm btn-success" name="updateword" value="Zapisz"> <?php
+                    }
+                    else if ($user == 13) {
+                        echo '<div class="alert alert-danger mt-3">W wersji demonstracyjnej nie można edytować istniejących treści</div>';
+                    } ?>                    
                 </form>
             <?php
 

@@ -3,7 +3,13 @@ require_once './config.php';
 require_once './modules/class.travel.php';
 $travel = new Travel($con);
 $travel->resetTravelIncrement();
+$account = new Account($con);
 
+if(isset($_SESSION['userLoggedIn'])) {
+    $userLoggedIn = $_SESSION['userLoggedIn'];
+    
+}
+$user = $account->getUserID($userLoggedIn);
 
 ?>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
@@ -64,7 +70,14 @@ crossorigin=""/>
                                     <div class="col-sm-5">
                                         <span id="addNextPlace" class="btn btn-primary cz-travel__btn">Dodaj punkt zwiedzania</span>
                                         <span id="savePoints" class="btn btn-success cz-travel__btn">Zatwierdź</span>
-                                        <input name="saveNewPlace" id="saveNewPlace" type="submit" value="Zapisz" class="btn btn-success cz-travel__btn">
+                                        
+                                        <?php if($user != 13) { 
+                                            ?> <input name="saveNewPlace" id="saveNewPlace" type="submit" value="Zapisz" class="btn btn-success cz-travel__btn"> <?php
+                                        }
+                                        else if ($user == 13) {
+                                            echo '<div class="alert alert-danger mt-3">W wersji demonstracyjnej nie można dodawać nowych treści</div>';
+                                        } ?>
+                                        
                                         <?php $travel->insertPlace(); ?>
                                     </div>
                                 </div>

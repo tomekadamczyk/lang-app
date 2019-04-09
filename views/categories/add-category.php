@@ -1,6 +1,15 @@
 <?php 
 require_once './modules/class.categories.php';
+require_once './modules/class.account.php';
+
 $category = new Categories($con);
+$account = new Account($con);
+
+if(isset($_SESSION['userLoggedIn'])) {
+    $userLoggedIn = $_SESSION['userLoggedIn'];
+    
+}
+$user = $account->getUserID($userLoggedIn);
 ?>
 
 <section class="cz-categories">
@@ -19,7 +28,13 @@ $category = new Categories($con);
                         <label for="categoryname">Nazwa</label>
                         <input type="text" class="form-control" name="categoryname" id="categoryname">
                     </div>
-                    <input type="submit" name="addcategory" id="addcategory" class="btn btn-sm btn-primary" value="Stwórz">
+                    <?php if($user != 13) { 
+                        ?> <input type="submit" name="addcategory" id="addcategory" class="btn btn-sm btn-primary" value="Stwórz"> <?php
+                    }
+                    else if ($user == 13) {
+                        echo '<div class="alert alert-danger mt-3">W wersji demonstracyjnej nie można dodawać nowych treści</div>';
+                    } ?>
+                    
                 </form>
             </div>
             <?php 
@@ -29,8 +44,8 @@ $category = new Categories($con);
                 <h2>Lista aktualnych kategorii</h2>
                 <div id="selectCategories" class="cz-categories__container-list cz-categories__phrasespage">
                     <?php 
-                        $category->displayCategories();
                         $category->editCategory();
+                        $category->displayCategories();
                     ?>
                 </div>
             </div>
