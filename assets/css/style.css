@@ -6756,13 +6756,13 @@ a.text-custom:hover, a.text-custom:focus {
       .cz-datacontent .cz-datacontent-table .cz-datacontent-word:hover {
         background: #1b64b0;
         color: #fff; }
+        .cz-datacontent .cz-datacontent-table .cz-datacontent-word:hover i {
+          color: #fff; }
       .cz-datacontent .cz-datacontent-table .cz-datacontent-word__level {
         float: right; }
         @media (max-width: 1199.98px) {
           .cz-datacontent .cz-datacontent-table .cz-datacontent-word__level {
             display: none; } }
-      .cz-datacontent .cz-datacontent-table .cz-datacontent-word__edit:hover i {
-        color: #fbfbfb; }
     .cz-datacontent .cz-datacontent-table .cz-datacontent-definition {
       opacity: 0;
       position: absolute;
@@ -7100,6 +7100,8 @@ a.text-custom:hover, a.text-custom:focus {
     .cz-categories__item:hover {
       background: #5e9fca;
       color: #fff; }
+      .cz-categories__item:hover i {
+        color: #fff; }
     @media (max-width: 767.98px) {
       .cz-categories__item {
         border-bottom: none;

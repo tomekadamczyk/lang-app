@@ -117,33 +117,22 @@ class Categories {
         $user = $account->getUserID($userLoggedIn);
         //$namePost = 'dictCategory'.$id.'';
         if(isset($_POST['selectCategories'])) {
-                if(!empty($_POST['dictCategory'])) {
-                    foreach ($_POST['dictCategory'] as $category) {
-                            echo $category;
-                            echo "UPDATE topics SET checked=$category WHERE id_topics='$id' AND user='$user'"; echo '<br>';
-                            $query = mysqli_query($this->con, "UPDATE topics SET checked=0 WHERE id_topics='$id' AND user='$user'");
-                        
-                    }
-                }
-                else {
-                    foreach ($_POST['dictCategory'] as $category) {
-                            echo $category;
-                            echo "UPDATE topics SET checked=$category WHERE id_topics='$id' AND user='$user'"; echo '<br>';
-                            $query = mysqli_query($this->con, "UPDATE topics SET checked=1 WHERE id_topics='$id' AND user='$user'");
-                        
-                    }
-                }
-                    // $query = mysqli_query($this->con, "UPDATE topics SET checked=$_POST[$namePost] WHERE user='$user' AND id_topics='$id'");
-                
+            if(!empty($_POST['dictCategory'])) {
+                foreach ($_POST['dictCategory'] as $category) {
+                    echo $category;
+                    echo "UPDATE topics SET checked=$category WHERE id_topics='$id' AND user='$user'"; echo '<br>';
+                    $query = mysqli_query($this->con, "UPDATE topics SET checked=0 WHERE id_topics='$id' AND user='$user'");
                 }
             }
-        
-    
-        
-        
-        
-    
-
+            else {
+                foreach ($_POST['dictCategory'] as $category) {
+                    echo $category;
+                    echo "UPDATE topics SET checked=$category WHERE id_topics='$id' AND user='$user'"; echo '<br>';
+                    $query = mysqli_query($this->con, "UPDATE topics SET checked=1 WHERE id_topics='$id' AND user='$user'");
+                }
+            } 
+        }
+    }
 
     public function editCategory() {
         require_once 'class.account.php';
@@ -151,14 +140,18 @@ class Categories {
         if(isset($_SESSION['userLoggedIn'])) {
             $userLoggedIn = $_SESSION['userLoggedIn'];
         }
-        $user = $account->getUserID($userLoggedIn);
-
+        $user = $account->getUserID($userLoggedIn); 
 
         if(!empty($_GET['edit'])) {
             $topic_id = $_GET['edit'];
             echo '<div id="categoryUpdate" class="cz-categories__update">
-                <form method="POST">
-                <input class="form-control my-2" type="text" name="newNameCategory" placeholder="Podaj nową nazwę kategorii">';
+                <form method="POST">';
+                $query = mysqli_query($this->con, "SELECT name FROM topics WHERE id_topics='$topic_id' AND user='$user'");
+                if(mysqli_num_rows($query) === 1) {
+                    while ($data = $query->fetch_object()) { 
+                    echo '<input class="form-control my-2" type="text" name="newNameCategory" placeholder="Podaj nową nazwę kategorii '.$data->name.'">';
+                    }
+                }
                 if($user != 13) { 
                     echo '<input type="submit" value="Zaktualizuj" name="updateCategory" class="btn btn-sm btn-success">';
                 }
@@ -181,10 +174,8 @@ class Categories {
         
         if(isset($_SESSION['userLoggedIn'])) {
             $userLoggedIn = $_SESSION['userLoggedIn'];
-            
         }
         $user = $account->getUserID($userLoggedIn);
-
 
         if(!empty($_GET['edit'])) {
             $topic_id = $_GET['edit'];
@@ -193,16 +184,12 @@ class Categories {
     }
 
 
-
-
     public function getCategoriesToJson() {
         require_once 'class.account.php';
-
         $account = new Account($this->con);
         
         if(isset($_SESSION['userLoggedIn'])) {
             $userLoggedIn = $_SESSION['userLoggedIn'];
-            
         }
         $user = $account->getUserID($userLoggedIn);
 
@@ -211,11 +198,6 @@ class Categories {
             $rows[] = $row;
         }
         return json_encode($rows);
-        // if(mysqli_num_rows($query) > 1) {
-        //     while ($data = $query->fetch_object()) {  
-        //         echo '<p><strong>'.$data->word.'</strong> - '.$data->translation.' - '.$data->definition.'</p>';
-        //     }
-        // }
     }
 
     public function getLevelId($id) {

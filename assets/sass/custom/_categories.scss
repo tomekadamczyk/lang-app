@@ -36,6 +36,10 @@
         &:hover {
             background: $custom;
             color: $white;
+
+            i {
+                color: $white;
+            }
         }
 
         @include media-breakpoint-down(sm) {

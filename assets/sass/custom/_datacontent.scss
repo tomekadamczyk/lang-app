@@ -34,6 +34,10 @@
             &:hover {
                 background: $secondary;
                 color: $white;
+
+                i {
+                    color: $white;
+                }
             }
 
             &__level {
@@ -41,15 +45,6 @@
 
                 @include media-breakpoint-down(lg) {
                     display: none;
-                }
-            }
-
-            &__edit {
-                
-                &:hover {
-                    i {
-                        color: $gray-100;
-                    }
                 }
             }
         }
@@ -73,7 +68,6 @@
                 left: 30px;
                 max-width: 240px;
             }
-
         }
     }
 
