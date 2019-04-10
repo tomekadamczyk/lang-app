@@ -11,7 +11,8 @@ class Account{
 
 
     public function login($username, $password) {
-        $password = md5($password);
+        $password = addslashes(md5($password));
+        $username = addslashes($username);
 
         $query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$username' AND password='$password'");
         if(mysqli_num_rows($query) == 1) {
