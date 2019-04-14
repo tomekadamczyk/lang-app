@@ -4,7 +4,6 @@ require_once './modules/class.words.php';
 require_once './modules/class.categories.php';
 $category = new Categories($con);
 $word = new Words($con);
-$word->resetWordIncrement();
 
 ?>
 <section class="cz-datacontent">
@@ -25,7 +24,7 @@ $word->resetWordIncrement();
                     <div id="dictionary" class="col-md-8 col-xl-10">
                         <h4>Lista słów</h4>
                         <div class="cz-datacontent-table__content">
-                            <?php $word->displayDictionary() ?>
+                            <?php $word->displayDictionary(); ?>
                         </div>
                     </div>
                     <div class="col-md-4 col-xl-2 mb-4">
@@ -52,5 +51,6 @@ $word->resetWordIncrement();
 
 </section>
 <footer>
+<!--<script src="public/dist/js/wordsAndPhrases.bundle.js"></script>-->
 <script src="public/dist/js/wordsAndPhrases.bundle.js"></script>
 <script src="public/dist/js/categories.bundle.js"></script>

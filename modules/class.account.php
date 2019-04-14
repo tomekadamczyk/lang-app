@@ -167,7 +167,7 @@ class Account{
             }
         }
         else {
-            return 'nie dziala';
+            return 'Błąd w pobieraniu id użytkownika';
         }
     }
 }

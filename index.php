@@ -60,6 +60,7 @@ include('views/mainview/dashboard/menubar/menubar.php');
             break;
         }
     }
+    
 ?>
 
 </footer>

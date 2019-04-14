@@ -20,20 +20,18 @@ class Words {
     
         
         if(isset($_POST['addWord'])){
-            $query = mysqli_query($this->con, "INSERT INTO user_words VALUES ('','".$_POST['slowo']."','".$_POST['tlumaczenie']."','".$_POST['temat']."','".$_POST['definicja']."', '".$_POST['level']."', '$user')");
-             
+            $query = mysqli_query($this->con, "INSERT INTO user_words VALUES ('','".$_POST['insertWord']."','".$_POST['insertTranslation']."','".$_POST['pickWordSubject']."','".$_POST['insertDefinition']."', '".$_POST['level']."', '$user')");
             if(!$query) {
                 echo 'Wystąpił błąd podczas dodawania';
             }
         }
         else if (isset($_POST['addPhrase'])) {
-            $query = mysqli_query($this->con, "INSERT INTO user_phrases VALUES ('','".$_POST['phrase']."','".$_POST['phraseTranslate']."','".$_POST['temat']."','".$_POST['level']."', '$user')");
+            $query = mysqli_query($this->con, "INSERT INTO user_phrases VALUES ('','".$_POST['phrase']."','".$_POST['phraseTranslate']."','".$_POST['pickPhareSubject']."','".$_POST['level']."', '$user')");
              
             if(!$query) {
                 echo 'Wystąpił błąd podczas dodawania';
             }
-        }
-           
+        } 
     }
 
     public function generateWordForm() {
@@ -52,10 +50,10 @@ class Words {
         $query = mysqli_query($this->con, "SELECT * FROM topics WHERE user='$user'");
         echo '<form action="" method="POST">
         <div id="newWordForm">
-        <input type="text" class="form-control my-2" id="slowo" name="slowo" placeholder="Dodaj nowe słowo">
-        <input type="text" class="form-control my-2" id="tlumaczenie" name="tlumaczenie" placeholder="Wpisz tłumaczenie">
+        <input type="text" class="form-control my-2" id="insertWord" name="insertWord" placeholder="Dodaj nowe słowo">
+        <input type="text" class="form-control my-2" id="insertTranslation" name="insertTranslation" placeholder="Wpisz tłumaczenie">
         
-        <textarea class="form-control my-2" name="definicja" placeholder="Wpisz definicję"></textarea>
+        <textarea class="form-control my-2" name="insertDefinition" placeholder="Wpisz definicję"></textarea>
 
         <div class="input-group mb-3 ta-subject-select">
         <div class="input-group-prepend">
@@ -63,11 +61,11 @@ class Words {
         </div>';
 
         if(mysqli_num_rows($query) > 0) {
-            echo '<select class="custom-select" name="temat" id="temat">';
-            (isset($_POST['temat'])) ? $temat = $_POST['temat'] : $temat='default';
-            echo '<option'?> <?php if ($temat == 'default' ) echo "selected='selected'"; ?> <?php echo 'value="default">Wybierz temat</option>';
+            echo '<select class="custom-select" name="pickWordSubject" id="pickWordSubject">';
+            (isset($_POST['pickWordSubject'])) ? $subject = $_POST['pickWordSubject'] : $subject='default';
+            echo '<option'?> <?php if ($subject == 'default' ) echo "selected='selected'"; ?> <?php echo 'value="default">Wybierz temat</option>';
             while ($data = $query->fetch_object()) {  
-                echo '<option'?> <?php if ($temat == $data->id_topics) echo "selected='selected'"; ?> <?php echo 'value="'.$data->id_topics.'">'.$data->name.'</option>';
+                echo '<option'?> <?php if ($subject == $data->id_topics) echo "selected='selected'"; ?> <?php echo 'value="'.$data->id_topics.'">'.$data->name.'</option>';
             }
             echo '</select>';
         }
@@ -190,10 +188,19 @@ class Words {
         if(mysqli_num_rows($query) > 0) {
             while ($data = $query->fetch_object()) { 
                 $level = $this->getLevelId($data->level); 
-                echo '<div class="cz-datacontent-word cz-datacontent-item-'.$data->topic.'">';
-                echo '<p class="cz-datacontent-word__item"><span>'.$lp.'</span> <strong><span>'.$data->word.'</span> - </strong><span>'.$data->translation.'</span><span class="float-right ml-2"><a class="cz-datacontent-word__edit" href="?id=3&edit='.$data->id_words.'"><i class="far fa-edit"></i></a></span><span class="cz-datacontent-word__level"><small>'.$level.'</small></span></p>
-                <p class="cz-datacontent-definition">'.$data->definition.'</p>';
-                echo '</div>';
+                echo '<div class="cz-datacontent-word cz-datacontent-item-'.$data->topic.'">
+                        <p class="cz-datacontent-word__item">
+                            <span>'.$lp.'</span>
+                            <strong><span class="wordId wordId-'.$data->id_words.'" data-toggle="modal" data-target="#wordGrammar" >'.$data->word.'</span> - </strong>
+                            <span>'.$data->translation.'</span>
+                            <span class="float-right ml-2">
+                                <a class="cz-datacontent-word__edit" href="?id=3&edit='.$data->id_words.'"><i class="far fa-edit"></i></a>
+                            </span>
+                            </span>
+                            <span class="cz-datacontent-word__level"><small>'.$level.'</small></span>
+                        </p>
+                        <p class="cz-datacontent-definition">'.$data->definition.'</p>
+                        </div>';
                 $lp++;
             }
         }
@@ -265,9 +272,6 @@ class Words {
         }
         header("Location: index.php?id=3");
     }
-
-    
-    
     public function getLevelId($id) {
         
         $query = mysqli_query($this->con, "SELECT * FROM levels WHERE id_levels='$id'");
@@ -277,7 +281,7 @@ class Words {
             }
         }
         else {
-            return 'Brak powiązanego id';
+            return 'Nie wybrano poziomu';
         }
     }
 

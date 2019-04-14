@@ -1,8 +1,8 @@
-const showWordDefinition = () => {
-    const word = document.querySelectorAll(".cz-datacontent-word");
 
+const showWordDefinition = () => {
+    const words = document.querySelectorAll(".cz-datacontent-word");
     const definition = () => {
-        word.forEach(element => {
+        words.forEach(element => {
             let click = false;
             element.addEventListener('click', function() {
                 element.lastElementChild.style.opacity = '1';

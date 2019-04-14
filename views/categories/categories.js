@@ -18,7 +18,7 @@ const showAll = async() => {
 Promise.all([getCategory(), showAll()]).then((valArray) => {
     const category = valArray[0];
     const word = valArray[1];
-    //console.log(category);
+    
     const checkbox = document.querySelectorAll('.cz-categories-check');
     const wordDiv = document.querySelectorAll(".cz-datacontent-word");
     

@@ -6875,26 +6875,35 @@ a.text-custom:hover, a.text-custom:focus {
       align-items: center;
       background: #5e9fca;
       color: #fff;
-      font-size: 20px;
+      font-size: 12px;
       cursor: pointer; }
+      @media only screen and (min-width: 768px) {
+        .cz-hangman__box--guesses {
+          font-size: 20px; } }
       .cz-hangman__box--guesses:hover {
         background: #3d87b8; }
     .cz-hangman__box--reset {
       font-size: 14px;
       background: #28a745;
       color: #fff;
-      font-size: 20px;
+      font-size: 12px;
       cursor: pointer; }
+      @media only screen and (min-width: 768px) {
+        .cz-hangman__box--reset {
+          font-size: 20px; } }
       .cz-hangman__box--reset:hover {
         background: #1e7e34; }
     .cz-hangman__box--new-word {
       background: #ffa155;
       color: #fff;
-      font-size: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+      font-size: 12px;
       cursor: pointer; }
+      @media only screen and (min-width: 768px) {
+        .cz-hangman__box--new-word {
+          font-size: 20px; } }
       .cz-hangman__box--new-word:hover {
         background: #ff8522; }
     .cz-hangman__box--definition {
@@ -6904,8 +6913,11 @@ a.text-custom:hover, a.text-custom:focus {
       padding: 50px;
       background: rgba(255, 255, 255, 0.9);
       letter-spacing: 6px;
-      font-size: 21px;
-      height: auto; }
+      height: auto;
+      font-size: 12px; }
+      @media only screen and (min-width: 768px) {
+        .cz-hangman__box--word {
+          font-size: 20px; } }
     .cz-hangman__box--left-guesses {
       background: #e100ff;
       color: #fff;
@@ -6924,7 +6936,10 @@ a.text-custom:hover, a.text-custom:focus {
       color: #ff0000;
       height: auto; }
     .cz-hangman__box small {
-      font-size: 12px; }
+      font-size: 10px; }
+      @media only screen and (min-width: 768px) {
+        .cz-hangman__box small {
+          font-size: 12px; } }
   .cz-hangman__result {
     margin-top: 20px;
     padding: 30px;

@@ -49,11 +49,11 @@ class Phrase {
             <label class="input-group-text ta-subject-select__label" for="inputGroupSelect01">Temat</label>
         </div>';
             if(mysqli_num_rows($query) > 0) {
-                echo '<select class="custom-select" name="temat" id="temat">';
-                (isset($_POST['temat'])) ? $temat = $_POST['temat'] : $temat='default';
-                echo '<option'?> <?php if ($temat == 'default' ) echo "selected='selected'"; ?> <?php echo 'value="default">Wybierz temat</option>';
+                echo '<select class="custom-select" name="pickPhareSubject" id="pickPhareSubject">';
+                (isset($_POST['pickPhareSubject'])) ? $subject = $_POST['pickPhareSubject'] : $subject='default';
+                echo '<option'?> <?php if ($subject == 'default' ) echo "selected='selected'"; ?> <?php echo 'value="default">Wybierz temat</option>';
                 while ($data = $query->fetch_object()) {  
-                    echo '<option'?> <?php if ($temat == $data->id_topics) echo "selected='selected'"; ?> <?php echo 'value="'.$data->id_topics.'">'.$data->name.'</option>';
+                    echo '<option'?> <?php if ($subject == $data->id_topics) echo "selected='selected'"; ?> <?php echo 'value="'.$data->id_topics.'">'.$data->name.'</option>';
                 }
                 echo '</select>';
             }
@@ -145,7 +145,7 @@ class Phrase {
             }
         }
         else {
-            echo 'Brak połączenia';
+            echo 'Brak zwrotów';
         }
     }
 
@@ -233,7 +233,7 @@ class Phrase {
             }
         }
         else {
-            echo 'Brak połączenia';
+            echo 'Brak wyrażeń';
         }
     }
 

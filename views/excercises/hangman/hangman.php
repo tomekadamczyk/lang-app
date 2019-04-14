@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3">
                         <div class="cz-hangman__box cz-hangman__box--guesses">
                             <span>Wybierz ilość prób: </span>
                             <select name="" id="cz-hangman-set-guesses">
@@ -47,18 +47,18 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3">
                         <div class="cz-hangman__box cz-hangman__box--reset">
                             <div class="my-2" id="cz-hangman-reset">Spróbuj jeszcze raz</div>
                             <small id="cz-reset-count"></small>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3">
                         <div class="cz-hangman__box cz-hangman__box--new-word">
                             <div class="my-2 " id="cz-hangman-new">Losuj nowe słowo</div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3">
                         <div class="cz-hangman__box cz-hangman__box--left-guesses">
                             <div id="cz-hangman-left-guesses"></div>
                         </div>

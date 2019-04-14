@@ -209,7 +209,7 @@ class Categories {
             }
         }
         else {
-            return 'Brak powiązanego id';
+            return 'Nie wybrano poziomu';
         }
     }
 

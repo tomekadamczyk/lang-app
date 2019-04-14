@@ -69,7 +69,11 @@
             align-items: center;
             background: $custom;
             color: $white;
-            font-size: 20px;
+            font-size: 12px;
+
+            @media only screen and (min-width: 768px) {
+                font-size: 20px;
+            }
             cursor: pointer;
             
             &:hover {
@@ -81,7 +85,11 @@
             font-size: 14px;
             background: $green;
             color: $white;
-            font-size: 20px;
+            font-size: 12px;
+
+            @media only screen and (min-width: 768px) {
+                font-size: 20px;
+            }
             cursor: pointer;
             
             &:hover {
@@ -92,10 +100,14 @@
         &--new-word {
             background: $orange;
             color: $white;
-            font-size: 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            font-size: 12px;
+
+            @media only screen and (min-width: 768px) {
+                font-size: 20px;
+            }
             cursor: pointer;
             
             &:hover {
@@ -112,8 +124,12 @@
             padding: 50px;
             background: rgba(255,255,255,0.9);
             letter-spacing: 6px;
-            font-size: 21px;
             height: auto;
+            font-size: 12px;
+
+            @media only screen and (min-width: 768px) {
+                font-size: 20px;
+            }
         }
 
         &--left-guesses {
@@ -142,7 +158,12 @@
         }
 
         small {
-            font-size: 12px;
+            
+            font-size: 10px;
+
+            @media only screen and (min-width: 768px) {
+                font-size: 12px;
+            }
         }
 
     }
