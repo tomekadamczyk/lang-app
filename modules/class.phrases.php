@@ -140,6 +140,7 @@ class Phrase {
                 $level = $word->getLevelId($data->level); 
                 echo '<div class="cz-datacontent-word cz-datacontent-item-'.$data->topic.'">';
                 echo '<p class="cz-datacontent-word__item"><span>'.$lp.'</span> <strong><span>'.$data->phrase.'</span> - </strong><span>'.$data->translation.'</span><span class="float-right ml-2"><a class="cz-datacontent-word__edit" href="?id=4&edit='.$data->id_phrases.'"><i class="far fa-edit"></i></a></span><span class="cz-datacontent-word__level"><small>'.$level.'</small></span></p>';
+                echo '<span></span>';
                 echo '</div>';
                 $lp++;
             }
