@@ -7126,7 +7126,11 @@ a.text-custom:hover, a.text-custom:focus {
     box-shadow: 1px 2px 5px 1px #adb5bd;
     margin: 10px 6px 10px 0;
     border-radius: 15px;
-    transition-duration: .2s; }
+    transition-duration: .2s;
+    position: relative; }
+    .cz-categories__item .edit-icon {
+      position: absolute;
+      right: 10px; }
     .cz-categories__item label {
       margin: 0; }
     .cz-categories__item:hover {
