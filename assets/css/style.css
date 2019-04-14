@@ -6735,31 +6735,40 @@ a.text-custom:hover, a.text-custom:focus {
   padding: 20px 0;
   margin-top: 20px; }
   .cz-datacontent .cz-datacontent-table {
-    padding: 0 30px; }
+    padding: 0 10px; }
+    @media only screen and (min-width: 768px) {
+      .cz-datacontent .cz-datacontent-table {
+        padding: 0 30px; } }
     .cz-datacontent .cz-datacontent-table__content {
       max-height: 570px;
       overflow: scroll;
-      margin: 0 -15px;
       background: #fbfbfb; }
     .cz-datacontent .cz-datacontent-table .cz-datacontent-word {
       transition-duration: 0.1s;
       position: relative;
       padding: 10px;
       cursor: pointer;
-      border-bottom: 1px solid #ced4da;
+      box-shadow: 1px 2px 5px 1px #adb5bd;
+      margin: 10px auto;
+      width: 99%;
+      border-radius: 15px;
       color: #364150; }
       .cz-datacontent .cz-datacontent-table .cz-datacontent-word p {
         margin-bottom: 0; }
         @media (max-width: 767.98px) {
           .cz-datacontent .cz-datacontent-table .cz-datacontent-word p {
             font-size: 12px; } }
+      .cz-datacontent .cz-datacontent-table .cz-datacontent-word__edit {
+        position: absolute;
+        right: 9px; }
       .cz-datacontent .cz-datacontent-table .cz-datacontent-word:hover {
         background: #1b64b0;
         color: #fff; }
         .cz-datacontent .cz-datacontent-table .cz-datacontent-word:hover i {
           color: #fff; }
       .cz-datacontent .cz-datacontent-table .cz-datacontent-word__level {
-        float: right; }
+        float: right;
+        margin-right: 30px; }
         @media (max-width: 1199.98px) {
           .cz-datacontent .cz-datacontent-table .cz-datacontent-word__level {
             display: none; } }
@@ -6782,7 +6791,11 @@ a.text-custom:hover, a.text-custom:focus {
           left: 30px;
           max-width: 240px; } }
   .cz-datacontent .cz-datacontent-search-word {
-    justify-content: right; }
+    justify-content: left;
+    margin-top: 10px; }
+    @media only screen and (min-width: 768px) {
+      .cz-datacontent .cz-datacontent-search-word {
+        justify-content: right; } }
     .cz-datacontent .cz-datacontent-search-word input {
       flex: 0;
       width: 300px; }
@@ -7091,27 +7104,31 @@ a.text-custom:hover, a.text-custom:focus {
 
 .cz-categories {
   background: #fbfbfb;
-  padding: 20px 30px;
+  padding: 20px 10px;
   margin-top: 20px; }
+  @media only screen and (min-width: 768px) {
+    .cz-categories {
+      padding: 20px 30px; } }
   .cz-categories__list {
     opacity: 0;
     max-height: 0px;
-    transition-duration: .4s; }
+    transition-duration: .2s; }
     .cz-categories__list.active {
       opacity: 1;
       max-height: 100%;
-      z-index: 9999;
-      box-shadow: -1px 1px 11px 2px #ced4da; }
+      z-index: 9999; }
   .cz-categories__form {
     margin-bottom: 30px; }
   .cz-categories__item {
     padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ced4da;
-    margin-bottom: 0;
+    display: inline-block;
+    margin-right: 10px;
+    box-shadow: 1px 2px 5px 1px #adb5bd;
+    margin: 10px 6px 10px 0;
+    border-radius: 15px;
     transition-duration: .2s; }
+    .cz-categories__item label {
+      margin: 0; }
     .cz-categories__item:hover {
       background: #5e9fca;
       color: #fff; }
@@ -7119,8 +7136,10 @@ a.text-custom:hover, a.text-custom:focus {
         color: #fff; }
     @media (max-width: 767.98px) {
       .cz-categories__item {
+        padding: 8px;
         border-bottom: none;
-        display: inline-block; } }
+        display: inline-block;
+        margin-right: 6px; } }
   .cz-categories__container-list--scroll {
     max-height: 400px;
     overflow: scroll;
@@ -7129,7 +7148,9 @@ a.text-custom:hover, a.text-custom:focus {
     display: flex !important; }
 
 #selectCategories2 {
-  cursor: pointer; }
+  cursor: pointer;
+  margin-right: 10px;
+  display: inline-block; }
   @media only screen and (max-width: 767px) {
     #selectCategories2 {
       margin-top: 20px; } }

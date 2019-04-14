@@ -1,21 +1,23 @@
 
 .cz-categories {
     background: $gray-100;
-    padding: 20px 30px;
+    padding: 20px 10px;
     margin-top: 20px;
 
+    @media only screen and (min-width: 768px) {
+        padding: 20px 30px;
+    }
     
 
     &__list {
         opacity: 0;
         max-height: 0px;
-        transition-duration: .4s;
+        transition-duration: .2s;
 
         &.active {
             opacity: 1;
             max-height: 100%;
             z-index: 9999;
-            box-shadow: -1px 1px 11px 2px $gray-400;
         }
     }
 
@@ -26,12 +28,16 @@
 
     &__item {
         padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid $gray-400;
-        margin-bottom: 0;
+        display: inline-block;
+        margin-right: 10px;
+        box-shadow: 1px 2px 5px 1px $gray-500;
+        margin: 10px 6px 10px 0;
+        border-radius: 15px;
         transition-duration: .2s;
+
+        label {
+            margin: 0;
+        }
 
         &:hover {
             background: $custom;
@@ -43,8 +49,10 @@
         }
 
         @include media-breakpoint-down(sm) {
+            padding: 8px;
             border-bottom: none;
             display: inline-block;
+            margin-right: 6px;
         }
     }
 
@@ -67,6 +75,8 @@
 }
 #selectCategories2 {
     cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
 
     @media only screen and (max-width: 767px) {
         margin-top: 20px;

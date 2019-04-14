@@ -6,12 +6,16 @@
     margin-top: 20px;
 
     .cz-datacontent-table {
-        padding: 0 30px;
+        padding: 0 10px;
+
+
+        @media only screen and (min-width: 768px) {
+            padding: 0 30px;
+        }
 
         &__content {
             max-height: 570px;
             overflow: scroll;
-            margin: 0 -15px;
             background: $gray-100;
         }
 
@@ -20,7 +24,10 @@
             position: relative;
             padding: 10px;
             cursor: pointer;
-            border-bottom: 1px solid $gray-400;
+            box-shadow: 1px 2px 5px 1px $gray-500;
+            margin: 10px auto;
+            width: 99%;
+            border-radius: 15px;
             color: $gray-800;
 
             p {
@@ -29,6 +36,11 @@
                 @include media-breakpoint-down(sm) {
                     font-size: 12px;
                 }
+            }
+
+            &__edit {
+                position: absolute;
+                right: 9px;
             }
 
             &:hover {
@@ -42,6 +54,7 @@
 
             &__level {
                 float: right;
+                margin-right: 30px;
 
                 @include media-breakpoint-down(lg) {
                     display: none;
@@ -72,7 +85,12 @@
     }
 
     .cz-datacontent-search-word {
-        justify-content: right;
+        justify-content: left;
+        margin-top: 10px;
+
+        @media only screen and (min-width: 768px) {
+            justify-content: right;
+        }
 
         input {
             flex: 0;

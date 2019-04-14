@@ -18,26 +18,21 @@ $phrase = new Phrase($con);
         </button>
       </div>
       <div class="modal-body">
-            
         <div class="cz-modal-pick-option">
-                    <label for="newWord">Nowe słowo</label>
-                    <input type="radio" name="newWord" id="showWordForm" unchecked></div>
+          <label for="newWord">Nowe słowo</label>
+          <input type="radio" name="newWord" id="showWordForm" unchecked></div>
 
-                <div class="cz-modal-pick-option">
-                    <label for="newWord">Nowy zwrot</label>
-                    <input type="radio" name="newWord" id="showPhraseForm" unchecked>
-                </div>
-                            
-                      <?php
-                          $word->generateWordForm();
-                          $phrase->generatePhraseForm();
-                          ?>
-                      
-                    
+          <div class="cz-modal-pick-option">
+              <label for="newWord">Nowy zwrot</label>
+              <input type="radio" name="newWord" id="showPhraseForm" unchecked>
+          </div>    
+            <?php
+              $word->generateWordForm();
+              $phrase->generatePhraseForm();
+            ?>
             <?php
                 $word->insertWord();
             ?>
-        </div>
       </div>
     </div>
   </div>

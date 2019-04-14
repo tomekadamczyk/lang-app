@@ -196,7 +196,6 @@ class Words {
                             <span class="float-right ml-2">
                                 <a class="cz-datacontent-word__edit" href="?id=3&edit='.$data->id_words.'"><i class="far fa-edit"></i></a>
                             </span>
-                            </span>
                             <span class="cz-datacontent-word__level"><small>'.$level.'</small></span>
                         </p>
                         <p class="cz-datacontent-definition">'.$data->definition.'</p>
