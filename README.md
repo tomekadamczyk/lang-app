@@ -54,6 +54,6 @@ Simple application for learning languages. Based on JavaScript ES6 without frame
  ## Status
  This is a first version of application. There are many features to implement, existing features and code structure are being improved.
  ## Demo
- Check the demo account: http://lang-dev.tomekadamczyk.usermd.net/
+ Check the demo account: http://lang.tomekadamczyk.usermd.net/
  - Login: demo
  - Password: admin1234
