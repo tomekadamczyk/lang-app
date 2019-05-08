@@ -39,7 +39,7 @@ Simple application for learning languages. Based on JavaScript ES6 without frame
  1. Flashcards - rendering random word with translation
  2. Hangman - figure out the word by provided definition
  ### Test
- 1. Flashcards - automated randomly selecting word to translate after choosing a subject. Time for translating i 10 seconds. If typed word is correct, a next word is rendered and points increases +1. If time is up, next word is rendered and points do not change. Maximum of point is 10, same as attempts.
+ 1. Flashcards - automated randomly selecting word to translate after choosing a subject. Time for translating is 10 seconds. If typed word is correct, a next word is rendered and points increase +1. If time is up, next word is rendered and points do not change. Maximum of point is 10, same as attempts.
  ### Dictionary
  1. Table width added words. On click on row with a word, definition shows up. There is also possibility for editing word, translation and definition.
  2. Simple search engine.
